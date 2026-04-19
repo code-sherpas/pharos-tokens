@@ -45,10 +45,10 @@ In the app's **Install App** tab, install it on `code-sherpas/pharos-tokens` (an
 
 On `https://github.com/code-sherpas/pharos-tokens/settings/secrets/actions` add:
 
-| Name                   | Value                                                                |
-| ---------------------- | -------------------------------------------------------------------- |
-| `RELEASE_APP_ID`       | The App ID shown on the app's settings page (a short integer).       |
-| `RELEASE_APP_PRIVATE_KEY` | The entire contents of the `.pem` file from step 2.               |
+| Name                      | Value                                                          |
+| ------------------------- | -------------------------------------------------------------- |
+| `RELEASE_APP_ID`          | The App ID shown on the app's settings page (a short integer). |
+| `RELEASE_APP_PRIVATE_KEY` | The entire contents of the `.pem` file from step 2.            |
 
 The third secret (`NPM_TOKEN`, for publishing) is unchanged — see the main README.
 

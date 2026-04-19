@@ -50,7 +50,7 @@ On `https://github.com/code-sherpas/pharos-tokens/settings/secrets/actions` add:
 | `RELEASE_APP_ID`          | The App ID shown on the app's settings page (a short integer). |
 | `RELEASE_APP_PRIVATE_KEY` | The entire contents of the `.pem` file from step 2.            |
 
-The third secret (`NPM_TOKEN`, for publishing) is unchanged — see the main README.
+No NPM token is needed anymore — npm publish authenticates with Trusted Publishing (see next section).
 
 ### 5. Verify
 
@@ -61,12 +61,43 @@ Push an empty commit to `main` (or add a dummy changeset and merge a PR). The re
 
 Confirm that `ci.yml` now runs against the Version PR. If it does, branch protection can merge it normally.
 
+## npm Trusted Publishing (OIDC)
+
+Since 0.1.1 the release workflow authenticates to npm via [Trusted Publishing](https://docs.npmjs.com/trusted-publishers) instead of a long-lived token. Advantages:
+
+- No `NPM_TOKEN` secret to rotate or leak.
+- Every publish is signed with a provenance attestation linking it to the exact commit + workflow run; consumers can verify the origin via `npm audit signatures`.
+
+### One-time npm configuration
+
+1. Sign in to `https://www.npmjs.com/package/@code-sherpas/pharos-tokens/access`.
+2. Under **Trusted Publishers**, click **Add trusted publisher** and configure:
+   - **Publisher**: GitHub Actions.
+   - **Organization or user**: `code-sherpas`.
+   - **Repository**: `pharos-tokens`.
+   - **Workflow filename**: `release.yml`.
+   - **Environment name**: (leave empty unless you add a GitHub Environment later).
+3. Save.
+
+### Requirements on the workflow (already in place)
+
+- `permissions.id-token: write` at the workflow level (required for OIDC).
+- No `NPM_TOKEN` / `NODE_AUTH_TOKEN` in the env of the publish step.
+- `publishConfig.provenance: true` in `package.json` so `npm publish` emits the attestation.
+
+### Order of operations when migrating from token to Trusted Publishing
+
+1. Add the Trusted Publisher in npmjs.com (step above). Leaving the old token active is fine in the interim.
+2. Merge the PR that removes `NPM_TOKEN` from the workflow and adds `provenance: true`. Next release publishes via OIDC.
+3. After a successful OIDC-based publish, delete the `NPM_TOKEN` GitHub secret and revoke the token in `https://www.npmjs.com/settings/<user>/tokens`.
+
 ## Migrating other repos (pharos-react, alexandria-design, ...)
 
-The same GitHub App can be installed on multiple repos. For each repo:
+The same GitHub App and the same Trusted Publishing pattern can be replicated on every repo:
 
 1. Install the app on the repo (step 3 above).
 2. Add the two secrets (step 4).
-3. Mirror the `release.yml` structure with `secrets.RELEASE_APP_ID` / `secrets.RELEASE_APP_PRIVATE_KEY`.
+3. Mirror the `release.yml` structure with `secrets.RELEASE_APP_ID` / `secrets.RELEASE_APP_PRIVATE_KEY` and no npm token.
+4. Configure a Trusted Publisher on npmjs.com for each scoped package.
 
-No need to create a new app per repo.
+No need to create a new GitHub App per repo.

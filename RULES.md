@@ -45,8 +45,6 @@ When picking which tokens to use, respect the defined pairs:
 - Text over `color.semantic.{success,error,info}.fg` (filled): use `.on` from the same group.
 - Text over `color.semantic.warning.fg`: `.on` is `color.neutral.900` (warning is light).
 
-Any combination outside these requires visual review by the CTO.
-
 ## 7. Extensions and overrides
 
 **Do not** publish a new package `@yourorg/pharos-tokens-extended`. If a product needs its own tokens (e.g. co-branded identities), implement them as additional CSS vars in the consumer under your own namespace (`--myapp-*`) and document it.

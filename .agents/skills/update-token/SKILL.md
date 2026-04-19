@@ -1,6 +1,6 @@
 ---
 name: update-token
-description: Use when a developer or the CTO wants to modify or add an existing token in pharos-tokens. Walks through editing the DTCG source, rebuilding, validating WCAG for colors, choosing the right version bump, and documenting the impact on consumers.
+description: Use when a maintainer wants to modify or add an existing token in pharos-tokens. Walks through editing the DTCG source, rebuilding, validating WCAG for colors, choosing the right version bump, and documenting the impact on consumers.
 triggers:
   - 'update token'
   - 'modify token'
@@ -93,7 +93,7 @@ If the change is:
 
 - Conventional commit: `feat(color): add color.accent.purple` or `fix(color): darken success.fg to pass AA 4.5`.
 - CI must go green (lint, typecheck, build, test).
-- If the change affects canonical naming or semantics, ping the CTO for review.
+- If the change affects canonical naming or semantics, ping a maintainer for review.
 
 ## 8. After merge
 

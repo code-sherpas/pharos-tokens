@@ -9,7 +9,7 @@ triggers:
 
 # Add a new token category to pharos-tokens
 
-It is rarely necessary — most tokens fit into the five existing categories. Check with the CTO before starting this flow.
+It is rarely necessary — most tokens fit into the five existing categories. Check with a maintainer before starting this flow.
 
 ## 1. Confirm it does not fit an existing category
 

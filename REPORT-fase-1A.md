@@ -124,7 +124,7 @@ Every fg/on pair passes:
 ### Optional follow-up (Phase 1B+ or 0.1.x patches)
 
 1. **Real font family**: today `font.family.sans` uses `"Inter", system-ui, ...` as a generic fallback. If Alexandria loads a specific font via `next/font` (I did not verify `RootLayout.tsx` in Phase 0), Pharos should mirror it as an official token.
-2. **Accent colors**: no `color.accent.*` added for bluish-purple (`#6f42f5`) or indochine (`#c27605`) because they do not have broad use in Alexandria. If the designer (CTO) considers them part of the system, they are added as a minor bump.
+2. **Accent colors**: no `color.accent.*` added for bluish-purple (`#6f42f5`) or indochine (`#c27605`) because they do not have broad use in Alexandria. If the designer considers them part of the system, they are added as a minor bump.
 3. **"on" contrast tokens for neutrals**: there is no `neutral.{X}.on` right now. In Phase 2 when components (especially `Button variant="secondary"`) need them, add. For now consumers use `color.base.white` or `color.neutral.900` manually.
 4. **Richer animation tokens**: only basic `duration` + `easing`. If the need for animation `delay`, `iteration-count`, etc., appears, add a category.
 
@@ -144,12 +144,12 @@ Every fg/on pair passes:
 
 ## Pre-merge checklist
 
-The CTO should verify:
+Before merging:
 
-- [ ] CTO reviews this report and the content of `src/*.tokens.json`.
-- [ ] CTO provides `NPM_TOKEN` and configures it as a GitHub secret.
-- [ ] CTO configures branch protection on `main`.
-- [ ] CI on the PR is green.
+- [ ] Review this report and the content of `src/*.tokens.json`.
+- [ ] Provide `NPM_TOKEN` and configure it as a GitHub secret.
+- [ ] Configure branch protection on `main`.
+- [ ] Confirm CI on the PR is green.
 - [ ] After merge, review the "Version packages" PR that Changesets opens automatically.
 - [ ] After merging that second PR, confirm that `@code-sherpas/pharos-tokens@0.1.0` is listed on npmjs.com.
 

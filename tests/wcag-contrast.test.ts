@@ -63,8 +63,8 @@ describe('WCAG 2.1 AA contrast for semantic color pairs', () => {
     ],
   ];
 
-  it.each(cases)('%s passes AA', (_name, fg, on, threshold) => {
-    const ratio = contrast(fg, on);
+  it.each(cases)('%s passes AA', (_name, fg, backgroundColor, threshold) => {
+    const ratio = contrast(fg, backgroundColor);
     expect(ratio).toBeGreaterThanOrEqual(threshold);
   });
 });

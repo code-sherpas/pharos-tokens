@@ -69,11 +69,11 @@ subpath for advanced consumers that transform them with their own tools
 
 ## Workflow to update a token
 
-See skill `update-token` in `.skills/update-token.md`.
+See skill `update-token` in `.agents/skills/update-token/SKILL.md`.
 
 ## Workflow to introduce a new category
 
-See skill `add-token-category` in `.skills/add-token-category.md`.
+See skill `add-token-category` in `.agents/skills/add-token-category/SKILL.md`.
 
 ## Source of the values
 

@@ -40,11 +40,12 @@ Everything under `/home/david/code-sherpas/pharos/pharos-tokens/` (branch `feat/
 ### Portable AI configuration
 
 - `AGENTS.md` — source of truth with rules, stack, outputs, expected MCPs, commands.
-- `CLAUDE.md` + `.cursorrules` — one-line wrappers pointing at AGENTS.md.
+- `.claude/CLAUDE.md` — symlink pointing at `../AGENTS.md`.
 - `.mcp.json` — `context7` + `github` (no shadcn, per the plan).
-- `.skills/update-token.md` — flow for editing/adding tokens.
-- `.skills/add-token-category.md` — flow for new categories (rarely used).
-- `.skills/review-tokens-pr.md` — PR review checklist.
+- `.agents/skills/update-token/SKILL.md` — flow for editing/adding tokens.
+- `.agents/skills/add-token-category/SKILL.md` — flow for new categories (rarely used).
+- `.agents/skills/review-tokens-pr/SKILL.md` — PR review checklist.
+- `.claude/skills/<name>` — symlinks mirroring Alexandria's convention, pointing at `../../.agents/skills/<name>`.
 - `RULES.md` — rules for package consumers (published via `files`).
 
 ### CI and release

@@ -36,6 +36,10 @@ const AA_NORMAL = 4.5;
 const AA_LARGE = 3.0;
 
 describe('WCAG 2.1 AA contrast for semantic color pairs', () => {
+  // For each semantic family, `.fg` is the filled surface color (the red pill,
+  // the green badge), and `.on` is the content — text or icon — placed on top.
+  // `surface` / `onSurface` match the Material/Tailwind v4 convention for these
+  // roles; the test case labels still reference the token paths.
   const cases: Array<[string, string, string, number]> = [
     [
       'semantic.error.fg vs error.on',
@@ -63,8 +67,8 @@ describe('WCAG 2.1 AA contrast for semantic color pairs', () => {
     ],
   ];
 
-  it.each(cases)('%s passes AA', (_name, fg, on, threshold) => {
-    const ratio = contrast(fg, on);
+  it.each(cases)('%s passes AA', (_name, surface, onSurface, threshold) => {
+    const ratio = contrast(surface, onSurface);
     expect(ratio).toBeGreaterThanOrEqual(threshold);
   });
 });
@@ -81,8 +85,17 @@ describe('Neutrals text readability on white surface', () => {
     expect(ratio).toBeGreaterThanOrEqual(AA_NORMAL);
   });
 
-  it('neutral.400 on white is too light for body text (flagged for UI-decorative only)', () => {
-    const ratio = contrast(tokens.color.neutral['400'], tokens.color.base.white);
+  // Guard against drift: any neutral below 500 must stay below AA body text
+  // threshold so designers don't pick them for body copy by accident. If a
+  // future tweak makes one of these dark enough to pass AA, revisit the
+  // boundary between "text" and "decorative" neutrals.
+  it.each([
+    ['neutral.400', tokens.color.neutral['400']],
+    ['neutral.300', tokens.color.neutral['300']],
+    ['neutral.200', tokens.color.neutral['200']],
+    ['neutral.100', tokens.color.neutral['100']],
+  ])('%s on white is too light for body text (UI-decorative only)', (_name, surface) => {
+    const ratio = contrast(surface, tokens.color.base.white);
     expect(ratio).toBeLessThan(AA_NORMAL);
   });
 });

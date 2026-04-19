@@ -27,7 +27,11 @@ function contrast(a: string, b: string): number {
   return wcagContrast(resolveToHex(a), resolveToHex(b));
 }
 
+// WCAG 2.1 Level AA minimum contrast ratio for normal text
+// (text under 18pt, or under 14pt if bold): 4.5:1.
 const AA_NORMAL = 4.5;
+// WCAG 2.1 Level AA minimum contrast ratio for large text
+// (18pt and larger, or 14pt bold and larger): 3.0:1.
 const AA_LARGE = 3.0;
 
 describe('WCAG 2.1 AA contrast for semantic color pairs', () => {

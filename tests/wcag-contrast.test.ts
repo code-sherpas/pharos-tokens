@@ -81,10 +81,18 @@ describe('Neutrals text readability on white surface', () => {
     expect(ratio).toBeGreaterThanOrEqual(AA_NORMAL);
   });
 
-  it('neutral.400 on white is too light for body text (flagged for UI-decorative only)', () => {
-    const ratio = contrast(tokens.color.neutral['400'], tokens.color.base.white);
-    expect(ratio).toBeLessThan(AA_NORMAL);
-  });
+  it.each([
+    ['neutral.400', tokens.color.neutral['400']],
+    ['neutral.300', tokens.color.neutral['300']],
+    ['neutral.200', tokens.color.neutral['200']],
+    ['neutral.100', tokens.color.neutral['100']],
+  ])(
+    '%s on white is too light for body text (flagged for UI-decorative only)',
+    (_name, fg) => {
+      const ratio = contrast(fg, tokens.color.base.white);
+      expect(ratio).toBeLessThan(AA_NORMAL);
+    },
+  );
 });
 
 describe('Primary readability on white surface', () => {

@@ -1,0 +1,28 @@
+{
+  "radius": {
+    "none": { "$value": "0", "$type": "dimension", "$description": "No rounding." },
+    "sm": { "$value": "0.125rem", "$type": "dimension", "$description": "2px. Subtle rounding." },
+    "md": {
+      "$value": "0.375rem",
+      "$type": "dimension",
+      "$description": "6px. Default control rounding."
+    },
+    "lg": { "$value": "0.5rem", "$type": "dimension", "$description": "8px." },
+    "xl": { "$value": "0.75rem", "$type": "dimension", "$description": "12px." },
+    "2xl": {
+      "$value": "1rem",
+      "$type": "dimension",
+      "$description": "16px. Default card rounding (replaces Alexandria cs-md / rounded-cs-md)."
+    },
+    "3xl": {
+      "$value": "1.5rem",
+      "$type": "dimension",
+      "$description": "24px. Large surface rounding (replaces Alexandria cs-lg / rounded-cs-lg)."
+    },
+    "full": {
+      "$value": "9999px",
+      "$type": "dimension",
+      "$description": "Fully rounded — pills, avatars, icon buttons. 117 usages in Alexandria."
+    }
+  }
+}

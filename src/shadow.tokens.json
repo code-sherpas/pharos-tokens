@@ -1,0 +1,53 @@
+{
+  "shadow": {
+    "sm": {
+      "$value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      "$type": "shadow",
+      "$description": "Subtle elevation."
+    },
+    "md": {
+      "$value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+      "$type": "shadow",
+      "$description": "Default elevation for cards at rest."
+    },
+    "lg": {
+      "$value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+      "$type": "shadow",
+      "$description": "Hover or raised card."
+    },
+    "xl": {
+      "$value": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+      "$type": "shadow",
+      "$description": "Modals, popovers."
+    }
+  },
+  "z": {
+    "0": { "$value": "0", "$type": "number", "$description": "Default stacking context." },
+    "header": { "$value": "1000", "$type": "number" },
+    "above-header": { "$value": "1100", "$type": "number" },
+    "modal-overlay": { "$value": "9998", "$type": "number" },
+    "modal": { "$value": "9999", "$type": "number" },
+    "drawer-overlay": { "$value": "9999", "$type": "number" },
+    "drawer": { "$value": "10000", "$type": "number" },
+    "dropdown": { "$value": "10001", "$type": "number" },
+    "tooltip": {
+      "$value": "10002",
+      "$type": "number",
+      "$description": "Highest priority — tooltips always win."
+    }
+  },
+  "duration": {
+    "fast": {
+      "$value": "100ms",
+      "$type": "duration",
+      "$description": "Micro interactions (hover)."
+    },
+    "normal": { "$value": "200ms", "$type": "duration", "$description": "Default transitions." },
+    "slow": { "$value": "300ms", "$type": "duration", "$description": "Panel slide, overlay fade." }
+  },
+  "easing": {
+    "in": { "$value": "cubic-bezier(0.4, 0, 1, 1)", "$type": "cubicBezier" },
+    "out": { "$value": "cubic-bezier(0, 0, 0.2, 1)", "$type": "cubicBezier" },
+    "in-out": { "$value": "cubic-bezier(0.4, 0, 0.2, 1)", "$type": "cubicBezier" }
+  }
+}

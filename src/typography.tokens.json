@@ -1,0 +1,81 @@
+{
+  "font": {
+    "family": {
+      "sans": {
+        "$value": "\"Inter\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+        "$type": "fontFamily",
+        "$description": "Default sans-serif stack. Inter can be replaced at the consumer layer via CSS var override."
+      },
+      "mono": {
+        "$value": "ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace",
+        "$type": "fontFamily",
+        "$description": "Default monospace stack for code."
+      }
+    },
+    "weight": {
+      "regular": { "$value": "400", "$type": "fontWeight" },
+      "medium": { "$value": "500", "$type": "fontWeight" },
+      "semibold": { "$value": "600", "$type": "fontWeight" },
+      "bold": { "$value": "700", "$type": "fontWeight" }
+    },
+    "size": {
+      "xs": {
+        "$value": "0.75rem",
+        "$type": "dimension",
+        "$description": "12px. Helper text, captions."
+      },
+      "sm": {
+        "$value": "0.875rem",
+        "$type": "dimension",
+        "$description": "14px. Body default in Pharos (Decision D3: formalizes Alexandria's dominant body size)."
+      },
+      "base": {
+        "$value": "1rem",
+        "$type": "dimension",
+        "$description": "16px. Reserved for increased-legibility contexts."
+      },
+      "lg": {
+        "$value": "1.125rem",
+        "$type": "dimension",
+        "$description": "18px."
+      },
+      "xl": {
+        "$value": "1.25rem",
+        "$type": "dimension",
+        "$description": "20px."
+      },
+      "2xl": {
+        "$value": "1.5rem",
+        "$type": "dimension",
+        "$description": "24px. Heading level 3 / large titles."
+      },
+      "3xl": {
+        "$value": "1.875rem",
+        "$type": "dimension",
+        "$description": "30px. Heading level 2."
+      },
+      "4xl": {
+        "$value": "2.25rem",
+        "$type": "dimension",
+        "$description": "36px. Heading level 1."
+      },
+      "5xl": {
+        "$value": "3rem",
+        "$type": "dimension",
+        "$description": "48px. Display."
+      }
+    },
+    "lineHeight": {
+      "tight": { "$value": "1.25", "$type": "number" },
+      "snug": { "$value": "1.375", "$type": "number" },
+      "normal": { "$value": "1.5", "$type": "number", "$description": "Default body line-height." },
+      "relaxed": { "$value": "1.625", "$type": "number" },
+      "loose": { "$value": "2", "$type": "number" }
+    },
+    "letterSpacing": {
+      "tight": { "$value": "-0.025em", "$type": "dimension" },
+      "normal": { "$value": "0", "$type": "dimension" },
+      "wide": { "$value": "0.025em", "$type": "dimension" }
+    }
+  }
+}

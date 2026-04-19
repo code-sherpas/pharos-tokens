@@ -1,0 +1,67 @@
+{
+  "name": "@code-sherpas/pharos-tokens",
+  "version": "0.0.0",
+  "description": "Design tokens de Code Sherpas — agnóstico de framework. DTCG + Style Dictionary + OKLCH.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-sherpas/pharos-tokens.git"
+  },
+  "homepage": "https://github.com/code-sherpas/pharos-tokens#readme",
+  "bugs": {
+    "url": "https://github.com/code-sherpas/pharos-tokens/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "files": [
+    "dist",
+    "src",
+    "RULES.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./css": "./dist/styles.css",
+    "./dtcg/*": "./src/*.tokens.json"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "style-dictionary"
+    ]
+  },
+  "scripts": {
+    "build": "node build/style-dictionary.config.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "changeset": "changeset",
+    "release": "pnpm build && changeset publish",
+    "prepublishOnly": "pnpm build"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.10",
+    "@types/culori": "^4.0.1",
+    "@types/node": "^22.10.5",
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "culori": "^4.0.1",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.4.2",
+    "style-dictionary": "^4.3.0",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  }
+}

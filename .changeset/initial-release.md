@@ -7,10 +7,10 @@ Initial release — tokens extracted from Alexandria and normalized per Fase 0 a
 **Highlights:**
 
 - Full color scale in OKLCH: `color.neutral.{50..950}`, `color.primary.{50..900}`, `color.semantic.{success,error,warning,info}.{fg,bg,on}`, `color.base.{white,black}`.
-- Spacing aligned with Tailwind default (`spacing.0` to `spacing.24`), eliminating Alexandria's redundant `cs-*` scale per decision D1.
-- Radius scale using Tailwind default plus `radius.full` (117 usos en Alexandria).
-- Typography with `font.size.sm` (14px) as body default per decision D3.
-- z-index scale preserving Alexandria's semantic levels (`header`, `modal`, `drawer`, `dropdown`, `tooltip`).
+- Spacing aligned with the Tailwind default (`spacing.0` through `spacing.24`), removing Alexandria's redundant `cs-*` scale per decision D1.
+- Radius scale using the Tailwind default plus `radius.full` (117 usages in Alexandria).
+- Typography with `font.size.sm` (14px) as the body default per decision D3.
+- Z-index scale preserving Alexandria's semantic levels (`header`, `modal`, `drawer`, `dropdown`, `tooltip`).
 - Duration (`fast`/`normal`/`slow`) and easing (`in`/`out`/`in-out`) normalized from Alexandria's ad-hoc durations.
 
 **WCAG adjustments vs Alexandria source:**
@@ -20,7 +20,7 @@ Initial release — tokens extracted from Alexandria and normalized per Fase 0 a
 
 **Decisions applied** (see `PLAN-pharos-alexandria.md` Fase 0 checkpoint):
 
-- D1: no `cs-*` duplicated scales.
+- D1: no duplicated `cs-*` scales.
 - D2: single red (`color.semantic.error.fg`), no `laser-red` distinction.
 - D3: body typography = 14px.
 - D6: no legacy deprecated tokens included.

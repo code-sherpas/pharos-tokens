@@ -1,44 +1,44 @@
 ---
 name: update-token
-description: Usar cuando un dev o el CTO quiere modificar o agregar un token existente en pharos-tokens. Guía el proceso de editar el DTCG, rebuild, validar WCAG si es color, decidir el bump de versión correcto y documentar impacto en consumidores.
+description: Use when a developer or the CTO wants to modify or add an existing token in pharos-tokens. Walks through editing the DTCG source, rebuilding, validating WCAG for colors, choosing the right version bump, and documenting the impact on consumers.
 triggers:
   - 'update token'
-  - 'modificar token'
-  - 'cambiar valor de un token'
-  - 'agregar un token'
+  - 'modify token'
+  - 'change a token value'
+  - 'add a token'
 ---
 
 # Update or add a token in pharos-tokens
 
 ## 1. Identify the right source file
 
-Tokens viven en `src/*.tokens.json` agrupados por categoría:
+Tokens live in `src/*.tokens.json` grouped by category:
 
-- `src/color.tokens.json` — colores
+- `src/color.tokens.json` — colors
 - `src/spacing.tokens.json` — spacing
 - `src/typography.tokens.json` — font family/weight/size/lineHeight/letterSpacing
 - `src/radius.tokens.json` — border radius
 - `src/shadow.tokens.json` — shadow, z, duration, easing
 
-Si el token no encaja en ninguna categoría existente, probablemente necesitás el skill `add-token-category` en su lugar.
+If the token does not fit any existing category, you probably need the `add-token-category` skill instead.
 
 ## 2. Edit the DTCG source
 
-Todo token sigue el formato DTCG:
+Every token follows the DTCG format:
 
 ```json
 "keyName": {
   "$value": "oklch(... % ... ...)",
   "$type": "color",
-  "$description": "Descripción breve del uso + si reemplaza algo de Alexandria."
+  "$description": "Brief description of the use case + mention if it replaces anything from Alexandria."
 }
 ```
 
-Reglas:
+Rules:
 
-- Colores siempre en `oklch(...)`. Si tenés hex, convertilo con `node scripts/compute-oklch.mjs` o `culori`.
-- Mantené `$description` — lo consume el CSS output como comentario.
-- Si referenciás otro token: `"$value": "{color.base.white}"`.
+- Colors must always be in `oklch(...)`. If you only have a hex value, convert it with `node scripts/compute-oklch.mjs` or `culori`.
+- Keep `$description` — the CSS output picks it up as a comment.
+- If you reference another token: `"$value": "{color.base.white}"`.
 
 ## 3. Rebuild
 
@@ -46,57 +46,57 @@ Reglas:
 pnpm build
 ```
 
-Verificá que genera:
+Verify that it generates:
 
 - `dist/styles.css`
 - `dist/tokens.js` + `dist/tokens.d.ts` + `dist/tokens.json`
 - `dist/index.js` + `dist/index.d.ts`
 
-## 4. Run tests
+## 4. Run the tests
 
 ```bash
 pnpm test
 ```
 
-Lo que se valida:
+What gets validated:
 
-- **WCAG 2.1 AA** para todo color nuevo y su `on-*` par.
-- **DTCG format**: `$value` + `$type` presentes.
-- **Referencias válidas**: si usaste `{alias}`, debe apuntar a token existente.
-- **CSS output**: todos los tokens declarados aparecen como `--pharos-*`.
+- **WCAG 2.1 AA** for every new color and its `on-*` pair.
+- **DTCG format**: `$value` + `$type` present.
+- **Valid references**: if you used `{alias}`, it must point to an existing token.
+- **CSS output**: every declared token appears as a `--pharos-*` custom property.
 
-Si algún test falla, ajustar el token (ej: darker L en OKLCH si falla WCAG) hasta pasar.
+If any test fails, tweak the token (e.g. darker L in OKLCH if WCAG fails) until it passes.
 
-## 5. Decidir el bump de versión
+## 5. Pick the version bump
 
-| Tipo de cambio                       | Bump             |
-| ------------------------------------ | ---------------- |
-| Renombrar o eliminar un token        | major (breaking) |
-| Agregar un nuevo token               | minor            |
-| Ajustar valor sin renombrar/eliminar | patch            |
+| Change                              | Bump             |
+| ----------------------------------- | ---------------- |
+| Rename or remove a token            | major (breaking) |
+| Add a new token                     | minor            |
+| Adjust value without rename/removal | patch            |
 
 ```bash
 pnpm changeset
 ```
 
-Elegí el tipo y describí el cambio. El texto del changeset va al CHANGELOG público.
+Pick the type and describe the change. The changeset text ends up in the public CHANGELOG.
 
-## 6. Documentar impacto en consumidores
+## 6. Document the impact on consumers
 
-Si el cambio es:
+If the change is:
 
-- **major**: agregá al changeset una nota explícita "BREAKING:" y listá qué tokens cambian de path. Los consumidores (`pharos-react`, `alexandria-*`) van a necesitar una migración.
-- **minor**: mencioná en el changeset "Nuevo token `X` para caso de uso Y".
-- **patch**: el changeset puede ser corto ("ajuste de valor para mejorar contraste"). Aun así, si es color, anotá el delta visual esperado.
+- **major**: add an explicit "BREAKING:" note to the changeset listing which token paths change. Consumers (`pharos-react`, `alexandria-*`) will need a migration.
+- **minor**: mention in the changeset "New token `X` for use case Y".
+- **patch**: the changeset can be short ("value tweak to improve contrast"). Even so, if it is a color, note the expected visual delta.
 
-## 7. Abrir PR
+## 7. Open the PR
 
-- Conventional commit: `feat(color): add color.accent.purple` o `fix(color): darken success.fg to pass AA 4.5`.
-- CI debe pasar verde (lint, typecheck, build, test).
-- Si el cambio afecta naming canónico o semántica, pingear al CTO para review.
+- Conventional commit: `feat(color): add color.accent.purple` or `fix(color): darken success.fg to pass AA 4.5`.
+- CI must go green (lint, typecheck, build, test).
+- If the change affects canonical naming or semantics, ping the CTO for review.
 
-## 8. Tras merge
+## 8. After merge
 
-Release automática. El CI publica el nuevo version a npm vía Changesets. Verificá que la versión nueva aparece en [npmjs.com/package/@code-sherpas/pharos-tokens](https://www.npmjs.com/package/@code-sherpas/pharos-tokens).
+Release happens automatically. CI publishes the new version to npm via Changesets. Confirm the new version appears on [npmjs.com/package/@code-sherpas/pharos-tokens](https://www.npmjs.com/package/@code-sherpas/pharos-tokens).
 
-Para consumidores downstream (`pharos-react`), correr su skill `upgrade-tokens-version`.
+For downstream consumers (`pharos-react`), run their `upgrade-tokens-version` skill.

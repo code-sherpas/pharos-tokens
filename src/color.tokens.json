@@ -61,7 +61,7 @@
       "900": {
         "$value": "oklch(20.50% 0.02 248.83)",
         "$type": "color",
-        "$description": "Primary text / dark surface. Hero neutral of the Code Sherpas identity. Replaces Alexandria #101820 (279 usos) / main.base / navy-blue-text."
+        "$description": "Primary text / dark surface. Hero neutral of the Code Sherpas identity. Replaces Alexandria #101820 (279 usages) / main.base / navy-blue-text."
       },
       "950": {
         "$value": "oklch(14.69% 0.0225 269.48)",

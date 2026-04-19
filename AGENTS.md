@@ -1,115 +1,115 @@
 # pharos-tokens
 
-Design tokens de Code Sherpas, publicados como `@code-sherpas/pharos-tokens`.
-**Paquete agnóstico de tecnología**: sin React, sin Tailwind, sin dependencias
-de framework. Consumible desde cualquier frontend (React, Vue, Svelte,
-React Native) y desde backends (emails transaccionales, PDFs, reports).
+Design tokens for Code Sherpas, published as `@code-sherpas/pharos-tokens`.
+**Technology-agnostic package**: no React, no Tailwind, no framework
+dependencies. Consumable from any frontend (React, Vue, Svelte,
+React Native) and from backends (transactional emails, PDFs, reports).
 
 ## Stack
 
 - Single-package repo (pnpm)
-- TypeScript (solo para tipar los outputs)
-- Style Dictionary v4 (compilador DTCG → CSS + JS)
-- Formato DTCG (Design Tokens Community Group)
-- Colores en OKLCH
+- TypeScript (only to type the outputs)
+- Style Dictionary v4 (DTCG → CSS + JS compiler)
+- DTCG format (Design Tokens Community Group)
+- OKLCH colors
 - Vitest (WCAG contrast, DTCG format, CSS output)
 - Changesets
 
-## Filosofía
+## Philosophy
 
-pharos-tokens es la **fuente única de verdad** de las decisiones visuales
-atómicas de Code Sherpas. Todo lo que tiene un valor (color, espaciado,
-radio, tipografía, shadow, animación, z-index) vive acá. Los componentes (en
-`pharos-react`) y las apps (`alexandria-*`) consumen esto, no al revés.
+pharos-tokens is the **single source of truth** for Code Sherpas's atomic
+visual decisions. Anything with a value (color, spacing, radius, typography,
+shadow, animation, z-index) lives here. Components (in `pharos-react`) and
+apps (`alexandria-*`) consume it, not the other way around.
 
-Principios:
+Principles:
 
-1. **Agnóstico de framework.** Zero dependencias de React, Vue, etc.
-2. **Consumible en HTML plano.** Un email transaccional o un PDF
-   generado server-side debe poder usar las CSS vars tal cual.
-3. **Versionado independiente.** pharos-tokens tiene su propio semver;
-   pharos-react declara qué versiones de tokens soporta.
-4. **Accesibilidad validada.** Todos los pares color/on-color pasan
-   WCAG 2.1 AA en CI.
+1. **Framework-agnostic.** Zero dependencies on React, Vue, etc.
+2. **Consumable in plain HTML.** A transactional email or a server-generated
+   PDF must be able to use the CSS vars as-is.
+3. **Independent versioning.** pharos-tokens has its own semver;
+   pharos-react declares which token versions it supports.
+4. **Validated accessibility.** Every color/on-color pair passes
+   WCAG 2.1 AA in CI.
 
-## Reglas NO NEGOCIABLES
+## NON-NEGOTIABLE rules
 
-1. **Formato DTCG.** Todo token declarado sigue spec DTCG con `$value`,
+1. **DTCG format.** Every declared token follows the DTCG spec with `$value`,
    `$type`, `$description`.
-2. **Colores en OKLCH.** No hex, no RGB. OKLCH es perceptualmente
-   uniforme y facilita generar escalas consistentes.
-3. **Naming con prefijo `pharos-`.** Todas las CSS vars de output
-   llevan prefijo `--pharos-` para evitar colisiones.
-4. **Tests de contraste en CI.** No se mergea un PR si un par
-   color/on-color falla WCAG 2.1 AA.
-5. **Referencias válidas.** Si un token referencia otro (`{color.base.white}`),
-   el referenciado debe existir. CI lo valida.
-6. **Changeset obligatorio.** Breaking change = major (renombrar/eliminar).
-   Nuevo token = minor. Ajuste de valor sin renombrar = patch.
-7. **No componentes ni estilos de UI.** Este paquete define valores,
-   no estructuras visuales. Si alguien propone agregar un componente,
-   va a `pharos-react`.
-8. **Sin dependencies de runtime.** Solo `devDependencies`. El output
-   publicado es data + tipos, nunca código ejecutable de terceros.
+2. **OKLCH colors.** No hex, no RGB. OKLCH is perceptually uniform and makes
+   it easy to generate consistent scales.
+3. **`pharos-` prefix in naming.** Every output CSS var is prefixed
+   `--pharos-` to avoid collisions.
+4. **Contrast tests in CI.** A PR cannot merge if any color/on-color pair
+   fails WCAG 2.1 AA.
+5. **Valid references.** If a token references another one
+   (`{color.base.white}`), the referenced token must exist. CI validates it.
+6. **Changeset required.** Breaking change = major (rename/remove). New token
+   = minor. Value tweak without renaming = patch.
+7. **No components or UI styles.** This package defines values, not visual
+   structures. If someone proposes adding a component, it goes into
+   `pharos-react`.
+8. **No runtime dependencies.** Only `devDependencies`. The published output
+   is data + types, never third-party executable code.
 
-## Outputs del build
+## Build outputs
 
-El comando `pnpm build` genera en `dist/`:
+`pnpm build` generates the following in `dist/`:
 
-- `styles.css` — CSS custom properties prefijadas `--pharos-*` (canónico, multi-framework).
-- `tokens.js` — constantes ESM flat (`PharosColorNeutral900`, etc.) para imports selectivos.
-- `tokens.d.ts` — types TypeScript para las constantes flat.
-- `tokens.json` — objeto nested values-only (para herramientas que procesan tokens genéricamente).
-- `index.js` — barrel amigable con objeto nested (`tokens.color.neutral['900']`).
-- `index.d.ts` — types del barrel (autocomplete por path).
+- `styles.css` — CSS custom properties prefixed `--pharos-*` (canonical, multi-framework).
+- `tokens.js` — flat ESM constants (`PharosColorNeutral900`, etc.) for selective imports.
+- `tokens.d.ts` — TypeScript types for the flat constants.
+- `tokens.json` — nested values-only object (for tools that process tokens generically).
+- `index.js` — friendly barrel with the nested object (`tokens.color.neutral['900']`).
+- `index.d.ts` — types for the barrel (autocomplete by path).
 
-Los DTCG source files crudos (`src/*.tokens.json`) se exponen vía subpath
-`./dtcg/*` para consumidores avanzados que transformen con sus propias
-herramientas (ej: iOS/Android token pipelines).
+The raw DTCG source files (`src/*.tokens.json`) are exposed via the `./dtcg/*`
+subpath for advanced consumers that transform them with their own tools
+(e.g. iOS/Android token pipelines).
 
-## Workflow para modificar un token
+## Workflow to update a token
 
-Ver skill `update-token` en `.skills/update-token.md`.
+See skill `update-token` in `.skills/update-token.md`.
 
-## Workflow para introducir una categoría nueva
+## Workflow to introduce a new category
 
-Ver skill `add-token-category` en `.skills/add-token-category.md`.
+See skill `add-token-category` in `.skills/add-token-category.md`.
 
-## Origen de los valores
+## Source of the values
 
-Los tokens actuales se derivan del análisis de Alexandria documentado en
-`alexandria-web-application:feat/fase-0-analysis/ANALYSIS-tokens.md` y de las
-decisiones arquitectónicas aprobadas del plan (`PLAN-pharos-alexandria.md`,
-Fase 0 checkpoint, 2026-04-19).
+The current tokens are derived from the Alexandria analysis documented in
+`alexandria-web-application:feat/fase-0-analysis/ANALYSIS-tokens.md` and from
+the architectural decisions approved in the plan
+(`PLAN-pharos-alexandria.md`, Fase 0 checkpoint, 2026-04-19).
 
-**Ajustes vs Alexandria** por cumplimiento WCAG:
+**Adjustments vs Alexandria** for WCAG compliance:
 
-- `color.semantic.success.fg` y `color.semantic.info.fg` son versiones más
-  oscuras de los valores de Alexandria (`#05b661`, `#009bf9`) para pasar
-  AA 4.5:1 contra fondo blanco. Los valores Alexandria originales fallaban.
+- `color.semantic.success.fg` and `color.semantic.info.fg` are darker
+  versions of the Alexandria values (`#05b661`, `#009bf9`) so that they
+  pass AA 4.5:1 against a white background. The original Alexandria values
+  failed.
 
-## MCP servers esperados
+## Expected MCP servers
 
-Este repo tiene `.mcp.json` con: `context7`, `github`. **No incluye
-shadcn MCP** — este repo no trata con componentes.
+This repo has `.mcp.json` with: `context7`, `github`. **It does not include
+the shadcn MCP** — this repo does not deal with components.
 
-**Cuándo usar cada uno:**
+**When to use each one:**
 
-- **`context7`** → documentación live de Style Dictionary v4, spec DTCG
-  (Design Tokens Community Group), OKLCH color space, TypeScript, culori.
-  Usar antes de modificar la config de Style Dictionary o cuando necesites
-  validar que un transform/format sigue la API actual.
-- **`github`** → issues, PRs, releases. Usar para referenciar issues
-  de consumidores (ej: "pharos-react necesita token `radius.full`")
-  o al crear PRs.
+- **`context7`** → live documentation for Style Dictionary v4, the DTCG spec
+  (Design Tokens Community Group), the OKLCH color space, TypeScript,
+  culori. Use it before modifying the Style Dictionary config or when you
+  need to confirm that a transform/format follows the current API.
+- **`github`** → issues, PRs, releases. Use it to reference consumer issues
+  (e.g. "pharos-react needs token `radius.full`") or when opening PRs.
 
-## Comandos útiles
+## Useful commands
 
-- `pnpm build` — compila DTCG a CSS + JS + types
-- `pnpm test` — suite Vitest (WCAG contrast, DTCG format, CSS output)
+- `pnpm build` — compile DTCG to CSS + JS + types
+- `pnpm test` — Vitest suite (WCAG contrast, DTCG format, CSS output)
 - `pnpm typecheck` — `tsc --noEmit`
 - `pnpm lint` — ESLint
 - `pnpm format` / `pnpm format:check` — Prettier
-- `pnpm changeset` — crear un changeset
-- `pnpm release` — (CI only) build + publish a npm
-- `node scripts/compute-oklch.mjs` — helper para convertir hex de Alexandria a OKLCH
+- `pnpm changeset` — create a changeset
+- `pnpm release` — (CI only) build + publish to npm
+- `node scripts/compute-oklch.mjs` — helper to convert Alexandria hex values to OKLCH

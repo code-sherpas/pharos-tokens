@@ -1,52 +1,52 @@
-# Reglas para consumidores de `@code-sherpas/pharos-tokens`
+# Rules for consumers of `@code-sherpas/pharos-tokens`
 
-Este archivo se publica con el paquete (`files` incluye `RULES.md`). Todo
-consumidor — `pharos-react`, `alexandria-web-application`, `alexandria-design`,
-y cualquier app futura — debe respetar estas reglas.
+This file ships with the package (`files` includes `RULES.md`). Every
+consumer — `pharos-react`, `alexandria-web-application`, `alexandria-design`,
+and any future app — must follow these rules.
 
-## 1. No redefinir valores localmente
+## 1. Do not redefine values locally
 
-Los tokens son la única fuente de verdad. Prohibido:
+Tokens are the single source of truth. Forbidden:
 
-- Hex hardcoded para colores que tienen token equivalente (ej: `#101820` cuando existe `--pharos-color-neutral-900`).
-- Valores `rem`/`px` para spacing cuando existe `--pharos-spacing-*`.
-- Shadows locales ad-hoc.
+- Hardcoded hex for colors that have an equivalent token (e.g. `#101820` when `--pharos-color-neutral-900` exists).
+- Raw `rem`/`px` values for spacing when `--pharos-spacing-*` exists.
+- Ad-hoc local shadows.
 
-Si un valor no tiene token, abrí issue en este repo. No improvises.
+If a value has no token, open an issue in this repo. Do not improvise.
 
-## 2. No inventar colores fuera del sistema
+## 2. Do not invent colors outside the system
 
-El sistema es: `color.neutral.*`, `color.primary.*`, `color.semantic.{success,error,warning,info}.*`, `color.base.{white,black}`. Si necesitás un accent nuevo (purple, amber, etc.) con semántica clara, abrí issue — no lo agregues localmente.
+The system is: `color.neutral.*`, `color.primary.*`, `color.semantic.{success,error,warning,info}.*`, `color.base.{white,black}`. If you need a new accent (purple, amber, etc.) with clear semantics, open an issue — do not add it locally.
 
-## 3. Usar CSS vars o el objeto JS
+## 3. Use CSS vars or the JS object
 
-**Web**: importar `@code-sherpas/pharos-tokens/css` en el entry point y usar `var(--pharos-*)` o `arbitrary values` Tailwind (`bg-[var(--pharos-color-primary-600)]`).
+**Web**: import `@code-sherpas/pharos-tokens/css` at your entry point and use `var(--pharos-*)` or Tailwind arbitrary values (`bg-[var(--pharos-color-primary-600)]`).
 
-**Programático** (JS/TS): `import { tokens } from '@code-sherpas/pharos-tokens'` → `tokens.color.neutral['900']`.
+**Programmatic** (JS/TS): `import { tokens } from '@code-sherpas/pharos-tokens'` → `tokens.color.neutral['900']`.
 
-**DTCG source** (para pipelines custom): `import dtcg from '@code-sherpas/pharos-tokens/dtcg/color'`.
+**DTCG source** (for custom pipelines): `import dtcg from '@code-sherpas/pharos-tokens/dtcg/color'`.
 
-## 4. No modificar valores tras importar
+## 4. Do not mutate values after importing
 
-Prohibido: `tokens.color.primary['600'] = '#new'`. El objeto es frozen in spirit aunque JS no lo enforce. Cambios pasan por PR a este repo.
+Forbidden: `tokens.color.primary['600'] = '#new'`. The object is frozen in spirit even if JS does not enforce it. Changes go through a PR to this repo.
 
-## 5. Respetar semver
+## 5. Respect semver
 
-- Breaking change en este repo → major bump → consumidores actualizan explícitamente.
-- Nuevo token → minor bump → consumidores pueden adoptar sin romper nada.
-- Ajuste de valor sin renombrar → patch → consumidores reciben mejoras visuales automáticas.
+- Breaking change in this repo → major bump → consumers upgrade explicitly.
+- New token → minor bump → consumers may adopt without breaking anything.
+- Value adjustment without renaming → patch → consumers receive visual improvements automatically.
 
-## 6. Accesibilidad
+## 6. Accessibility
 
-Al elegir qué tokens usar, respetar los pares definidos:
+When picking which tokens to use, respect the defined pairs:
 
-- Texto sobre `color.neutral.50`/`100`/`200`: usar `color.neutral.900` o más oscuro.
-- Texto sobre `color.primary.600`+: usar `color.base.white`.
-- Texto sobre `color.semantic.{success,error,info}.fg` (filled): usar `.on` del mismo grupo.
-- Texto sobre `color.semantic.warning.fg`: `.on` es `color.neutral.900` (warning es claro).
+- Text over `color.neutral.50`/`100`/`200`: use `color.neutral.900` or darker.
+- Text over `color.primary.600`+: use `color.base.white`.
+- Text over `color.semantic.{success,error,info}.fg` (filled): use `.on` from the same group.
+- Text over `color.semantic.warning.fg`: `.on` is `color.neutral.900` (warning is light).
 
-Cualquier combinación fuera de estas pasa por review visual con el CTO.
+Any combination outside these requires visual review by the CTO.
 
-## 7. Extensiones y overrides
+## 7. Extensions and overrides
 
-**No** hagas un nuevo paquete `@yourorg/pharos-tokens-extended`. Si el producto necesita tokens propios (ej: branding co-marcado), implementar como CSS vars adicionales en el consumidor, en un namespace propio (`--myapp-*`), y documentar.
+**Do not** publish a new package `@yourorg/pharos-tokens-extended`. If a product needs its own tokens (e.g. co-branded identities), implement them as additional CSS vars in the consumer under your own namespace (`--myapp-*`) and document it.

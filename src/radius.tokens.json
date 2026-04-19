@@ -22,7 +22,7 @@
     "full": {
       "$value": "9999px",
       "$type": "dimension",
-      "$description": "Fully rounded — pills, avatars, icon buttons. 117 usos en Alexandria."
+      "$description": "Fully rounded — pills, avatars, icon buttons. 117 usages in Alexandria."
     }
   }
 }

@@ -1,68 +1,68 @@
 ---
 name: review-tokens-pr
-description: Usar cuando hay que revisar un PR de pharos-tokens. Checklist exhaustivo de formato DTCG, contraste WCAG, naming canónico, referencias válidas, changeset presente.
+description: Use when reviewing a pharos-tokens PR. Exhaustive checklist covering DTCG format, WCAG contrast, canonical naming, valid references, and the presence of a changeset.
 triggers:
   - 'review this PR'
   - 'review pharos-tokens pr'
-  - 'revisar PR de tokens'
+  - 'review token pr'
 ---
 
 # Review a pharos-tokens PR
 
-Checklist ordenado por prioridad. Si falla alguno de los primeros 5, el PR no merge sin corrección.
+Checklist ordered by priority. If any of the first five items fail, the PR does not merge without correction.
 
-## 1. Formato DTCG
+## 1. DTCG format
 
-- [ ] Cada token tiene `$value`, `$type`, `$description`.
-- [ ] `$type` corresponde al valor (ej: `color` para OKLCH string, `dimension` para `rem`/`px`, `duration` para `ms`).
-- [ ] Los DTCG `.tokens.json` parsean sin errores (JSON válido).
+- [ ] Every token has `$value`, `$type`, `$description`.
+- [ ] `$type` matches the value (e.g. `color` for OKLCH strings, `dimension` for `rem`/`px`, `duration` for `ms`).
+- [ ] The DTCG `.tokens.json` files parse without errors (valid JSON).
 
 ## 2. Naming
 
-- [ ] Path del token sigue la jerarquía existente (`color.{neutral,primary,semantic.*,base}`, `spacing.*`, `radius.*`, `font.*`, `shadow.*`, `z.*`, `duration.*`, `easing.*`).
-- [ ] Escala numérica para colores (50..900 o 50..950) o semántica clara (fg/bg/on).
-- [ ] CSS vars output se prefija `--pharos-*` (verificado automáticamente por el CSS output test).
+- [ ] Token path follows the existing hierarchy (`color.{neutral,primary,semantic.*,base}`, `spacing.*`, `radius.*`, `font.*`, `shadow.*`, `z.*`, `duration.*`, `easing.*`).
+- [ ] Numeric scale for colors (50..900 or 50..950) or clear semantic (fg/bg/on).
+- [ ] The CSS var output is prefixed with `--pharos-*` (automatically validated by the CSS output test).
 
-## 3. Colores: formato y contraste
+## 3. Colors: format and contrast
 
-- [ ] Colores son OKLCH, no hex ni RGB ni HSL.
-- [ ] Si se agrega un nuevo color, el test `wcag-contrast.test.ts` incluye el par fg/on correspondiente.
-- [ ] El par pasa AA: 4.5:1 (texto body) o 3:1 (texto grande/bold).
-- [ ] Si el valor Alexandria-original fallaba WCAG, el `$description` documenta el ajuste.
+- [ ] Colors are OKLCH — not hex, RGB, or HSL.
+- [ ] If a new color is added, `wcag-contrast.test.ts` includes the matching fg/on pair.
+- [ ] The pair passes AA: 4.5:1 (body text) or 3:1 (large/bold text).
+- [ ] If the original Alexandria value failed WCAG, `$description` documents the adjustment.
 
-## 4. Referencias
+## 4. References
 
-- [ ] Si el `$value` es `{alias}`, el alias existe y apunta al token correcto.
-- [ ] Test `dtcg-format.test.ts > references resolve` pasa.
+- [ ] If `$value` is `{alias}`, the alias exists and points to the correct token.
+- [ ] Test `dtcg-format.test.ts > references resolve` passes.
 
 ## 5. Changeset
 
-- [ ] `.changeset/*.md` presente para todo cambio que afecte el API público.
-- [ ] Bump correcto:
-  - major para renombres/eliminaciones
-  - minor para tokens nuevos
-  - patch para ajustes de valor sin rename
-- [ ] Changeset incluye explicación del motivo + impacto esperado en consumidores.
+- [ ] `.changeset/*.md` present for every change that affects the public API.
+- [ ] Bump is correct:
+  - major for renames/removals
+  - minor for new tokens
+  - patch for value tweaks without rename
+- [ ] Changeset includes the rationale plus the expected impact on consumers.
 
-## 6. Tests y build
+## 6. Tests and build
 
-- [ ] `pnpm build` genera los 6 artefactos esperados sin warnings nuevos.
-- [ ] `pnpm test` pasa los 22+ tests.
-- [ ] `pnpm typecheck` y `pnpm lint` limpios.
+- [ ] `pnpm build` generates the six expected artefacts with no new warnings.
+- [ ] `pnpm test` passes the 22+ tests.
+- [ ] `pnpm typecheck` and `pnpm lint` are clean.
 
-## 7. Documentación
+## 7. Documentation
 
-- [ ] Si la categoría es nueva: README.md tabla actualizada, RULES.md extendida.
-- [ ] Si hay breaking: PR description enlaza a `TOKEN-migration-map.md` o equivalente para que consumidores sepan cómo migrar.
+- [ ] If the category is new: the `README.md` table is updated, `RULES.md` is extended.
+- [ ] If there is a breaking change: the PR description links to `TOKEN-migration-map.md` (or equivalent) so consumers know how to migrate.
 
 ## 8. Side effects
 
-- [ ] Ninguna dependencia nueva de runtime (solo devDependencies aceptadas).
-- [ ] Bundle del `dist/` no crece significativamente (< 10KB total para el objeto JS).
-- [ ] Output sigue siendo consumible como CSS plano (email transaccional test).
+- [ ] No new runtime dependency (only `devDependencies` allowed).
+- [ ] The `dist/` bundle does not grow meaningfully (< 10KB for the JS object).
+- [ ] The output is still consumable as plain CSS (transactional email test).
 
-## Decisión
+## Decision
 
-- Si todo ✅ → aprobar y dejar merge.
-- Si falla 1-5 → request changes con feedback específico.
-- Si falla 6-8 → commit fix sobre el mismo branch o coordinar con el autor.
+- If everything ✅ → approve and merge.
+- If 1-5 fails → request changes with specific feedback.
+- If 6-8 fails → commit the fix on the same branch or coordinate with the author.

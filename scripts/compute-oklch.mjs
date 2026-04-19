@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * One-shot helper for Fase 1A: converts Alexandria's observed hex colors
- * into OKLCH and prints DTCG-friendly values. Outputs are copy-pasted into
- * src/color.tokens.json once verified.
+ * One-shot helper for Phase 1A: converts Alexandria's observed hex colors
+ * into OKLCH and prints DTCG-friendly values. The output column is
+ * copy-pasted into src/color.tokens.json once verified.
  *
  * Usage: node scripts/compute-oklch.mjs
  */

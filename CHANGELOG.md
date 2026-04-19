@@ -1,5 +1,15 @@
 # @code-sherpas/pharos-tokens
 
+## 0.1.1
+
+### Patch Changes
+
+- 81e54f0: Publishes are now signed with npm provenance (sigstore attestation) and authenticated via Trusted Publishing (OIDC) instead of a long-lived token.
+
+  Consumers can verify the origin of any release with `npm audit signatures`.
+
+  No runtime or API changes.
+
 ## 0.1.0
 
 ### Minor Changes

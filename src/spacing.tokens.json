@@ -1,0 +1,45 @@
+{
+  "spacing": {
+    "0": { "$value": "0", "$type": "dimension", "$description": "Zero." },
+    "0.5": { "$value": "0.125rem", "$type": "dimension", "$description": "2px." },
+    "1": { "$value": "0.25rem", "$type": "dimension", "$description": "4px. Tightest usable gap." },
+    "1.5": { "$value": "0.375rem", "$type": "dimension", "$description": "6px." },
+    "2": {
+      "$value": "0.5rem",
+      "$type": "dimension",
+      "$description": "8px. Common small gap (replaces Alexandria cs-xs)."
+    },
+    "2.5": { "$value": "0.625rem", "$type": "dimension", "$description": "10px." },
+    "3": {
+      "$value": "0.75rem",
+      "$type": "dimension",
+      "$description": "12px. Replaces Alexandria cs-sm."
+    },
+    "4": {
+      "$value": "1rem",
+      "$type": "dimension",
+      "$description": "16px. Default body padding (replaces Alexandria cs-md)."
+    },
+    "5": { "$value": "1.25rem", "$type": "dimension", "$description": "20px." },
+    "6": {
+      "$value": "1.5rem",
+      "$type": "dimension",
+      "$description": "24px. Default card padding (replaces Alexandria cs-lg)."
+    },
+    "7": { "$value": "1.75rem", "$type": "dimension", "$description": "28px." },
+    "8": {
+      "$value": "2rem",
+      "$type": "dimension",
+      "$description": "32px. Section gap (replaces Alexandria cs-xl)."
+    },
+    "10": {
+      "$value": "2.5rem",
+      "$type": "dimension",
+      "$description": "40px. Large section gap (replaces Alexandria cs-2xl)."
+    },
+    "12": { "$value": "3rem", "$type": "dimension", "$description": "48px." },
+    "16": { "$value": "4rem", "$type": "dimension", "$description": "64px." },
+    "20": { "$value": "5rem", "$type": "dimension", "$description": "80px." },
+    "24": { "$value": "6rem", "$type": "dimension", "$description": "96px." }
+  }
+}

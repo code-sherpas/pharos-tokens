@@ -1,0 +1,195 @@
+{
+  "color": {
+    "base": {
+      "white": {
+        "$value": "oklch(100% 0 0)",
+        "$type": "color",
+        "$description": "Pure white. Used as surface background and typical on-color for dark brand fills."
+      },
+      "black": {
+        "$value": "oklch(0% 0 0)",
+        "$type": "color",
+        "$description": "Pure black. Rarely used — prefer color.neutral.900 for text and dark surfaces."
+      }
+    },
+    "neutral": {
+      "50": {
+        "$value": "oklch(97.91% 0 0)",
+        "$type": "color",
+        "$description": "Lightest surface. Replaces Alexandria #f8f8f8 and legacy 'grey'."
+      },
+      "100": {
+        "$value": "oklch(97.02% 0 0)",
+        "$type": "color",
+        "$description": "Subtle surface. Replaces Alexandria #f5f5f5 / light-grey / supporting.light."
+      },
+      "200": {
+        "$value": "oklch(95.21% 0 0)",
+        "$type": "color",
+        "$description": "Quiet surface / default border on light mode. Replaces Alexandria #efefef / supporting.base / legacy border."
+      },
+      "300": {
+        "$value": "oklch(88.82% 0.0029 264.54)",
+        "$type": "color",
+        "$description": "Border strong / disabled fill. Replaces Alexandria #d9dadc / supporting.dark / border-dark."
+      },
+      "400": {
+        "$value": "oklch(81.09% 0 0)",
+        "$type": "color",
+        "$description": "Muted foreground on light surfaces. Replaces Alexandria #c1c1c1."
+      },
+      "500": {
+        "$value": "oklch(52.78% 0 0)",
+        "$type": "color",
+        "$description": "Secondary text (most-used neutral). Replaces Alexandria #6b6b6b / secondary-text / supporting.secondary."
+      },
+      "600": {
+        "$value": "oklch(35.62% 0 0)",
+        "$type": "color",
+        "$description": "Icon dark / secondary emphasis. Replaces Alexandria #3c3c3c."
+      },
+      "700": {
+        "$value": "oklch(29.52% 0.0107 254)",
+        "$type": "color",
+        "$description": "Strong text on light surfaces. Replaces Alexandria #292d32."
+      },
+      "800": {
+        "$value": "oklch(37.05% 0.0436 247.87)",
+        "$type": "color",
+        "$description": "Charcoal blue, alternative navy. Replaces Alexandria #2d4256 / charcoal-blue."
+      },
+      "900": {
+        "$value": "oklch(20.50% 0.02 248.83)",
+        "$type": "color",
+        "$description": "Primary text / dark surface. Hero neutral of the Code Sherpas identity. Replaces Alexandria #101820 (279 usos) / main.base / navy-blue-text."
+      },
+      "950": {
+        "$value": "oklch(14.69% 0.0225 269.48)",
+        "$type": "color",
+        "$description": "Deepest neutral. Replaces Alexandria #070a14 / primary-text."
+      }
+    },
+    "primary": {
+      "50": {
+        "$value": "oklch(95.94% 0.0164 274.82)",
+        "$type": "color",
+        "$description": "Primary tint, lightest. Replaces Alexandria #eef1fd / new-primary.light derivates."
+      },
+      "100": {
+        "$value": "oklch(91.35% 0.0374 275.69)",
+        "$type": "color",
+        "$description": "Primary tint, soft. Replaces Alexandria #dbe1fc / new-primary.light."
+      },
+      "200": {
+        "$value": "oklch(82.70% 0.0785 274.99)",
+        "$type": "color",
+        "$description": "Primary tint, medium."
+      },
+      "300": {
+        "$value": "oklch(74.07% 0.1205 273.68)",
+        "$type": "color",
+        "$description": "Primary tint, stronger."
+      },
+      "400": {
+        "$value": "oklch(65.40% 0.1582 271.71)",
+        "$type": "color",
+        "$description": "Primary highlight."
+      },
+      "500": {
+        "$value": "oklch(57.34% 0.1996 269.61)",
+        "$type": "color",
+        "$description": "Primary lighter step."
+      },
+      "600": {
+        "$value": "oklch(49.83% 0.2417 267.34)",
+        "$type": "color",
+        "$description": "Primary brand color (sea blue). Replaces Alexandria #2a48e9 / sea-blue-primitive / new-primary.base."
+      },
+      "700": {
+        "$value": "oklch(42.19% 0.2111 267.20)",
+        "$type": "color",
+        "$description": "Primary pressed / hover dark."
+      },
+      "800": {
+        "$value": "oklch(34.32% 0.1726 267.54)",
+        "$type": "color",
+        "$description": "Primary deep."
+      },
+      "900": {
+        "$value": "oklch(25.97% 0.1317 268.18)",
+        "$type": "color",
+        "$description": "Primary darkest."
+      }
+    },
+    "semantic": {
+      "success": {
+        "fg": {
+          "$value": "oklch(52% 0.17 152)",
+          "$type": "color",
+          "$description": "Success foreground. Darkened from Alexandria #05b661 (L=68%, failed WCAG) to pass AA 4.5:1 vs white background and AA 3:1 for white text on filled surfaces."
+        },
+        "bg": {
+          "$value": "oklch(52% 0.17 152 / 0.063)",
+          "$type": "color",
+          "$description": "Success background, subtle tint of success.fg."
+        },
+        "on": {
+          "$value": "{color.base.white}",
+          "$type": "color",
+          "$description": "Readable on success.fg filled surfaces (WCAG AA)."
+        }
+      },
+      "error": {
+        "fg": {
+          "$value": "oklch(61.28% 0.2305 27.48)",
+          "$type": "color",
+          "$description": "Error foreground. Replaces Alexandria #ef2828 / true-red-opaque. Decision D2: single red (laser-red merged)."
+        },
+        "bg": {
+          "$value": "oklch(61.28% 0.2305 27.48 / 0.063)",
+          "$type": "color",
+          "$description": "Error background, subtle. Replaces Alexandria #ef282810."
+        },
+        "on": {
+          "$value": "{color.base.white}",
+          "$type": "color",
+          "$description": "Readable on error.fg filled surfaces (WCAG AA)."
+        }
+      },
+      "warning": {
+        "fg": {
+          "$value": "oklch(77.77% 0.1588 90.66)",
+          "$type": "color",
+          "$description": "Warning foreground. Replaces Alexandria #ddb101 / warning.fore."
+        },
+        "bg": {
+          "$value": "oklch(77.77% 0.1588 90.66 / 0.063)",
+          "$type": "color",
+          "$description": "Warning background, subtle. Replaces Alexandria #ddb10110 / warning.back."
+        },
+        "on": {
+          "$value": "{color.neutral.900}",
+          "$type": "color",
+          "$description": "Readable on warning.fg filled surfaces (WCAG AA). Warning is light/amber — needs dark on-color."
+        }
+      },
+      "info": {
+        "fg": {
+          "$value": "oklch(52% 0.17 246)",
+          "$type": "color",
+          "$description": "Info foreground. Darkened from Alexandria #009bf9 (L=67%, failed WCAG) to pass AA 4.5:1 vs white background."
+        },
+        "bg": {
+          "$value": "oklch(52% 0.17 246 / 0.063)",
+          "$type": "color",
+          "$description": "Info background, subtle tint of info.fg."
+        },
+        "on": {
+          "$value": "{color.base.white}",
+          "$type": "color",
+          "$description": "Readable on info.fg filled surfaces (WCAG AA)."
+        }
+      }
+    }
+  }
+}

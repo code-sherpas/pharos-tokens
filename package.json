@@ -36,7 +36,11 @@
     "onlyBuiltDependencies": [
       "esbuild",
       "style-dictionary"
-    ]
+    ],
+    "overrides": {
+      "vite": "^7.0.0",
+      "esbuild": "^0.25.0"
+    }
   },
   "scripts": {
     "build": "node build/style-dictionary.config.mjs",
@@ -62,6 +66,6 @@
     "prettier": "^3.4.2",
     "style-dictionary": "^5.4.0",
     "typescript": "^6.0.3",
-    "vitest": "^2.1.8"
+    "vitest": "^4.1.4"
   }
 }

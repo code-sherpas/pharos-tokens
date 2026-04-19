@@ -12,7 +12,8 @@
     "url": "https://github.com/code-sherpas/pharos-tokens/issues"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "type": "module",
   "files": [

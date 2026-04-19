@@ -57,7 +57,7 @@
     "@typescript-eslint/eslint-plugin": "^8.20.0",
     "@typescript-eslint/parser": "^8.20.0",
     "culori": "^4.0.1",
-    "eslint": "^9.18.0",
+    "eslint": "^10.2.1",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.4.2",
     "style-dictionary": "^4.3.0",

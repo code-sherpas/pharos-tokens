@@ -13,7 +13,7 @@ Every change to the public API of `@code-sherpas/pharos-tokens` — adding, modi
 ## Semver policy for pharos-tokens
 
 | Change                                         | Bump             |
-|------------------------------------------------|------------------|
+| ---------------------------------------------- | ---------------- |
 | Rename or remove a token                       | major (breaking) |
 | Add a new token                                | minor            |
 | Adjust a token value without renaming/removing | patch            |

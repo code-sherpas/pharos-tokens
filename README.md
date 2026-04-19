@@ -71,7 +71,7 @@ Ver [RULES.md](./RULES.md) — se publica con el paquete.
 ## Estructura de tokens
 
 | Familia    | Path ejemplo                                                                           | Descripción                                                |
-|------------|----------------------------------------------------------------------------------------|------------------------------------------------------------|
+| ---------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | Base       | `color.base.{white,black}`                                                             | Blanco y negro puros.                                      |
 | Neutrals   | `color.neutral.{50..950}`                                                              | Escala de grises, ligeramente navy-tinted en los darks.    |
 | Primary    | `color.primary.{50..900}`                                                              | Sea blue, escala 50-900. 600 es el hue base.               |

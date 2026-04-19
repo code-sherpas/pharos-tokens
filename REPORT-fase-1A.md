@@ -65,39 +65,39 @@ Todo bajo `/home/david/code-sherpas/pharos/pharos-tokens/` (branch `feat/fase-1a
 
 ### Colores (OKLCH) — ver `src/color.tokens.json` para valores completos
 
-| Token | OKLCH | Origen | Nota |
-|---|---|---|---|
-| `color.neutral.50` | `97.91% 0 0` | Alexandria `#f8f8f8` | |
-| `color.neutral.100` | `97.02% 0 0` | Alexandria `#f5f5f5` / `light-grey` | |
-| `color.neutral.200` | `95.21% 0 0` | Alexandria `#efefef` / `supporting.base` | |
-| `color.neutral.300` | `88.82% 0.0029 264` | Alexandria `#d9dadc` | Ligero tint navy. |
-| `color.neutral.400` | `81.09% 0 0` | Alexandria `#c1c1c1` | |
-| `color.neutral.500` | `52.78% 0 0` | Alexandria `#6b6b6b` / `secondary-text` | |
-| `color.neutral.600` | `35.62% 0 0` | Alexandria `#3c3c3c` | |
-| `color.neutral.700` | `29.52% 0.0107 254` | Alexandria `#292d32` | Tint navy. |
-| `color.neutral.800` | `37.05% 0.0436 247` | Alexandria `#2d4256` / `charcoal-blue` | Tint navy. |
-| `color.neutral.900` | `20.50% 0.02 248` | Alexandria `#101820` (279 usos) | **Hero neutral.** |
-| `color.neutral.950` | `14.69% 0.0225 269` | Alexandria `#070a14` | |
-| `color.primary.{50..900}` | escala lin/cromática | Derivado de Alexandria `#2a48e9` (sea-blue primitive) | 600 = hue base. |
-| `color.semantic.success.fg` | `52% 0.17 152` | **Ajustado desde** `#05b661` | Original fallaba AA. Darker para pasar. |
-| `color.semantic.error.fg` | `61.28% 0.2305 27` | Alexandria `#ef2828` (true-red) | Pasa AA sin ajuste. Laser-red eliminado per D2. |
-| `color.semantic.warning.fg` | `77.77% 0.1588 91` | Alexandria `#ddb101` | `on` = neutral.900 (warning es claro). |
-| `color.semantic.info.fg` | `52% 0.17 246` | **Ajustado desde** `#009bf9` | Original fallaba AA. Darker para pasar. |
+| Token                       | OKLCH                | Origen                                                | Nota                                            |
+| --------------------------- | -------------------- | ----------------------------------------------------- | ----------------------------------------------- |
+| `color.neutral.50`          | `97.91% 0 0`         | Alexandria `#f8f8f8`                                  |                                                 |
+| `color.neutral.100`         | `97.02% 0 0`         | Alexandria `#f5f5f5` / `light-grey`                   |                                                 |
+| `color.neutral.200`         | `95.21% 0 0`         | Alexandria `#efefef` / `supporting.base`              |                                                 |
+| `color.neutral.300`         | `88.82% 0.0029 264`  | Alexandria `#d9dadc`                                  | Ligero tint navy.                               |
+| `color.neutral.400`         | `81.09% 0 0`         | Alexandria `#c1c1c1`                                  |                                                 |
+| `color.neutral.500`         | `52.78% 0 0`         | Alexandria `#6b6b6b` / `secondary-text`               |                                                 |
+| `color.neutral.600`         | `35.62% 0 0`         | Alexandria `#3c3c3c`                                  |                                                 |
+| `color.neutral.700`         | `29.52% 0.0107 254`  | Alexandria `#292d32`                                  | Tint navy.                                      |
+| `color.neutral.800`         | `37.05% 0.0436 247`  | Alexandria `#2d4256` / `charcoal-blue`                | Tint navy.                                      |
+| `color.neutral.900`         | `20.50% 0.02 248`    | Alexandria `#101820` (279 usos)                       | **Hero neutral.**                               |
+| `color.neutral.950`         | `14.69% 0.0225 269`  | Alexandria `#070a14`                                  |                                                 |
+| `color.primary.{50..900}`   | escala lin/cromática | Derivado de Alexandria `#2a48e9` (sea-blue primitive) | 600 = hue base.                                 |
+| `color.semantic.success.fg` | `52% 0.17 152`       | **Ajustado desde** `#05b661`                          | Original fallaba AA. Darker para pasar.         |
+| `color.semantic.error.fg`   | `61.28% 0.2305 27`   | Alexandria `#ef2828` (true-red)                       | Pasa AA sin ajuste. Laser-red eliminado per D2. |
+| `color.semantic.warning.fg` | `77.77% 0.1588 91`   | Alexandria `#ddb101`                                  | `on` = neutral.900 (warning es claro).          |
+| `color.semantic.info.fg`    | `52% 0.17 246`       | **Ajustado desde** `#009bf9`                          | Original fallaba AA. Darker para pasar.         |
 
 ### Resultados WCAG
 
 Todos los pares fg/on pasan:
 
-| Par | Contraste | Umbral | Estado |
-|---|---:|---:|---|
-| semantic.error.fg vs error.on (white) | ~3.5 | 3.0 (AA large) | ✓ |
-| semantic.success.fg vs success.on (white) | ~4.9 | 3.0 | ✓ |
-| semantic.info.fg vs info.on (white) | ~5.3 | 3.0 | ✓ |
-| semantic.warning.fg vs warning.on (neutral.900) | ~8+ | 3.0 | ✓ |
-| neutral.500-900 on base.white | ≥5.5 | 4.5 (AA normal) | ✓ |
-| primary.600-900 on base.white | ≥5.0 | 4.5 | ✓ |
-| white on primary.600 | ~3.2 | 3.0 (AA large) | ✓ |
-| neutral.400 on base.white | <4.5 (expected) | — | Flagged decorative-only |
+| Par                                             |       Contraste |          Umbral | Estado                  |
+| ----------------------------------------------- | --------------: | --------------: | ----------------------- |
+| semantic.error.fg vs error.on (white)           |            ~3.5 |  3.0 (AA large) | ✓                       |
+| semantic.success.fg vs success.on (white)       |            ~4.9 |             3.0 | ✓                       |
+| semantic.info.fg vs info.on (white)             |            ~5.3 |             3.0 | ✓                       |
+| semantic.warning.fg vs warning.on (neutral.900) |             ~8+ |             3.0 | ✓                       |
+| neutral.500-900 on base.white                   |            ≥5.5 | 4.5 (AA normal) | ✓                       |
+| primary.600-900 on base.white                   |            ≥5.0 |             4.5 | ✓                       |
+| white on primary.600                            |            ~3.2 |  3.0 (AA large) | ✓                       |
+| neutral.400 on base.white                       | <4.5 (expected) |               — | Flagged decorative-only |
 
 ## Decisiones tomadas (cumplen D1-D7 del checkpoint de Fase 0)
 
@@ -129,17 +129,17 @@ Todos los pares fg/on pasan:
 
 ## Métricas de salud
 
-| Métrica | Valor |
-|---|---|
-| Archivos en `src/` | 5 DTCG |
-| Tokens declarados | 80+ (33 colores + 17 spacing + 12 typography + 8 radius + 4 shadow + 9 z + 3 duration + 3 easing + 2 base) |
-| CSS vars generadas | 88 |
-| Tests | 22 (100% pass) |
-| Lint / Typecheck / Format | Limpio |
-| Bundle `dist/index.js` | ~5.7 KB minified-estimated |
-| Bundle `dist/styles.css` | ~9 KB |
-| Tiempo de build | <1s |
-| Tiempo de tests | <500ms |
+| Métrica                   | Valor                                                                                                      |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Archivos en `src/`        | 5 DTCG                                                                                                     |
+| Tokens declarados         | 80+ (33 colores + 17 spacing + 12 typography + 8 radius + 4 shadow + 9 z + 3 duration + 3 easing + 2 base) |
+| CSS vars generadas        | 88                                                                                                         |
+| Tests                     | 22 (100% pass)                                                                                             |
+| Lint / Typecheck / Format | Limpio                                                                                                     |
+| Bundle `dist/index.js`    | ~5.7 KB minified-estimated                                                                                 |
+| Bundle `dist/styles.css`  | ~9 KB                                                                                                      |
+| Tiempo de build           | <1s                                                                                                        |
+| Tiempo de tests           | <500ms                                                                                                     |
 
 ## Checklist antes del merge
 

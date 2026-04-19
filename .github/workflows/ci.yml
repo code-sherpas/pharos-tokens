@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build
+        run: pnpm build
+
       - name: Typecheck
         run: pnpm typecheck
 
@@ -35,9 +38,6 @@ jobs:
 
       - name: Format check
         run: pnpm format:check
-
-      - name: Build
-        run: pnpm build
 
       - name: Test (WCAG + DTCG + CSS output)
         run: pnpm test

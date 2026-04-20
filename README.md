@@ -95,6 +95,7 @@ See [RULES.md](./RULES.md) — published with the package.
 
 CI validates WCAG 2.1 AA contrast on every color/on-color pair. A PR cannot be merged if it breaks contrast.
 
+
 ## License
 
 MIT. See [LICENSE](./LICENSE).

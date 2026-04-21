@@ -7,10 +7,18 @@ const tokens = tokensRaw as typeof tokensRaw & {
     base: { white: string; black: string };
     neutral: Record<string, string>;
     primary: Record<string, string>;
-    semantic: Record<
-      'success' | 'error' | 'warning' | 'info',
-      { fg: string; bg: string; on: string }
-    >;
+    semantic: {
+      success: { fg: string; bg: string; on: string };
+      error: {
+        fg: string;
+        'fg-hover': string;
+        'fg-active': string;
+        bg: string;
+        on: string;
+      };
+      warning: { fg: string; bg: string; on: string };
+      info: { fg: string; bg: string; on: string };
+    };
   };
 };
 
@@ -70,6 +78,35 @@ describe('WCAG 2.1 AA contrast for semantic color pairs', () => {
   it.each(cases)('%s passes AA', (_name, surface, onSurface, threshold) => {
     const ratio = contrast(surface, onSurface);
     expect(ratio).toBeGreaterThanOrEqual(threshold);
+  });
+});
+
+describe('WCAG 2.1 AA contrast for error hover/active states', () => {
+  // Interactive states on filled destructive buttons must still be legible
+  // against the same `on` color used for the base state. Hover/active shades
+  // are darker than `fg`, so contrast should be equal-or-better — the tests
+  // lock that in so future adjustments can't regress it.
+  const errorOn = tokens.color.semantic.error.on;
+  const cases: Array<[string, string, number]> = [
+    ['error.fg-hover vs error.on', tokens.color.semantic.error['fg-hover'], AA_NORMAL],
+    ['error.fg-active vs error.on', tokens.color.semantic.error['fg-active'], AA_NORMAL],
+  ];
+
+  it.each(cases)('%s passes AA normal text', (_name, surface, threshold) => {
+    const ratio = contrast(surface, errorOn);
+    expect(ratio).toBeGreaterThanOrEqual(threshold);
+  });
+
+  it('error.fg-hover is darker than error.fg', () => {
+    const base = contrast(tokens.color.semantic.error.fg, errorOn);
+    const hover = contrast(tokens.color.semantic.error['fg-hover'], errorOn);
+    expect(hover).toBeGreaterThan(base);
+  });
+
+  it('error.fg-active is darker than error.fg-hover', () => {
+    const hover = contrast(tokens.color.semantic.error['fg-hover'], errorOn);
+    const active = contrast(tokens.color.semantic.error['fg-active'], errorOn);
+    expect(active).toBeGreaterThan(hover);
   });
 });
 

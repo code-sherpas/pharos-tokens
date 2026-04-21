@@ -145,6 +145,16 @@
           "$type": "color",
           "$description": "Error foreground. Replaces Alexandria #ef2828 / true-red-opaque. Decision D2: single red (laser-red merged)."
         },
+        "fg-hover": {
+          "$value": "oklch(54% 0.22 27.48)",
+          "$type": "color",
+          "$description": "Darker shade of error.fg for hover states on filled destructive surfaces. Passes WCAG AA 4.5:1 against error.on (white)."
+        },
+        "fg-active": {
+          "$value": "oklch(46% 0.195 27.48)",
+          "$type": "color",
+          "$description": "Darker still — pressed/active state for filled destructive surfaces. Passes WCAG AAA 7:1 against error.on (white)."
+        },
         "bg": {
           "$value": "oklch(61.28% 0.2305 27.48 / 0.063)",
           "$type": "color",

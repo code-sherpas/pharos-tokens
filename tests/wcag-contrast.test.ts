@@ -48,24 +48,35 @@ describe('WCAG 2.1 AA contrast for semantic color pairs', () => {
   // the green badge), and `.on` is the content — text or icon — placed on top.
   // `surface` / `onSurface` match the Material/Tailwind v4 convention for these
   // roles; the test case labels still reference the token paths.
+  //
+  // Threshold rationale:
+  //   error/success/info — AA_NORMAL (4.5:1). These are consumed as filled
+  //   buttons with 14px regular-weight text, so the stricter threshold
+  //   applies. Values are darkened vs Alexandria where needed (see token
+  //   descriptions).
+  //   warning — AA_LARGE (3:1). Warning is an amber with a *dark* `on` color
+  //   (neutral-900). Amber cannot pass AA normal against dark text without
+  //   becoming visually indistinguishable from success/primary — industry
+  //   practice (Material, Carbon, Primer) uses AA large for warning surfaces
+  //   or accompanies them with an icon + heavier weight.
   const cases: Array<[string, string, string, number]> = [
     [
       'semantic.error.fg vs error.on',
       tokens.color.semantic.error.fg,
       tokens.color.semantic.error.on,
-      AA_LARGE,
+      AA_NORMAL,
     ],
     [
       'semantic.success.fg vs success.on',
       tokens.color.semantic.success.fg,
       tokens.color.semantic.success.on,
-      AA_LARGE,
+      AA_NORMAL,
     ],
     [
       'semantic.info.fg vs info.on',
       tokens.color.semantic.info.fg,
       tokens.color.semantic.info.on,
-      AA_LARGE,
+      AA_NORMAL,
     ],
     [
       'semantic.warning.fg vs warning.on',
@@ -75,7 +86,7 @@ describe('WCAG 2.1 AA contrast for semantic color pairs', () => {
     ],
   ];
 
-  it.each(cases)('%s passes AA', (_name, surface, onSurface, threshold) => {
+  it.each(cases)('%s passes threshold', (_name, surface, onSurface, threshold) => {
     const ratio = contrast(surface, onSurface);
     expect(ratio).toBeGreaterThanOrEqual(threshold);
   });

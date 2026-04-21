@@ -141,29 +141,29 @@
       },
       "error": {
         "fg": {
-          "$value": "oklch(61.28% 0.2305 27.48)",
-          "$type": "color",
-          "$description": "Error foreground. Replaces Alexandria #ef2828 / true-red-opaque. Decision D2: single red (laser-red merged)."
-        },
-        "fg-hover": {
           "$value": "oklch(54% 0.22 27.48)",
           "$type": "color",
-          "$description": "Darker shade of error.fg for hover states on filled destructive surfaces. Passes WCAG AA 4.5:1 against error.on (white)."
+          "$description": "Error foreground. Darkened from Alexandria #ef2828 (L=61%, contrast 4.19 against white failed WCAG AA 4.5:1 for normal text in filled destructive buttons) to pass AA 4.5:1 (contrast 5.68 vs white). Decision D2: single red (laser-red merged). Same precedent as success.fg and info.fg — Alexandria's value failed AA, Pharos fixes it systemically."
+        },
+        "fg-hover": {
+          "$value": "oklch(47% 0.205 27.48)",
+          "$type": "color",
+          "$description": "Darker shade of error.fg for hover states on filled destructive surfaces. Contrast 7.26 vs error.on (white), passes WCAG AA 4.5:1 with margin."
         },
         "fg-active": {
-          "$value": "oklch(46% 0.195 27.48)",
+          "$value": "oklch(40% 0.175 27.48)",
           "$type": "color",
-          "$description": "Darker still — pressed/active state for filled destructive surfaces. Passes WCAG AAA 7:1 against error.on (white)."
+          "$description": "Darkest — pressed/active state for filled destructive surfaces. Contrast 9.69 vs error.on (white), passes WCAG AAA 7:1."
         },
         "bg": {
-          "$value": "oklch(61.28% 0.2305 27.48 / 0.063)",
+          "$value": "oklch(54% 0.22 27.48 / 0.063)",
           "$type": "color",
-          "$description": "Error background, subtle. Replaces Alexandria #ef282810."
+          "$description": "Error background, subtle tint of error.fg. Tracks the darkened fg so the relationship stays consistent."
         },
         "on": {
           "$value": "{color.base.white}",
           "$type": "color",
-          "$description": "Readable on error.fg filled surfaces (WCAG AA)."
+          "$description": "Readable on error.fg filled surfaces (WCAG AA 4.5:1 for normal text)."
         }
       },
       "warning": {

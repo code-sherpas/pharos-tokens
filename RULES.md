@@ -48,3 +48,13 @@ When picking which tokens to use, respect the defined pairs:
 ## 7. Extensions and overrides
 
 **Do not** publish a new package `@yourorg/pharos-tokens-extended`. If a product needs its own tokens (e.g. co-branded identities), implement them as additional CSS vars in the consumer under your own namespace (`--myapp-*`) and document it.
+
+## 8. Font loading is the consumer's responsibility
+
+`pharos-tokens` declares the font stack (e.g. `"Outfit", Inter, system-ui, ...`) but does **not** ship font files. The package stays framework-agnostic and cannot assume how the consumer serves assets. Each consumer is responsible for loading the primary face before the UI renders:
+
+- **Next.js**: `next/font/google` with `Outfit` (and optionally `Inter`) in the root layout.
+- **Vite / CRA / generic web**: `@fontsource/outfit` + `@fontsource/inter`, or a `<link>` tag to Google Fonts.
+- **Emails / PDFs**: the renderer falls back through the stack; declare `Outfit` as the primary face only if the renderer can embed it, otherwise the fallback chain kicks in.
+
+If the primary face is not loaded, the stack falls back through `Inter → system-ui → ...`, so the UI degrades gracefully — but the intended design requires the primary face.

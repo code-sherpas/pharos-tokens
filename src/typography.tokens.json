@@ -2,9 +2,9 @@
   "font": {
     "family": {
       "sans": {
-        "$value": "\"Inter\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+        "$value": "\"Outfit\", Inter, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
         "$type": "fontFamily",
-        "$description": "Default sans-serif stack. Inter can be replaced at the consumer layer via CSS var override."
+        "$description": "Default sans-serif stack. Outfit is the primary face (Decision D8); Inter is the fallback before system fonts. Loading Outfit is the consumer's responsibility — see RULES.md §8."
       },
       "mono": {
         "$value": "ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace",

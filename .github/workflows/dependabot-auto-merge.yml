@@ -1,0 +1,47 @@
+name: Dependabot auto-merge
+
+# Auto-merge Dependabot PRs that are low-risk: patch + minor bumps of devDependencies.
+# Major bumps keep waiting for a human review.
+#
+# `gh pr merge --auto --squash` only flips the merge switch — GitHub still requires
+# every required status check (CI, CodeQL) to pass before the merge happens.
+# This workflow does not bypass branch protection.
+#
+# pharos-tokens declares only devDependencies (rule §8 in CLAUDE.md), so the
+# `direct:development` filter is the natural fit for "anything Dependabot opens
+# here that is non-major". Should the rule ever change and a runtime dep land,
+# this workflow correctly leaves it for human review.
+#
+# Required GitHub setup (one-off):
+#   - Repository setting "Allow auto-merge" must be enabled.
+#   - Any secret used by a workflow that runs on Dependabot PRs must also exist
+#     under Settings → Secrets and variables → Dependabot. None are needed today
+#     (no Chromatic / external token in this repo).
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  auto-merge:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable auto-merge for low-risk bumps
+        if: |
+          steps.metadata.outputs.update-type != 'version-update:semver-major'
+          && steps.metadata.outputs.dependency-type == 'direct:development'
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge --auto --squash "$PR_URL"

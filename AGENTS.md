@@ -28,8 +28,8 @@ Principles:
    reverse.** (Cardinal rule, restated by the CTO on 2026-04-26.)
    pharos-tokens is the explicit extraction of Alexandria's implicit
    token system, but it is not Alexandria's mirror — it is the
-   state-of-the-art version Alexandria will adopt. Token *numerical
-   values* stay as close to Alexandria as possible (so the visual
+   state-of-the-art version Alexandria will adopt. Token _numerical
+   values_ stay as close to Alexandria as possible (so the visual
    delta at adoption is small) but **the schema, naming, scales,
    references and DTCG conformance follow modern DS conventions**
    even when Alexandria's implicit approach diverges. When a

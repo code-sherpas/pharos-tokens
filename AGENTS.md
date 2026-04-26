@@ -24,12 +24,25 @@ apps (`alexandria-*`) consume it, not the other way around.
 
 Principles:
 
-1. **Framework-agnostic.** Zero dependencies on React, Vue, etc.
-2. **Consumable in plain HTML.** A transactional email or a server-generated
+1. **State-of-the-art first; Alexandria adapts to Pharos, not the
+   reverse.** (Cardinal rule, restated by the CTO on 2026-04-26.)
+   pharos-tokens is the explicit extraction of Alexandria's implicit
+   token system, but it is not Alexandria's mirror — it is the
+   state-of-the-art version Alexandria will adopt. Token *numerical
+   values* stay as close to Alexandria as possible (so the visual
+   delta at adoption is small) but **the schema, naming, scales,
+   references and DTCG conformance follow modern DS conventions**
+   even when Alexandria's implicit approach diverges. When a
+   best-practice choice (DTCG types, OKLCH, semantic role naming,
+   8px grid, contrast guarantees) conflicts with an Alexandria
+   quirk, the DS choice wins. Alexandria refactors at adoption time;
+   structural cases roll into Phase 6.
+2. **Framework-agnostic.** Zero dependencies on React, Vue, etc.
+3. **Consumable in plain HTML.** A transactional email or a server-generated
    PDF must be able to use the CSS vars as-is.
-3. **Independent versioning.** pharos-tokens has its own semver;
+4. **Independent versioning.** pharos-tokens has its own semver;
    pharos-react declares which token versions it supports.
-4. **Validated accessibility.** Every color/on-color pair passes
+5. **Validated accessibility.** Every color/on-color pair passes
    WCAG 2.1 AA in CI.
 
 ## NON-NEGOTIABLE rules

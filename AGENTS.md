@@ -126,3 +126,50 @@ the shadcn MCP** — this repo does not deal with components.
 - `pnpm changeset` — create a changeset
 - `pnpm release` — (CI only) build + publish to npm
 - `node scripts/compute-oklch.mjs` — helper to convert Alexandria hex values to OKLCH
+
+## Project knowledge & where things go
+
+This repo is part of the **Pharos design-system program** (`pharos-tokens` →
+`pharos-react` → `alexandria-design` → `alexandria-web-application`).
+Program-level knowledge lives in **Notion → "Programa Pharos"**; code-coupled
+knowledge lives in the repos.
+
+**Rule #0 — cardinal, non-negotiable (overrides every other rule here and in
+Notion).** Pharos follows the **state-of-the-art of the best design systems** —
+clarity, accessibility, canonical naming, API contracts, scales, DTCG
+conformance — **above any Alexandria-specific consideration** (visual fidelity,
+quirks, convenience). Pharos is the state-of-the-art version Alexandria adopts,
+not its mirror. When a DS best practice conflicts with something in Alexandria,
+the DS wins; Alexandria adapts at adoption time. Token numerical values stay as
+close to Alexandria as possible, but schema/naming/scales/references follow
+modern DS conventions. (This restates Principle #1 above and is the program's
+top rule.)
+
+**Notion — "Programa Pharos" (team space):**
+
+- Hub: https://app.notion.com/p/38c1751eee1081a3834ff68c3485c03c
+- Roadmap: https://app.notion.com/p/38c1751eee10819189e2d0055549bc38
+- Status: https://app.notion.com/p/38c1751eee1081589118edcdd40d5eee
+- Decisions (D1–D17): https://app.notion.com/p/fea64661135b4c9aa186b4293f639dee
+- Runbooks (CI/release/Chromatic, verification): https://app.notion.com/p/38c1751eee108126b580fc8b76f8205f
+- Working agreements: https://app.notion.com/p/38c1751eee1081e29d03f4a97d2a9e96
+- Tasks / follow-ups: https://app.notion.com/p/3ad5ddddeb384e449d8ca966e4700165
+- Onboarding: https://app.notion.com/p/38c1751eee10814d989ddeaf01c45838
+
+**Where each thing goes** — single source of truth: each fact has ONE home;
+link from elsewhere, never copy.
+
+| Content                                                         | Home                                                    |
+| --------------------------------------------------------------- | ------------------------------------------------------- |
+| Code, tests, changesets                                         | this repo                                               |
+| Library/API contract, token naming, scales                      | the owning Pharos repo (`RULES.md`)                     |
+| Per-repo tech debt & adoption log                               | the repo (`docs/`)                                      |
+| Agent skills (how we build)                                     | `code-sherpas/agent-skills` (skills-lock)               |
+| Roadmap, plan, phase status                                     | Notion → Roadmap / Status                               |
+| Architecture/program decisions (ADRs)                           | Notion → Decisions (link to the repo doc if repo-local) |
+| Runbooks, CI/release/Chromatic quirks, verification recipes     | Notion → Runbooks                                       |
+| Team norms / working agreements                                 | Notion → Working agreements                             |
+| Task tracking / follow-ups                                      | Notion → Tasks                                          |
+| Personal / machine-local (`settings.local.json`, language pref) | stays local; never shared                               |
+
+`CLAUDE.md` is a symlink to this file (`.claude/CLAUDE.md → ../AGENTS.md`).

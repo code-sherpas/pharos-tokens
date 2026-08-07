@@ -200,6 +200,138 @@
           "$description": "Readable on info.fg filled surfaces (WCAG AA)."
         }
       }
+    },
+    "paper": {
+      "50": {
+        "$value": "oklch(99.4% 0.003 70)",
+        "$type": "color",
+        "$description": "Warmest, lightest paper. Sunken surfaces inside a card."
+      },
+      "100": {
+        "$value": "oklch(98.5% 0.009 70)",
+        "$type": "color",
+        "$description": "The page canvas of the redesigned screens."
+      },
+      "200": {
+        "$value": "oklch(96.5% 0.010 70)",
+        "$type": "color",
+        "$description": "Panels and hovers on paper."
+      },
+      "300": {
+        "$value": "oklch(93.5% 0.010 70)",
+        "$type": "color",
+        "$description": "The rule that separates paper from paper."
+      }
+    },
+    "rule": {
+      "subtle": {
+        "$value": "oklch(91.5% 0.008 248.83)",
+        "$type": "color",
+        "$description": "Hairline between rows and inside cards."
+      },
+      "strong": {
+        "$value": "oklch(85.5% 0.012 248.83)",
+        "$type": "color",
+        "$description": "Visible border of a surface."
+      }
+    },
+    "surface": {
+      "canvas": {
+        "$value": "{color.paper.100}",
+        "$type": "color",
+        "$description": "The page itself."
+      },
+      "card": {
+        "$value": "{color.base.white}",
+        "$type": "color",
+        "$description": "A surface resting on the canvas."
+      },
+      "sunken": {
+        "$value": "{color.paper.50}",
+        "$type": "color",
+        "$description": "A well inside a card."
+      }
+    },
+    "border": {
+      "subtle": {
+        "$value": "{color.rule.subtle}",
+        "$type": "color",
+        "$description": "Border of a resting surface."
+      },
+      "strong": {
+        "$value": "{color.rule.strong}",
+        "$type": "color",
+        "$description": "Border that has to be seen."
+      }
+    },
+    "accent": {
+      "terracotta": {
+        "50": {
+          "$value": "oklch(96.50% 0.0160 42.5)",
+          "$type": "color",
+          "$description": "Tint surface for warm-accent blocks."
+        },
+        "100": {
+          "$value": "oklch(93.00% 0.0350 42.5)",
+          "$type": "color",
+          "$description": "Hover of the tint surface."
+        },
+        "200": {
+          "$value": "oklch(87.00% 0.0620 42.5)",
+          "$type": "color",
+          "$description": "Border of a warm-accent block."
+        },
+        "300": {
+          "$value": "oklch(79.00% 0.0950 42.5)",
+          "$type": "color",
+          "$description": "Disabled warm accent."
+        },
+        "400": {
+          "$value": "oklch(70.00% 0.1220 42.5)",
+          "$type": "color",
+          "$description": "Warm accent on dark surfaces."
+        },
+        "500": {
+          "$value": "oklch(65.00% 0.1320 42.5)",
+          "$type": "color",
+          "$description": "The accent at full strength."
+        },
+        "600": {
+          "$value": "oklch(60.75% 0.1358 42.5)",
+          "$type": "color",
+          "$description": "Default warm accent (#C4633A)."
+        },
+        "700": {
+          "$value": "oklch(51.60% 0.1261 40.7)",
+          "$type": "color",
+          "$description": "Warm accent as ink: 5.92:1 on white, AA (#A24A28)."
+        },
+        "800": {
+          "$value": "oklch(42.00% 0.1020 42.5)",
+          "$type": "color",
+          "$description": "Pressed step."
+        },
+        "900": {
+          "$value": "oklch(33.00% 0.0770 42.5)",
+          "$type": "color",
+          "$description": "Darkest step."
+        },
+        "fg": {
+          "$value": "{color.accent.terracotta.700}",
+          "$type": "color",
+          "$description": "Readable warm-accent ink on white."
+        },
+        "bg": {
+          "$value": "{color.accent.terracotta.50}",
+          "$type": "color",
+          "$description": "Warm-accent tint surface."
+        },
+        "on": {
+          "$value": "{color.base.white}",
+          "$type": "color",
+          "$description": "Readable on a filled warm-accent surface."
+        }
+      }
     }
   }
 }

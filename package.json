@@ -60,7 +60,7 @@
     "*.{ts,tsx,js,mjs,cjs,json,md,mdx,css,yml,yaml}": "prettier --write"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.10",
+    "@changesets/cli": "^3.0.1",
     "@types/culori": "^4.0.1",
     "@types/node": "^25.6.0",
     "@typescript-eslint/eslint-plugin": "^8.20.0",

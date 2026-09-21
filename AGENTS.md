@@ -157,7 +157,6 @@ link from elsewhere, never copy.
 | Library/API contract, token naming, scales                      | the owning Pharos repo (`RULES.md`)                         |
 | Per-repo tech debt & adoption log                               | the repo (`docs/`)                                          |
 | Software development standards (how we build)                   | `code-sherpas/software-development-standards` (read by URL) |
-| Agent skills (procedures an agent runs)                         | `code-sherpas/agent-skills` (skills-lock)                   |
 | Roadmap, plan, phase status                                     | Notion → Roadmap / Status                                   |
 | Architecture/program decisions (ADRs)                           | Notion → Decisions (link to the repo doc if repo-local)     |
 | Runbooks, CI/release/Chromatic quirks, verification recipes     | Notion → Runbooks                                           |

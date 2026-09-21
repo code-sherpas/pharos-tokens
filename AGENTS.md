@@ -80,14 +80,6 @@ The raw DTCG source files (`src/*.tokens.json`) are exposed via the `./dtcg/*`
 subpath for advanced consumers that transform them with their own tools
 (e.g. iOS/Android token pipelines).
 
-## Workflow to update a token
-
-See skill `update-token` in `.agents/skills/update-token/SKILL.md`.
-
-## Workflow to introduce a new category
-
-See skill `add-token-category` in `.agents/skills/add-token-category/SKILL.md`.
-
 ## Source of the values
 
 The current tokens are derived from the Alexandria analysis documented in

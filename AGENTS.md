@@ -159,17 +159,18 @@ top rule.)
 **Where each thing goes** — single source of truth: each fact has ONE home;
 link from elsewhere, never copy.
 
-| Content                                                         | Home                                                    |
-| --------------------------------------------------------------- | ------------------------------------------------------- |
-| Code, tests, changesets                                         | this repo                                               |
-| Library/API contract, token naming, scales                      | the owning Pharos repo (`RULES.md`)                     |
-| Per-repo tech debt & adoption log                               | the repo (`docs/`)                                      |
-| Agent skills (how we build)                                     | `code-sherpas/agent-skills` (skills-lock)               |
-| Roadmap, plan, phase status                                     | Notion → Roadmap / Status                               |
-| Architecture/program decisions (ADRs)                           | Notion → Decisions (link to the repo doc if repo-local) |
-| Runbooks, CI/release/Chromatic quirks, verification recipes     | Notion → Runbooks                                       |
-| Team norms / working agreements                                 | Notion → Working agreements                             |
-| Task tracking / follow-ups                                      | Notion → Tasks                                          |
-| Personal / machine-local (`settings.local.json`, language pref) | stays local; never shared                               |
+| Content                                                         | Home                                                        |
+| --------------------------------------------------------------- | ----------------------------------------------------------- |
+| Code, tests, changesets                                         | this repo                                                   |
+| Library/API contract, token naming, scales                      | the owning Pharos repo (`RULES.md`)                         |
+| Per-repo tech debt & adoption log                               | the repo (`docs/`)                                          |
+| Software development standards (how we build)                   | `code-sherpas/software-development-standards` (read by URL) |
+| Agent skills (procedures an agent runs)                         | `code-sherpas/agent-skills` (skills-lock)                   |
+| Roadmap, plan, phase status                                     | Notion → Roadmap / Status                                   |
+| Architecture/program decisions (ADRs)                           | Notion → Decisions (link to the repo doc if repo-local)     |
+| Runbooks, CI/release/Chromatic quirks, verification recipes     | Notion → Runbooks                                           |
+| Team norms / working agreements                                 | Notion → Working agreements                                 |
+| Task tracking / follow-ups                                      | Notion → Tasks                                              |
+| Personal / machine-local (`settings.local.json`, language pref) | stays local; never shared                                   |
 
 `CLAUDE.md` is a symlink to this file (`.claude/CLAUDE.md → ../AGENTS.md`).

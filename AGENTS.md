@@ -80,14 +80,6 @@ The raw DTCG source files (`src/*.tokens.json`) are exposed via the `./dtcg/*`
 subpath for advanced consumers that transform them with their own tools
 (e.g. iOS/Android token pipelines).
 
-## Workflow to update a token
-
-See skill `update-token` in `.agents/skills/update-token/SKILL.md`.
-
-## Workflow to introduce a new category
-
-See skill `add-token-category` in `.agents/skills/add-token-category/SKILL.md`.
-
 ## Source of the values
 
 The current tokens are derived from the Alexandria analysis documented in
@@ -159,17 +151,17 @@ top rule.)
 **Where each thing goes** — single source of truth: each fact has ONE home;
 link from elsewhere, never copy.
 
-| Content                                                         | Home                                                    |
-| --------------------------------------------------------------- | ------------------------------------------------------- |
-| Code, tests, changesets                                         | this repo                                               |
-| Library/API contract, token naming, scales                      | the owning Pharos repo (`RULES.md`)                     |
-| Per-repo tech debt & adoption log                               | the repo (`docs/`)                                      |
-| Agent skills (how we build)                                     | `code-sherpas/agent-skills` (skills-lock)               |
-| Roadmap, plan, phase status                                     | Notion → Roadmap / Status                               |
-| Architecture/program decisions (ADRs)                           | Notion → Decisions (link to the repo doc if repo-local) |
-| Runbooks, CI/release/Chromatic quirks, verification recipes     | Notion → Runbooks                                       |
-| Team norms / working agreements                                 | Notion → Working agreements                             |
-| Task tracking / follow-ups                                      | Notion → Tasks                                          |
-| Personal / machine-local (`settings.local.json`, language pref) | stays local; never shared                               |
+| Content                                                         | Home                                                        |
+| --------------------------------------------------------------- | ----------------------------------------------------------- |
+| Code, tests, changesets                                         | this repo                                                   |
+| Library/API contract, token naming, scales                      | the owning Pharos repo (`RULES.md`)                         |
+| Per-repo tech debt & adoption log                               | the repo (`docs/`)                                          |
+| Software development standards (how we build)                   | `code-sherpas/software-development-standards` (read by URL) |
+| Roadmap, plan, phase status                                     | Notion → Roadmap / Status                                   |
+| Architecture/program decisions (ADRs)                           | Notion → Decisions (link to the repo doc if repo-local)     |
+| Runbooks, CI/release/Chromatic quirks, verification recipes     | Notion → Runbooks                                           |
+| Team norms / working agreements                                 | Notion → Working agreements                                 |
+| Task tracking / follow-ups                                      | Notion → Tasks                                              |
+| Personal / machine-local (`settings.local.json`, language pref) | stays local; never shared                                   |
 
 `CLAUDE.md` is a symlink to this file (`.claude/CLAUDE.md → ../AGENTS.md`).

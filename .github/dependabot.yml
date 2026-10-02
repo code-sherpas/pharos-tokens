@@ -23,6 +23,12 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+    # Match pnpm's `minimum-release-age` (7 days, .npmrc): do not propose a
+    # version pnpm itself would refuse to resolve. Own-org packages are exempt.
+    cooldown:
+      default-days: 7
+      exclude:
+        - '@code-sherpas/*'
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: 'github-actions'
     directory: '/'

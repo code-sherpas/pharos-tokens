@@ -21,6 +21,9 @@ export default [
     rules: {
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      // A numeric literal that a double cannot hold silently becomes another
+      // number (`9007199254740993` is 9007199254740992 at runtime).
+      'no-loss-of-precision': 'error',
     },
   },
   {

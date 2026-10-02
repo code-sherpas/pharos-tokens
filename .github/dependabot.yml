@@ -7,10 +7,29 @@ version: 2
 updates:
   - package-ecosystem: 'npm' # See documentation for possible values
     directory: '/' # Location of package manifests
+    # Weekly (was daily) + grouped, the same shape as pharos-react: every
+    # Dependabot PR runs the whole CI, and daily + ungrouped meant one PR per
+    # package per day, each a full run, plus another on every rebase while the
+    # others merged. Majors stay ungrouped so a breaking bump is reviewed on
+    # its own. This keeps the dependabot-auto-merge workflow working: this
+    # package declares only devDependencies (rule §8), so the group is
+    # dev-only + non-major and still matches its
+    # `dependency-type == direct:development && update-type != major` gate.
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
+    groups:
+      dev-dependencies:
+        dependency-type: 'development'
+        update-types:
+          - 'minor'
+          - 'patch'
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
+    # One grouped PR for all action bumps, to keep the PR count down.
+    groups:
+      github-actions:
+        patterns:
+          - '*'

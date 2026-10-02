@@ -41,9 +41,20 @@ export default [
       },
     },
     rules: {
-      // A promise where a value is expected — a condition, a spread, a
-      // callback whose return is ignored — is a bug the compiler accepts.
-      '@typescript-eslint/no-misused-promises': 'error',
+      // js/missing-await — a promise used where its value was meant: as a
+      // condition (`if (isAllowed())` on an async predicate is always true) or
+      // spread into an object. That is what `checksConditionals` and
+      // `checksSpreads` cover (ALEXANDRIA-85).
+      //
+      // `checksVoidReturn` is off, as in alexandria-web-application. It reports
+      // an async function handed to something that ignores what it returns (a
+      // JSX handler, a timer, a listener), and the fix it asks for — wrapping
+      // it in `void` — handles no error. Whether a rejection reaches anyone is
+      // `no-floating-promises`' question, not this rule's.
+      '@typescript-eslint/no-misused-promises': [
+        'error',
+        { checksConditionals: true, checksSpreads: true, checksVoidReturn: false },
+      ],
     },
   },
   // What GitHub Code Quality checked, checked here instead.

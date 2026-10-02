@@ -27,9 +27,7 @@ const toRgb = converter('rgb');
 function resolveToHex(value: string): string {
   const parsed = parse(value);
   if (!parsed) throw new Error(`Unparseable color: ${value}`);
-  const rgb = toRgb(parsed);
-  if (!rgb) throw new Error(`Unconvertible color (to rgb): ${value}`);
-  return formatHex(rgb);
+  return formatHex(toRgb(parsed));
 }
 
 function contrast(a: string, b: string): number {

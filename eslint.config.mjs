@@ -55,6 +55,12 @@ export default [
         'error',
         { checksConditionals: true, checksSpreads: true, checksVoidReturn: false },
       ],
+
+      // A check the types say can never change the outcome is either dead
+      // code or a type that lies. Where a value crosses a boundary (JSON, a
+      // third-party library) and the check is load-bearing, fix the type or
+      // keep the check with an eslint-disable comment that says why.
+      '@typescript-eslint/no-unnecessary-condition': 'error',
     },
   },
   // What GitHub Code Quality checked, checked here instead.

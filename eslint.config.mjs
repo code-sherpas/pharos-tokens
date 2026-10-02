@@ -26,6 +26,26 @@ export default [
   {
     ignores: ['dist/**', 'node_modules/**', 'coverage/**'],
   },
+  // Type-aware rules. The project service gives each file the program of the
+  // nearest tsconfig.json; the files no tsconfig includes (the .mjs scripts —
+  // tsconfig.json has no allowJs — and vitest.config.ts) get the default
+  // project instead, so they are linted with types too.
+  {
+    files: ['**/*.ts', '**/*.mjs'],
+    languageOptions: {
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: ['*.mjs', 'vitest.config.ts', 'build/*.mjs', 'scripts/*.mjs'],
+        },
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    rules: {
+      // A promise where a value is expected — a condition, a spread, a
+      // callback whose return is ignored — is a bug the compiler accepts.
+      '@typescript-eslint/no-misused-promises': 'error',
+    },
+  },
   // What GitHub Code Quality checked, checked here instead.
   //
   // Code Quality runs CodeQL's JavaScript quality suite — every query tagged

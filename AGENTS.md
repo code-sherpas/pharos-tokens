@@ -116,10 +116,14 @@ Edit it there, never here._
 
 ## Philosophy
 
-pharos-tokens is the **single source of truth** for Code Sherpas's atomic
-visual decisions. Anything with a value (color, spacing, radius, typography,
-shadow, animation, z-index) lives here. Components (in `pharos-react`) and
-apps (`alexandria-*`) consume it, not the other way around.
+The source of truth for every Pharos token is the **Pharos design system
+artifact** (https://claude.ai/artifact/AzsXQ2SHXhPJ9BhRSoGTbV, decision D23).
+pharos-tokens is how applications consume those tokens programmatically:
+anything with a value (color, spacing, radius, typography, shadow, animation,
+z-index) is published from here, and components (`pharos-react`) and apps
+consume it from here. A token changes in the artifact first; `src/` follows it
+through `node scripts/sync-from-artifact.ts` (see `artifact/README.md`), and
+the `artifact-sync` test fails while they disagree.
 
 Principles:
 
@@ -181,7 +185,9 @@ subpath for advanced consumers that transform them with their own tools
 
 ## Source of the values
 
-The current tokens are derived from the Alexandria analysis documented in
+The values come from the design system artifact, through the snapshot in
+`artifact/`. Historically, the first tokens were derived from the Alexandria
+analysis documented in
 `alexandria-web-application:feat/fase-0-analysis/ANALYSIS-tokens.md` and from
 the architectural decisions approved in the plan
 (`PLAN-pharos-alexandria.md`, Fase 0 checkpoint, 2026-04-19).
@@ -216,6 +222,7 @@ the shadcn MCP** — this repo does not deal with components.
 - `pnpm format` / `pnpm format:check` — Prettier
 - `pnpm changeset` — create a changeset
 - `pnpm release` — (CI only) build + publish to npm
+- `node scripts/sync-from-artifact.ts [--write]` — compare `src/` with the artifact snapshot in `artifact/` (and copy changed values and usage notes into `src/`)
 - `node scripts/compute-oklch.mjs` — helper to convert Alexandria hex values to OKLCH
 
 ## Project knowledge & where things go

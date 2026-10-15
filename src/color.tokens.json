@@ -4,200 +4,200 @@
       "white": {
         "$value": "oklch(100% 0 0)",
         "$type": "color",
-        "$description": "Pure white. Used as surface background and typical on-color for dark brand fills."
+        "$description": "Pure white. Cards, panels, sheets and popovers (via surface-card); text and icons on dark and semantic fills."
       },
       "black": {
         "$value": "oklch(0% 0 0)",
         "$type": "color",
-        "$description": "Pure black. Rarely used — prefer color.neutral.900 for text and dark surfaces."
+        "$description": "Pure black base value."
       }
     },
     "neutral": {
       "50": {
-        "$value": "oklch(97.91% 0 0)",
+        "$value": "oklch(97.91% 0.003 248.83)",
         "$type": "color",
-        "$description": "Lightest surface. Replaces Alexandria #f8f8f8 and legacy 'grey'."
+        "$description": "Ink ramp (tints of navy). The light steps 50–400 are disabled / low-emphasis ink: reach for paper-* (fills) or rule-* (lines) first. The Pharos-faithful components still use 50/100/200 for hover and press bands (un-migrated)."
       },
       "100": {
-        "$value": "oklch(97.02% 0 0)",
+        "$value": "oklch(97.02% 0.004 248.83)",
         "$type": "color",
-        "$description": "Subtle surface. Replaces Alexandria #f5f5f5 / light-grey / supporting.light."
+        "$description": "Ink ramp (tints of navy). The light steps 50–400 are disabled / low-emphasis ink: reach for paper-* (fills) or rule-* (lines) first. The Pharos-faithful components still use 50/100/200 for hover and press bands (un-migrated)."
       },
       "200": {
-        "$value": "oklch(95.21% 0 0)",
+        "$value": "oklch(95.21% 0.005 248.83)",
         "$type": "color",
-        "$description": "Quiet surface / default border on light mode. Replaces Alexandria #efefef / supporting.base / legacy border."
+        "$description": "Ink ramp (tints of navy). The light steps 50–400 are disabled / low-emphasis ink: reach for paper-* (fills) or rule-* (lines) first. The Pharos-faithful components still use 50/100/200 for hover and press bands (un-migrated)."
       },
       "300": {
-        "$value": "oklch(88.82% 0.0029 264.54)",
+        "$value": "oklch(88.82% 0.007 248.83)",
         "$type": "color",
-        "$description": "Border strong / disabled fill. Replaces Alexandria #d9dadc / supporting.dark / border-dark."
+        "$description": "Ink ramp (tints of navy). The light steps 50–400 are disabled / low-emphasis ink: reach for paper-* (fills) or rule-* (lines) first. The Pharos-faithful components still use 50/100/200 for hover and press bands (un-migrated)."
       },
       "400": {
-        "$value": "oklch(81.09% 0 0)",
+        "$value": "oklch(81.09% 0.01 248.83)",
         "$type": "color",
-        "$description": "Muted foreground on light surfaces. Replaces Alexandria #c1c1c1."
+        "$description": "Ink ramp (tints of navy). The light steps 50–400 are disabled / low-emphasis ink: reach for paper-* (fills) or rule-* (lines) first. The Pharos-faithful components still use 50/100/200 for hover and press bands (un-migrated)."
       },
       "500": {
-        "$value": "oklch(52.78% 0 0)",
+        "$value": "oklch(52.78% 0.016 248.83)",
         "$type": "color",
-        "$description": "Secondary text (most-used neutral). Replaces Alexandria #6b6b6b / secondary-text / supporting.secondary."
+        "$description": "Ink: de-emphasised text on the warm ground and on white; the 1px border of interactive controls (Input, secondary Button, outline Badge, Select, Combobox), clearing WCAG 3:1 non-text contrast."
       },
       "600": {
-        "$value": "oklch(35.62% 0 0)",
+        "$value": "oklch(35.62% 0.019 248.83)",
         "$type": "color",
-        "$description": "Icon dark / secondary emphasis. Replaces Alexandria #3c3c3c."
+        "$description": "Ink: secondary body text on paper-* and white."
       },
       "700": {
-        "$value": "oklch(29.52% 0.0107 254)",
+        "$value": "oklch(29.52% 0.02 248.83)",
         "$type": "color",
-        "$description": "Strong text on light surfaces. Replaces Alexandria #292d32."
+        "$description": "Ink: labels and captions on paper-* and white; hover of the primary Button."
       },
       "800": {
-        "$value": "oklch(37.05% 0.0436 247.87)",
+        "$value": "oklch(24.5% 0.02 248.83)",
         "$type": "color",
-        "$description": "Charcoal blue, alternative navy. Replaces Alexandria #2d4256 / charcoal-blue."
+        "$description": "Ink ramp step between 700 and 900 (fixed: no longer lighter than 700)."
       },
       "900": {
         "$value": "oklch(20.50% 0.02 248.83)",
         "$type": "color",
-        "$description": "Primary text / dark surface. Hero neutral of the Code Sherpas identity. Replaces Alexandria #101820 (279 usages) / main.base / navy-blue-text."
+        "$description": "Brand navy #101820. Primary text, icons and headlines on paper-* and white; the primary Button fill."
       },
       "950": {
-        "$value": "oklch(14.69% 0.0225 269.48)",
+        "$value": "oklch(14.69% 0.0225 248.83)",
         "$type": "color",
-        "$description": "Deepest neutral. Replaces Alexandria #070a14 / primary-text."
+        "$description": "Deepest ink; press state of the primary Button."
       }
     },
     "primary": {
       "50": {
         "$value": "oklch(95.94% 0.0164 274.82)",
         "$type": "color",
-        "$description": "Primary tint, lightest. Replaces Alexandria #eef1fd / new-primary.light derivates."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
       },
       "100": {
         "$value": "oklch(91.35% 0.0374 275.69)",
         "$type": "color",
-        "$description": "Primary tint, soft. Replaces Alexandria #dbe1fc / new-primary.light."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
       },
       "200": {
         "$value": "oklch(82.70% 0.0785 274.99)",
         "$type": "color",
-        "$description": "Primary tint, medium."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
       },
       "300": {
         "$value": "oklch(74.07% 0.1205 273.68)",
         "$type": "color",
-        "$description": "Primary tint, stronger."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
       },
       "400": {
         "$value": "oklch(65.40% 0.1582 271.71)",
         "$type": "color",
-        "$description": "Primary highlight."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
       },
       "500": {
         "$value": "oklch(57.34% 0.1996 269.61)",
         "$type": "color",
-        "$description": "Primary lighter step."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
       },
       "600": {
         "$value": "oklch(49.83% 0.2417 267.34)",
         "$type": "color",
-        "$description": "Primary brand color (sea blue). Replaces Alexandria #2a48e9 / sea-blue-primitive / new-primary.base."
+        "$description": "Seablue, the brand hue (≈ #2A48E9). The one blue anchor per view: action, focus ring (2px white halo + 4px primary-600), selection, links, AI/copilot."
       },
       "700": {
         "$value": "oklch(42.19% 0.2111 267.20)",
         "$type": "color",
-        "$description": "Primary pressed / hover dark."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
       },
       "800": {
         "$value": "oklch(34.32% 0.1726 267.54)",
         "$type": "color",
-        "$description": "Primary deep."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
       },
       "900": {
         "$value": "oklch(25.97% 0.1317 268.18)",
         "$type": "color",
-        "$description": "Primary darkest."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
       }
     },
     "semantic": {
       "success": {
         "fg": {
-          "$value": "oklch(52% 0.17 152)",
+          "$value": "oklch(52% 0.136 152)",
           "$type": "color",
-          "$description": "Success foreground. Darkened from Alexandria #05b661 (L=68%, failed WCAG) to pass AA 4.5:1 vs white background and AA 3:1 for white text on filled surfaces."
+          "$description": "System state only: success fill and success text colour; pair with semantic-success-on on the fill (WCAG AA). #027E3F — chroma clamped to the sRGB gamut edge."
         },
         "bg": {
-          "$value": "oklch(52% 0.17 152 / 0.063)",
+          "$value": "oklch(52% 0.136 152 / 0.063)",
           "$type": "color",
-          "$description": "Success background, subtle tint of success.fg."
+          "$description": "System state only: tinted success background (fg at 6.3%)."
         },
         "on": {
           "$value": "{color.base.white}",
           "$type": "color",
-          "$description": "Readable on success.fg filled surfaces (WCAG AA)."
+          "$description": "Text and icons on a semantic-success-fg fill."
         }
       },
       "error": {
         "fg": {
           "$value": "oklch(54% 0.22 27.48)",
           "$type": "color",
-          "$description": "Error foreground. Darkened from Alexandria #ef2828 (L=61%, contrast 4.19 against white failed WCAG AA 4.5:1 for normal text in filled destructive buttons) to pass AA 4.5:1 (contrast 5.68 vs white). Decision D2: single red (laser-red merged). Same precedent as success.fg and info.fg — Alexandria's value failed AA, Pharos fixes it systemically."
+          "$description": "System state only: error fill and error text colour; pair with semantic-error-on on the fill (WCAG AA). Single red (laser-red merged); also the destructive Button fill and its focus ring."
         },
         "fg-hover": {
-          "$value": "oklch(47% 0.205 27.48)",
+          "$value": "oklch(47% 0.191 27.48)",
           "$type": "color",
-          "$description": "Darker shade of error.fg for hover states on filled destructive surfaces. Contrast 7.26 vs error.on (white), passes WCAG AA 4.5:1 with margin."
+          "$description": "Hover of an error / destructive fill. #AD020E."
         },
         "fg-active": {
-          "$value": "oklch(40% 0.175 27.48)",
+          "$value": "oklch(40% 0.162 27.48)",
           "$type": "color",
-          "$description": "Darkest — pressed/active state for filled destructive surfaces. Contrast 9.69 vs error.on (white), passes WCAG AAA 7:1."
+          "$description": "Press of an error / destructive fill. #8A0209."
         },
         "bg": {
           "$value": "oklch(54% 0.22 27.48 / 0.063)",
           "$type": "color",
-          "$description": "Error background, subtle tint of error.fg. Tracks the darkened fg so the relationship stays consistent."
+          "$description": "System state only: tinted error background (fg at 6.3%)."
         },
         "on": {
           "$value": "{color.base.white}",
           "$type": "color",
-          "$description": "Readable on error.fg filled surfaces (WCAG AA 4.5:1 for normal text)."
+          "$description": "Text and icons on a semantic-error-fg fill."
         }
       },
       "warning": {
         "fg": {
           "$value": "oklch(77.77% 0.1588 90.66)",
           "$type": "color",
-          "$description": "Warning foreground. Replaces Alexandria #ddb101 / warning.fore."
+          "$description": "System state only: warning fill and warning text colour; pair with semantic-warning-on on the fill (WCAG AA)."
         },
         "bg": {
           "$value": "oklch(77.77% 0.1588 90.66 / 0.063)",
           "$type": "color",
-          "$description": "Warning background, subtle. Replaces Alexandria #ddb10110 / warning.back."
+          "$description": "System state only: tinted warning background (fg at 6.3%)."
         },
         "on": {
           "$value": "{color.neutral.900}",
           "$type": "color",
-          "$description": "Readable on warning.fg filled surfaces (WCAG AA). Warning is light/amber — needs dark on-color."
+          "$description": "Dark text on a semantic-warning-fg (amber) fill."
         }
       },
       "info": {
         "fg": {
-          "$value": "oklch(52% 0.17 246)",
+          "$value": "oklch(52% 0.133 246)",
           "$type": "color",
-          "$description": "Info foreground. Darkened from Alexandria #009bf9 (L=67%, failed WCAG) to pass AA 4.5:1 vs white background."
+          "$description": "System state only: info fill and info text colour; pair with semantic-info-on on the fill (WCAG AA). #026DB0 — chroma clamped to the sRGB gamut edge."
         },
         "bg": {
-          "$value": "oklch(52% 0.17 246 / 0.063)",
+          "$value": "oklch(52% 0.133 246 / 0.063)",
           "$type": "color",
-          "$description": "Info background, subtle tint of info.fg."
+          "$description": "System state only: tinted info background (fg at 6.3%)."
         },
         "on": {
           "$value": "{color.base.white}",
           "$type": "color",
-          "$description": "Readable on info.fg filled surfaces (WCAG AA)."
+          "$description": "Text and icons on a semantic-info-fg fill."
         }
       }
     },
@@ -205,63 +205,63 @@
       "50": {
         "$value": "oklch(99.4% 0.003 70)",
         "$type": "color",
-        "$description": "Warmest, lightest paper. Sunken surfaces inside a card."
+        "$description": "Warm paper #FEFDFB — all but white, a spark of warmth. Fill: hover rows, zebra banding, the faintest lift off white (surface-sunken). Never a border."
       },
       "100": {
         "$value": "oklch(98.5% 0.009 70)",
         "$type": "color",
-        "$description": "The page canvas of the redesigned screens."
+        "$description": "Warm paper #FEF9F4 — the app canvas, the page itself (surface-canvas). Never a border."
       },
       "200": {
         "$value": "oklch(96.5% 0.010 70)",
         "$type": "color",
-        "$description": "Panels and hovers on paper."
+        "$description": "Warm paper #F8F2EC — light fills on the canvas: chips, tracks, step circles, inputs. Never a border."
       },
       "300": {
         "$value": "oklch(93.5% 0.010 70)",
         "$type": "color",
-        "$description": "The rule that separates paper from paper."
+        "$description": "Warm paper #EEE8E2 — stronger fill: disabled surfaces, switch off-track. Never a border."
       }
     },
     "rule": {
       "subtle": {
         "$value": "oklch(91.5% 0.008 248.83)",
         "$type": "color",
-        "$description": "Hairline between rows and inside cards."
+        "$description": "Line #DFE3E8 (ink family): default divider, card border — on white and on the warm ground."
       },
       "strong": {
         "$value": "oklch(85.5% 0.012 248.83)",
         "$type": "color",
-        "$description": "Visible border of a surface."
+        "$description": "Line #C9D0D7 (ink family): emphatic rule, dashed placeholder."
       }
     },
     "surface": {
       "canvas": {
         "$value": "{color.paper.100}",
         "$type": "color",
-        "$description": "The page itself."
+        "$description": "Page / app background (→ paper-100). Prefer the semantic aliases in new work."
       },
       "card": {
         "$value": "{color.base.white}",
         "$type": "color",
-        "$description": "A surface resting on the canvas."
+        "$description": "Cards, panels, sheets, popovers (→ base-white)."
       },
       "sunken": {
         "$value": "{color.paper.50}",
         "$type": "color",
-        "$description": "A well inside a card."
+        "$description": "Hover rows, subtle bands (→ paper-50)."
       }
     },
     "border": {
       "subtle": {
         "$value": "{color.rule.subtle}",
         "$type": "color",
-        "$description": "Border of a resting surface."
+        "$description": "Card borders, dividers, rules (→ rule-subtle)."
       },
       "strong": {
         "$value": "{color.rule.strong}",
         "$type": "color",
-        "$description": "Border that has to be seen."
+        "$description": "Emphatic rules, dashed placeholders (→ rule-strong)."
       }
     },
     "accent": {
@@ -269,67 +269,67 @@
         "50": {
           "$value": "oklch(96.50% 0.0160 42.5)",
           "$type": "color",
-          "$description": "Tint surface for warm-accent blocks."
+          "$description": "Tint surfaces and soft badges (#FEF0EB); bg of a warm tint block (text 900) or a tag (text 700)."
         },
         "100": {
           "$value": "oklch(93.00% 0.0350 42.5)",
           "$type": "color",
-          "$description": "Hover of the tint surface."
+          "$description": "Terracotta tint #FDE1D6: tag and chip fills when many show at once."
         },
         "200": {
           "$value": "oklch(87.00% 0.0620 42.5)",
           "$type": "color",
-          "$description": "Border of a warm-accent block."
+          "$description": "Subtle terracotta borders and rules; low end of chart ramps (#F9C8B5)."
         },
         "300": {
           "$value": "oklch(79.00% 0.0950 42.5)",
           "$type": "color",
-          "$description": "Disabled warm accent."
+          "$description": "Chart ramp step (#EFA78A)."
         },
         "400": {
           "$value": "oklch(70.00% 0.1220 42.5)",
           "$type": "color",
-          "$description": "Warm accent on dark surfaces."
+          "$description": "Terracotta ramp step (#DD835F)."
         },
         "500": {
           "$value": "oklch(65.00% 0.1320 42.5)",
           "$type": "color",
-          "$description": "The accent at full strength."
+          "$description": "Chart ramp step (#D1714A)."
         },
         "600": {
           "$value": "oklch(60.75% 0.1358 42.5)",
           "$type": "color",
-          "$description": "Default warm accent (#C4633A)."
+          "$description": "BASE — the brand terracotta #C4633A. Solid fills with no small text (bars, blocks, ≥18.66px bold / ≥24px), emphatic rules. 4.04:1 on white either way: large text only. Never a control, focus ring, link or state."
         },
         "700": {
           "$value": "oklch(51.60% 0.1261 40.7)",
           "$type": "color",
-          "$description": "Warm accent as ink: 5.92:1 on white, AA (#A24A28)."
+          "$description": "Terracotta ink #A24A28: accent text on white (5.92:1, AA); solid marks carrying small white text; hover of a 600 fill."
         },
         "800": {
           "$value": "oklch(42.00% 0.1020 42.5)",
           "$type": "color",
-          "$description": "Pressed step."
+          "$description": "Press step of a terracotta fill (#79371A)."
         },
         "900": {
           "$value": "oklch(33.00% 0.0770 42.5)",
           "$type": "color",
-          "$description": "Darkest step."
+          "$description": "Deep text on a terracotta tint (#552612)."
         },
         "fg": {
           "$value": "{color.accent.terracotta.700}",
           "$type": "color",
-          "$description": "Readable warm-accent ink on white."
+          "$description": "Accessible ink for warm-accent blocks on white (→ terracotta-700)."
         },
         "bg": {
           "$value": "{color.accent.terracotta.50}",
           "$type": "color",
-          "$description": "Warm-accent tint surface."
+          "$description": "Tint surface for warm-accent blocks on white (→ terracotta-50)."
         },
         "on": {
           "$value": "{color.base.white}",
           "$type": "color",
-          "$description": "Readable on a filled warm-accent surface."
+          "$description": "Text on a solid terracotta mark (use on 700 for small text)."
         }
       }
     }

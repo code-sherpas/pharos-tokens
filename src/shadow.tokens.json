@@ -3,37 +3,115 @@
     "sm": {
       "$value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
       "$type": "shadow",
-      "$description": "Subtle elevation."
+      "$description": "Resting elements."
     },
     "md": {
       "$value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
       "$type": "shadow",
-      "$description": "Default elevation for cards at rest."
+      "$description": "Cards."
     },
     "lg": {
       "$value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
       "$type": "shadow",
-      "$description": "Hover or raised card."
+      "$description": "Popups: popovers, dropdown menus."
     },
     "xl": {
       "$value": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
       "$type": "shadow",
-      "$description": "Modals, popovers."
+      "$description": "Modals and sheets."
+    }
+  },
+  "zIndex": {
+    "base": {
+      "$value": "0",
+      "$type": "number",
+      "$description": "The page flow: the default stacking context."
+    },
+    "sticky": {
+      "$value": "1100",
+      "$type": "number",
+      "$description": "Sticky and fixed app chrome: headers, top bars, sticky table headers."
+    },
+    "overlay": {
+      "$value": "1300",
+      "$type": "number",
+      "$description": "The scrim behind modal UI (Dialog, Sheet)."
+    },
+    "modal": {
+      "$value": "1400",
+      "$type": "number",
+      "$description": "Modal UI: Dialog and Sheet panels."
+    },
+    "popover": {
+      "$value": "1500",
+      "$type": "number",
+      "$description": "Anchored floating UI: Popover, DropdownMenu, Select and Combobox lists. Above modal so it can open from inside a Dialog or Sheet."
+    },
+    "toast": {
+      "$value": "1700",
+      "$type": "number",
+      "$description": "Toasts and transient notifications."
+    },
+    "tooltip": {
+      "$value": "1800",
+      "$type": "number",
+      "$description": "Tooltips: always on top."
     }
   },
   "z": {
-    "0": { "$value": "0", "$type": "number", "$description": "Default stacking context." },
-    "header": { "$value": "1000", "$type": "number" },
-    "above-header": { "$value": "1100", "$type": "number" },
-    "modal-overlay": { "$value": "9998", "$type": "number" },
-    "modal": { "$value": "9999", "$type": "number" },
-    "drawer-overlay": { "$value": "9999", "$type": "number" },
-    "drawer": { "$value": "10000", "$type": "number" },
-    "dropdown": { "$value": "10001", "$type": "number" },
+    "0": {
+      "$value": "0",
+      "$type": "number",
+      "$description": "DEPRECATED: use --pharos-z-index-base (decision D29). Removed in the next major.",
+      "$deprecated": "Use {zIndex.base} (decision D29). Removed in the next major."
+    },
+    "header": {
+      "$value": "1000",
+      "$type": "number",
+      "$deprecated": "Use {zIndex.sticky} (decision D29). Removed in the next major.",
+      "$description": "DEPRECATED: use --pharos-z-index-sticky (decision D29). Removed in the next major."
+    },
+    "above-header": {
+      "$value": "1100",
+      "$type": "number",
+      "$deprecated": "Use {zIndex.sticky} (decision D29). Removed in the next major.",
+      "$description": "DEPRECATED: use --pharos-z-index-sticky (decision D29). Removed in the next major."
+    },
+    "modal-overlay": {
+      "$value": "9998",
+      "$type": "number",
+      "$deprecated": "Use {zIndex.overlay} (decision D29). Removed in the next major.",
+      "$description": "DEPRECATED: use --pharos-z-index-overlay (decision D29). Removed in the next major."
+    },
+    "modal": {
+      "$value": "9999",
+      "$type": "number",
+      "$deprecated": "Use {zIndex.modal} (decision D29). Removed in the next major.",
+      "$description": "DEPRECATED: use --pharos-z-index-modal (decision D29). Removed in the next major."
+    },
+    "drawer-overlay": {
+      "$value": "9999",
+      "$type": "number",
+      "$deprecated": "Use {zIndex.overlay} (decision D29). Removed in the next major.",
+      "$description": "DEPRECATED: use --pharos-z-index-overlay (decision D29). Removed in the next major."
+    },
+    "drawer": {
+      "$value": "10000",
+      "$type": "number",
+      "$deprecated": "Use {zIndex.modal} (decision D29). Removed in the next major.",
+      "$description": "DEPRECATED: use --pharos-z-index-modal (decision D29). Removed in the next major."
+    },
+    "dropdown": {
+      "$value": "10001",
+      "$type": "number",
+      "$deprecated": "Use {zIndex.popover} (decision D29). Removed in the next major.",
+      "$description": "DEPRECATED: use --pharos-z-index-popover (decision D29). Removed in the next major."
+    },
     "tooltip": {
       "$value": "10002",
       "$type": "number",
-      "$description": "Highest priority — tooltips always win."
+      "$description": "DEPRECATED: use --pharos-z-index-tooltip (decision D29). Removed in the next major.",
+      "$deprecated": "Use {zIndex.tooltip} (decision D29). Removed in the next major."
     }
   },
   "duration": {
@@ -42,12 +120,29 @@
       "$type": "duration",
       "$description": "Micro interactions (hover)."
     },
-    "normal": { "$value": "200ms", "$type": "duration", "$description": "Default transitions." },
-    "slow": { "$value": "300ms", "$type": "duration", "$description": "Panel slide, overlay fade." }
+    "normal": {
+      "$value": "200ms",
+      "$type": "duration",
+      "$description": "Default transitions."
+    },
+    "slow": {
+      "$value": "300ms",
+      "$type": "duration",
+      "$description": "Panel slide, overlay fade."
+    }
   },
   "easing": {
-    "in": { "$value": "cubic-bezier(0.4, 0, 1, 1)", "$type": "cubicBezier" },
-    "out": { "$value": "cubic-bezier(0, 0, 0.2, 1)", "$type": "cubicBezier" },
-    "in-out": { "$value": "cubic-bezier(0.4, 0, 0.2, 1)", "$type": "cubicBezier" }
+    "in": {
+      "$value": "cubic-bezier(0.4, 0, 1, 1)",
+      "$type": "cubicBezier"
+    },
+    "out": {
+      "$value": "cubic-bezier(0, 0, 0.2, 1)",
+      "$type": "cubicBezier"
+    },
+    "in-out": {
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "$type": "cubicBezier"
+    }
   }
 }

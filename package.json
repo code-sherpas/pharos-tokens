@@ -1,6 +1,6 @@
 {
   "name": "@code-sherpas/pharos-tokens",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Design tokens de Code Sherpas — agnóstico de framework. DTCG + Style Dictionary + OKLCH.",
   "license": "MIT",
   "repository": {

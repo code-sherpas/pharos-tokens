@@ -39,7 +39,7 @@ On the app's settings page, scroll to **Private keys** → **Generate a private 
 
 ### 3. Install the app on the repo
 
-In the app's **Install App** tab, install it on `code-sherpas/pharos-tokens` (and any other repo that will use this pattern — `pharos-react`, `alexandria-design`, etc.).
+In the app's **Install App** tab, install it on `code-sherpas/pharos-tokens` (and any other repo that will use this pattern — `pharos-react`, etc.).
 
 ### 4. Add the two required secrets
 
@@ -91,7 +91,7 @@ Since 0.1.1 the release workflow authenticates to npm via [Trusted Publishing](h
 2. Merge the PR that removes `NPM_TOKEN` from the workflow and adds `provenance: true`. Next release publishes via OIDC.
 3. After a successful OIDC-based publish, delete the `NPM_TOKEN` GitHub secret and revoke the token in `https://www.npmjs.com/settings/<user>/tokens`.
 
-## Migrating other repos (pharos-react, alexandria-design, ...)
+## Migrating other repos (pharos-react, ...)
 
 The same GitHub App and the same Trusted Publishing pattern can be replicated on every repo:
 

@@ -227,47 +227,70 @@ the shadcn MCP** — this repo does not deal with components.
 
 ## Project knowledge & where things go
 
-This repo is part of the **Pharos design-system program** (`pharos-tokens` →
-`pharos-react` → `alexandria-design` → `alexandria-web-application`).
-Program-level knowledge lives in **Notion → "Programa Pharos"**; code-coupled
-knowledge lives in the repos.
+This repo is part of **Pharos**, Code Sherpas' design system. Its pieces each
+have one job (decision D23), and every one of them links to the others, so an
+agent landing in any of them can reach the whole context:
+
+- **The Pharos design system artifact** (Claude) — visual and brand direction,
+  and the **source of truth for every token**:
+  https://claude.ai/artifact/AzsXQ2SHXhPJ9BhRSoGTbV. Read its
+  `project/README.md` (Artifact tool, `read` with `path`).
+- **[`pharos-tokens`](https://github.com/code-sherpas/pharos-tokens)** — those
+  tokens published for code, stack-agnostic (npm for now). It follows the
+  artifact through `artifact/` and `scripts/sync-from-artifact.ts`.
+- **[`pharos-react`](https://github.com/code-sherpas/pharos-react)** — the React
+  component library.
+- **Notion → [Programa Pharos](https://app.notion.com/p/38c1751eee1081a3834ff68c3485c03c)**
+  — all documentation about Pharos: roadmap, status, decisions, runbooks,
+  tasks.
+- **Consumers**: [`alexandria-web-application`](https://github.com/code-sherpas/alexandria-web-application)
+  today (private); other applications later.
+
+This is `pharos-tokens`; its sibling is `pharos-react`.
+
+**Quality bar: the best design systems in the world.** What that means in
+practice — canonical naming, WCAG 2.2 AA, tokens by role, API contracts,
+theming, i18n, documentation, testing, versioning — is the
+**[Pharos quality standard](https://app.notion.com/p/3fa1751eee1081debcc6db3ac657e3ac)**
+(Notion). Read it before designing or reviewing anything here; work below it is
+not finished.
 
 **Rule #0 — cardinal, non-negotiable (overrides every other rule here and in
-Notion).** Pharos follows the **state-of-the-art of the best design systems** —
-clarity, accessibility, canonical naming, API contracts, scales, DTCG
-conformance — **above any Alexandria-specific consideration** (visual fidelity,
-quirks, convenience). Pharos is the state-of-the-art version Alexandria adopts,
-not its mirror. When a DS best practice conflicts with something in Alexandria,
-the DS wins; Alexandria adapts at adoption time. Token numerical values stay as
-close to Alexandria as possible, but schema/naming/scales/references follow
-modern DS conventions. (This restates Principle #1 above and is the program's
-top rule.)
+Notion).** Pharos follows the **state of the art of the best design systems**
+— clarity, accessibility, canonical naming, API contracts, variant axes,
+scales, composition — **above any Alexandria-specific consideration** (visual
+fidelity, quirks, convenience). When a DS best practice conflicts with
+something in Alexandria, the DS wins; Alexandria adapts at adoption time. If
+something doesn't fit an atom, don't force it — it's a different atom; defer
+it. Deliberate visual changes are documented.
 
-**Notion — "Programa Pharos" (team space):**
+**Notion — "Programa Pharos":**
 
 - Hub: https://app.notion.com/p/38c1751eee1081a3834ff68c3485c03c
+- Quality standard: https://app.notion.com/p/3fa1751eee1081debcc6db3ac657e3ac
 - Roadmap: https://app.notion.com/p/38c1751eee10819189e2d0055549bc38
 - Status: https://app.notion.com/p/38c1751eee1081589118edcdd40d5eee
-- Decisions (D1–D17): https://app.notion.com/p/fea64661135b4c9aa186b4293f639dee
+- Decisions: https://app.notion.com/p/fea64661135b4c9aa186b4293f639dee
 - Runbooks (CI/release/Chromatic, verification): https://app.notion.com/p/38c1751eee108126b580fc8b76f8205f
 - Working agreements: https://app.notion.com/p/38c1751eee1081e29d03f4a97d2a9e96
 - Tasks / follow-ups: https://app.notion.com/p/3ad5ddddeb384e449d8ca966e4700165
 - Onboarding: https://app.notion.com/p/38c1751eee10814d989ddeaf01c45838
 
-**Where each thing goes** — single source of truth: each fact has ONE home;
-link from elsewhere, never copy.
+**Where each thing goes** — each fact has ONE home; link from elsewhere, never
+copy.
 
-| Content                                                         | Home                                                        |
-| --------------------------------------------------------------- | ----------------------------------------------------------- |
-| Code, tests, changesets                                         | this repo                                                   |
-| Library/API contract, token naming, scales                      | the owning Pharos repo (`RULES.md`)                         |
-| Per-repo tech debt & adoption log                               | the repo (`docs/`)                                          |
-| Software development standards (how we build)                   | `code-sherpas/software-development-standards` (read by URL) |
-| Roadmap, plan, phase status                                     | Notion → Roadmap / Status                                   |
-| Architecture/program decisions (ADRs)                           | Notion → Decisions (link to the repo doc if repo-local)     |
-| Runbooks, CI/release/Chromatic quirks, verification recipes     | Notion → Runbooks                                           |
-| Team norms / working agreements                                 | Notion → Working agreements                                 |
-| Task tracking / follow-ups                                      | Notion → Tasks                                              |
-| Personal / machine-local (`settings.local.json`, language pref) | stays local; never shared                                   |
+| Content                                                           | Home                                                                        |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Visual and brand direction, token values, visual component guides | the Pharos design system artifact                                           |
+| Code, tests, changesets                                           | this repo                                                                   |
+| README (the npm page), `AGENTS.md`, `CHANGELOG.md`                | this repo                                                                   |
+| Library/API contract, naming, consumer rules, tech debt           | Notion (decision D27; until moved: `RULES.md` / `NAMING-decisions.md` here) |
+| Software development standards (how we build)                     | `code-sherpas/software-development-standards` (read by URL)                 |
+| Roadmap, plan, phase status                                       | Notion → Roadmap / Status                                                   |
+| Architecture/program decisions (ADRs)                             | Notion → Decisions                                                          |
+| Runbooks, CI/release/Chromatic quirks, verification recipes       | Notion → Runbooks                                                           |
+| Team norms / working agreements                                   | Notion → Working agreements                                                 |
+| Task tracking / follow-ups                                        | Notion → Tasks                                                              |
+| Personal / machine-local (`settings.local.json`, language pref)   | stays local; never shared                                                   |
 
 `CLAUDE.md` is a symlink to this file (`.claude/CLAUDE.md → ../AGENTS.md`).

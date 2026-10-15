@@ -2,6 +2,13 @@
 
 Design tokens for Code Sherpas. Framework-agnostic. DTCG + Style Dictionary v4 + OKLCH.
 
+Part of **Pharos**, Code Sherpas' design system: its visual direction and the
+values of every token are decided in the
+[Pharos design system artifact](https://claude.ai/artifact/AzsXQ2SHXhPJ9BhRSoGTbV),
+published here as tokens and as components in [`pharos-react`](https://github.com/code-sherpas/pharos-react), and the program's documentation (decisions, roadmap,
+[quality standard](https://app.notion.com/p/3fa1751eee1081debcc6db3ac657e3ac))
+lives in Notion → [Programa Pharos](https://app.notion.com/p/38c1751eee1081a3834ff68c3485c03c).
+
 ## What's in this package
 
 This package defines **the atomic values** of Code Sherpas's visual system: colors, spacing, radius, typography, shadows, z-index, duration, and easing. They are consumable from any frontend (React, Vue, Svelte, React Native) and from backends (transactional emails, PDFs, reports).

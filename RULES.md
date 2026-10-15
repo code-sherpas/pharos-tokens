@@ -1,7 +1,7 @@
 # Rules for consumers of `@code-sherpas/pharos-tokens`
 
 This file ships with the package (`files` includes `RULES.md`). Every
-consumer — `pharos-react`, `alexandria-web-application`, `alexandria-design`,
+consumer — `pharos-react`, `alexandria-web-application`,
 and any future app — must follow these rules.
 
 ## 1. Do not redefine values locally

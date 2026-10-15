@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
-/* Alexandria Design System — global stylesheet: what tokens.json does not declare.
+/* Pharos — global stylesheet: what tokens.json does not declare.
  * Consumers link tokens.css (color, spacing, radius, shadow, z-index — generated
  * from tokens.json), then THIS file. This system is the source of truth for every
  * Pharos token, these included: @code-sherpas/pharos-tokens publishes them. */
 
-/* Webfonts for the Alexandria design system.
+/* Webfonts for Pharos.
  * Outfit is the primary face (pharos-tokens Decision D8) and is a genuine
  * Google Fonts family — this is the real brand typeface, not a substitution.
  * Loaded from Google Fonts here so any file that links components/bundle.css gets it. */

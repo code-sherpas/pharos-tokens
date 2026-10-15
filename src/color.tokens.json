@@ -73,52 +73,52 @@
       "50": {
         "$value": "oklch(95.94% 0.0164 274.82)",
         "$type": "color",
-        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI. Never structural chrome."
       },
       "100": {
         "$value": "oklch(91.35% 0.0374 275.69)",
         "$type": "color",
-        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI. Never structural chrome."
       },
       "200": {
         "$value": "oklch(82.70% 0.0785 274.99)",
         "$type": "color",
-        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI. Never structural chrome."
       },
       "300": {
         "$value": "oklch(74.07% 0.1205 273.68)",
         "$type": "color",
-        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI. Never structural chrome."
       },
       "400": {
         "$value": "oklch(65.40% 0.1582 271.71)",
         "$type": "color",
-        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI. Never structural chrome."
       },
       "500": {
         "$value": "oklch(57.34% 0.1996 269.61)",
         "$type": "color",
-        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI. Never structural chrome."
       },
       "600": {
         "$value": "oklch(49.83% 0.2417 267.34)",
         "$type": "color",
-        "$description": "Seablue, the brand hue (≈ #2A48E9). The one blue anchor per view: action, focus ring (2px white halo + 4px primary-600), selection, links, AI/copilot."
+        "$description": "Seablue, the brand hue (≈ #2A48E9). The one blue anchor per view: action, focus ring (2px white halo + 4px primary-600), selection, links, AI."
       },
       "700": {
         "$value": "oklch(42.19% 0.2111 267.20)",
         "$type": "color",
-        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI. Never structural chrome."
       },
       "800": {
         "$value": "oklch(34.32% 0.1726 267.54)",
         "$type": "color",
-        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI. Never structural chrome."
       },
       "900": {
         "$value": "oklch(25.97% 0.1317 268.18)",
         "$type": "color",
-        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI/copilot. Never structural chrome."
+        "$description": "Seablue ramp: signature and signal — action, focus, selection, links, AI. Never structural chrome."
       }
     },
     "semantic": {

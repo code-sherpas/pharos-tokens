@@ -160,6 +160,17 @@
       },
       "$description": "H3 / large titles (2xl)."
     },
+    "h4": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "{font.size.xl}",
+        "fontWeight": "{font.weight.semibold}",
+        "lineHeight": "{font.lineHeight.tight}",
+        "letterSpacing": "{font.letterSpacing.normal}"
+      },
+      "$description": "H4 (xl)."
+    },
     "lesson-title": {
       "$type": "typography",
       "$value": {
@@ -169,7 +180,8 @@
         "lineHeight": "{font.lineHeight.tight}",
         "letterSpacing": "{font.letterSpacing.normal}"
       },
-      "$description": "Lesson titles (xl)."
+      "$description": "DEPRECATED: use --pharos-type-h4. Removed in the next major.",
+      "$deprecated": "Use --pharos-type-h4: Pharos names text styles by their level, not by one product's content. Removed in the next major."
     },
     "subtitle": {
       "$type": "typography",

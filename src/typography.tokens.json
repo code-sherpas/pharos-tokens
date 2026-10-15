@@ -13,10 +13,22 @@
       }
     },
     "weight": {
-      "regular": { "$value": "400", "$type": "fontWeight" },
-      "medium": { "$value": "500", "$type": "fontWeight" },
-      "semibold": { "$value": "600", "$type": "fontWeight" },
-      "bold": { "$value": "700", "$type": "fontWeight" }
+      "regular": {
+        "$value": "400",
+        "$type": "fontWeight"
+      },
+      "medium": {
+        "$value": "500",
+        "$type": "fontWeight"
+      },
+      "semibold": {
+        "$value": "600",
+        "$type": "fontWeight"
+      },
+      "bold": {
+        "$value": "700",
+        "$type": "fontWeight"
+      }
     },
     "size": {
       "xs": {
@@ -66,16 +78,131 @@
       }
     },
     "lineHeight": {
-      "tight": { "$value": "1.25", "$type": "number" },
-      "snug": { "$value": "1.375", "$type": "number" },
-      "normal": { "$value": "1.5", "$type": "number", "$description": "Default body line-height." },
-      "relaxed": { "$value": "1.625", "$type": "number" },
-      "loose": { "$value": "2", "$type": "number" }
+      "tight": {
+        "$value": "1.25",
+        "$type": "number"
+      },
+      "snug": {
+        "$value": "1.375",
+        "$type": "number"
+      },
+      "normal": {
+        "$value": "1.5",
+        "$type": "number",
+        "$description": "Default body line-height."
+      },
+      "relaxed": {
+        "$value": "1.625",
+        "$type": "number"
+      },
+      "loose": {
+        "$value": "2",
+        "$type": "number"
+      }
     },
     "letterSpacing": {
-      "tight": { "$value": "-0.025em", "$type": "dimension" },
-      "normal": { "$value": "0", "$type": "dimension" },
-      "wide": { "$value": "0.025em", "$type": "dimension" }
+      "tight": {
+        "$value": "-0.025em",
+        "$type": "dimension"
+      },
+      "normal": {
+        "$value": "0",
+        "$type": "dimension"
+      },
+      "wide": {
+        "$value": "0.025em",
+        "$type": "dimension"
+      }
+    }
+  },
+  "type": {
+    "display": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "{font.size.5xl}",
+        "fontWeight": "{font.weight.bold}",
+        "lineHeight": "1.1",
+        "letterSpacing": "{font.letterSpacing.tight}"
+      },
+      "$description": "Display (5xl). Brand surfaces and covers."
+    },
+    "h1": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "{font.size.4xl}",
+        "fontWeight": "{font.weight.bold}",
+        "lineHeight": "{font.lineHeight.tight}",
+        "letterSpacing": "-0.02em"
+      },
+      "$description": "H1 (4xl)."
+    },
+    "h2": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "{font.size.3xl}",
+        "fontWeight": "{font.weight.semibold}",
+        "lineHeight": "{font.lineHeight.tight}",
+        "letterSpacing": "{font.letterSpacing.normal}"
+      },
+      "$description": "H2 (3xl)."
+    },
+    "h3": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "{font.size.2xl}",
+        "fontWeight": "{font.weight.semibold}",
+        "lineHeight": "{font.lineHeight.tight}",
+        "letterSpacing": "{font.letterSpacing.normal}"
+      },
+      "$description": "H3 / large titles (2xl)."
+    },
+    "lesson-title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "{font.size.xl}",
+        "fontWeight": "{font.weight.semibold}",
+        "lineHeight": "{font.lineHeight.tight}",
+        "letterSpacing": "{font.letterSpacing.normal}"
+      },
+      "$description": "Lesson titles (xl)."
+    },
+    "subtitle": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "{font.size.lg}",
+        "fontWeight": "{font.weight.medium}",
+        "lineHeight": "{font.lineHeight.tight}",
+        "letterSpacing": "{font.letterSpacing.normal}"
+      },
+      "$description": "Subtitles (lg)."
+    },
+    "body": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "{font.size.sm}",
+        "fontWeight": "{font.weight.regular}",
+        "lineHeight": "{font.lineHeight.normal}",
+        "letterSpacing": "{font.letterSpacing.normal}"
+      },
+      "$description": "Body default (sm, 14px / 1.5). Colour signals interaction, not bold."
+    },
+    "caption": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "{font.size.xs}",
+        "fontWeight": "{font.weight.bold}",
+        "lineHeight": "{font.lineHeight.normal}",
+        "letterSpacing": "0.06em"
+      },
+      "$description": "Tiny eyebrow / caption labels (xs), ALL-CAPS with wide tracking; helper text at 400."
     }
   }
 }

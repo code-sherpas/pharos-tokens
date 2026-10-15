@@ -8,3 +8,6 @@ yarn.lock
 # Third-party skills installed via `skills` CLI — formatting would diverge on next update.
 .agents/skills/find-docs/
 .agents/skills/git-commit/
+
+# Verbatim snapshot of the Pharos design system artifact: kept byte for byte.
+artifact/

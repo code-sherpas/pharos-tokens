@@ -10,6 +10,15 @@ triggers:
 
 # Update or add a token in pharos-tokens
 
+> **The design system artifact decides tokens (decision D23).** A value, a
+> usage note or a new token is changed in the artifact
+> (https://claude.ai/artifact/AzsXQ2SHXhPJ9BhRSoGTbV) first. Here you refresh
+> the snapshot in `artifact/` and run `node scripts/sync-from-artifact.ts
+--write` (see `artifact/README.md`); edit `src/` by hand only to place a token
+> the script reports as missing (its DTCG path and `$type`) or to mark one
+> `$deprecated`. The `artifact-sync` test fails while `src/` and the snapshot
+> disagree.
+
 ## 1. Identify the right source file
 
 Tokens live in `src/*.tokens.json` grouped by category:

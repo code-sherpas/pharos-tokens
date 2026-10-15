@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
+/* Alexandria Design System — global stylesheet: what tokens.json does not declare.
+ * Consumers link tokens.css (color, spacing, radius, shadow, z-index — generated
+ * from tokens.json), then THIS file. This system is the source of truth for every
+ * Pharos token, these included: @code-sherpas/pharos-tokens publishes them. */
+
+/* Webfonts for the Alexandria design system.
+ * Outfit is the primary face (pharos-tokens Decision D8) and is a genuine
+ * Google Fonts family — this is the real brand typeface, not a substitution.
+ * Loaded from Google Fonts here so any file that links components/bundle.css gets it. */
+
+/* Pharos typography tokens (tokens.json has no place for these primitives).
+ * Published by @code-sherpas/pharos-tokens as --pharos-font-*.
+ * Body default is size-sm (14px) — Decision D3. Outfit is the primary face
+ * (Decision D8); loading it is the consumer's responsibility (see the Google Fonts @import above). */
+:root {
+  /* Families */
+  --pharos-font-family-sans: "Outfit", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --pharos-font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Weights */
+  --pharos-font-weight-regular: 400;
+  --pharos-font-weight-medium: 500;
+  --pharos-font-weight-semibold: 600;
+  --pharos-font-weight-bold: 700;
+
+  /* Sizes */
+  --pharos-font-size-xs: 0.75rem;    /* 12px — helper text, captions */
+  --pharos-font-size-sm: 0.875rem;   /* 14px — body default */
+  --pharos-font-size-base: 1rem;     /* 16px — increased-legibility contexts */
+  --pharos-font-size-lg: 1.125rem;   /* 18px */
+  --pharos-font-size-xl: 1.25rem;    /* 20px */
+  --pharos-font-size-2xl: 1.5rem;    /* 24px — H3 / large titles */
+  --pharos-font-size-3xl: 1.875rem;  /* 30px — H2 */
+  --pharos-font-size-4xl: 2.25rem;   /* 36px — H1 */
+  --pharos-font-size-5xl: 3rem;      /* 48px — display */
+
+  /* Line heights */
+  --pharos-font-line-height-tight: 1.25;
+  --pharos-font-line-height-snug: 1.375;
+  --pharos-font-line-height-normal: 1.5;
+  --pharos-font-line-height-relaxed: 1.625;
+  --pharos-font-line-height-loose: 2;
+
+  /* Letter spacing */
+  --pharos-font-letter-spacing-tight: -0.025em;
+  --pharos-font-letter-spacing-normal: 0;
+  --pharos-font-letter-spacing-wide: 0.025em;
+}
+
+/* Pharos motion tokens (tokens.json has no motion family).
+ * Published by @code-sherpas/pharos-tokens as --pharos-duration-* / --pharos-easing-*. */
+:root {
+  /* Duration */
+  --pharos-duration-fast: 100ms; /* @kind other */   /* micro interactions (hover) */
+  --pharos-duration-normal: 200ms; /* @kind other */ /* default transitions */
+  --pharos-duration-slow: 300ms; /* @kind other */   /* panel slide, overlay fade */
+
+  /* Easing */
+  --pharos-easing-in: cubic-bezier(0.4, 0, 1, 1); /* @kind other */
+  --pharos-easing-out: cubic-bezier(0, 0, 0.2, 1); /* @kind other */
+  --pharos-easing-in-out: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+}

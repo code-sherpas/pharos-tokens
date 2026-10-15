@@ -96,17 +96,50 @@ export function readSrcTokens(srcDir: string): {
   return { tokens, documents };
 }
 
-/** src/ tokens by css name, aliases rewritten to the css name they point at. */
+/** The properties a text style carries; each is published as its own custom property. */
+export const TEXT_STYLE_PROPERTIES = [
+  'fontFamily',
+  'fontSize',
+  'fontWeight',
+  'lineHeight',
+  'letterSpacing',
+] as const;
+
+/**
+ * The custom properties a token is published as: its own name, or, for a text
+ * style (a DTCG typography composite, expanded by the build), one per property.
+ */
+export function publishedNamesOf(path: string[], leaf: DtcgLeaf): string[] {
+  if (leaf.$type !== 'typography') return [cssNameOf(path)];
+  return TEXT_STYLE_PROPERTIES.map((property) => cssNameOf([...path, property]));
+}
+
+function srcValue(value: unknown): string {
+  const text = String(value);
+  const alias = ALIAS.exec(text.trim());
+  return alias ? `{${cssNameOf(alias[1].split('.'))}}` : text;
+}
+
+/**
+ * src/ tokens by css name, aliases rewritten to the css name they point at.
+ * A text style contributes one entry per property, plus one under its own name
+ * that carries only its description (it has no custom property of its own).
+ */
 export function srcTokenMap(tokens: SrcToken[]): TokenMap {
   const map: TokenMap = new Map();
   for (const { path, leaf } of tokens) {
     if (leaf.$deprecated !== undefined) continue;
-    const value = String(leaf.$value);
-    const alias = ALIAS.exec(value.trim());
-    map.set(cssNameOf(path), {
-      value: alias ? `{${cssNameOf(alias[1].split('.'))}}` : value,
-      description: leaf.$description,
-    });
+    if (leaf.$type === 'typography' && typeof leaf.$value === 'object' && leaf.$value !== null) {
+      const style = leaf.$value as Record<string, unknown>;
+      map.set(cssNameOf(path), { value: '', description: leaf.$description });
+      for (const property of TEXT_STYLE_PROPERTIES) {
+        if (style[property] !== undefined) {
+          map.set(cssNameOf([...path, property]), { value: srcValue(style[property]) });
+        }
+      }
+      continue;
+    }
+    map.set(cssNameOf(path), { value: srcValue(leaf.$value), description: leaf.$description });
   }
   return map;
 }
@@ -121,6 +154,47 @@ function firstThemeValue(value: unknown, firstTheme: string): string {
   return String(value);
 }
 
+type ArtifactTextStyle = {
+  name: string;
+  family?: string;
+  fontSize?: string;
+  fontWeight?: string | number;
+  lineHeight?: string | number;
+  letterSpacing?: string;
+  usage?: string;
+};
+
+type ArtifactType = {
+  families?: Record<string, string>;
+  groups?: Array<{ family?: string; styles?: ArtifactTextStyle[] }>;
+};
+
+/** The artifact's text styles (`type.groups[].styles`), in the shape srcTokenMap gives them. */
+function textStylesOf(type: unknown): TokenMap {
+  const { families = {}, groups = [] } = (type ?? {}) as ArtifactType;
+  const map: TokenMap = new Map();
+  for (const group of groups) {
+    for (const style of group.styles ?? []) {
+      const name = `pharos-${style.name}`;
+      const family = families[style.family ?? group.family ?? ''];
+      map.set(name, { value: '', description: style.usage?.trim() || undefined });
+      const values: Record<(typeof TEXT_STYLE_PROPERTIES)[number], unknown> = {
+        fontFamily: family,
+        fontSize: style.fontSize,
+        fontWeight: style.fontWeight,
+        lineHeight: style.lineHeight,
+        letterSpacing: style.letterSpacing,
+      };
+      for (const property of TEXT_STYLE_PROPERTIES) {
+        if (values[property] !== undefined) {
+          map.set(cssNameOf([style.name, property]), { value: String(values[property]) });
+        }
+      }
+    }
+  }
+  return map;
+}
+
 /** The artifact's tokens.json families plus the :root custom properties of its bundle.css. */
 export function artifactTokenMap(tokensJson: string, bundleCss: string): TokenMap {
   const document = JSON.parse(tokensJson) as Record<string, unknown> & {
@@ -129,8 +203,9 @@ export function artifactTokenMap(tokensJson: string, bundleCss: string): TokenMa
   const firstTheme = document.color?.themes?.[0]?.id ?? 'light';
   const map: TokenMap = new Map();
 
+  for (const [name, style] of textStylesOf(document.type)) map.set(name, style);
   for (const [family, content] of Object.entries(document)) {
-    if (family === 'type') continue; // text styles: composites with no single CSS value
+    if (family === 'type') continue;
     const entries = (content as { tokens?: ArtifactEntry[] } | null)?.tokens;
     if (!Array.isArray(entries)) continue;
     for (const { name, value, usage } of entries) {

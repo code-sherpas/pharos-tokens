@@ -16,6 +16,10 @@ import StyleDictionary from 'style-dictionary';
 
 const sd = new StyleDictionary({
   source: ['src/**/*.tokens.json'],
+  // Text styles (`type.*`) are DTCG typography composites. Each property is
+  // published as its own custom property (--pharos-type-h1-font-size, …):
+  // the CSS `font` shorthand would drop letter-spacing.
+  expand: { include: ['typography'] },
   log: { verbosity: 'default' },
   platforms: {
     css: {

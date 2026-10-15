@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import {
   artifactTokenMap,
   compare,
-  cssNameOf,
+  publishedNamesOf,
   hasDrift,
   readSrcTokens,
   srcTokenMap,
@@ -36,11 +36,74 @@ describe('src/ against the artifact snapshot', () => {
   it('names every src/ token the way the published CSS does', () => {
     const css = readFileSync('dist/styles.css', 'utf8');
     const { tokens } = readSrcTokens('src');
-    for (const { path } of tokens) {
-      expect(css, `${path.join('.')} is not published as --${cssNameOf(path)}`).toContain(
-        `--${cssNameOf(path)}:`,
-      );
+    for (const { path, leaf } of tokens) {
+      for (const name of publishedNamesOf(path, leaf)) {
+        expect(css, `${path.join('.')} is not published as --${name}`).toContain(`--${name}:`);
+      }
     }
+  });
+});
+
+describe('text styles', () => {
+  const artifactWithH1 = (fontSize: string) =>
+    JSON.stringify({
+      color: { themes: [{ id: 'light' }], tokens: [] },
+      type: {
+        families: { sans: '"Outfit", sans-serif' },
+        groups: [
+          {
+            family: 'sans',
+            styles: [
+              {
+                name: 'type-h1',
+                fontSize,
+                fontWeight: 700,
+                lineHeight: '1.25',
+                letterSpacing: '-0.02em',
+                usage: 'H1.',
+              },
+            ],
+          },
+        ],
+      },
+    });
+
+  const src = srcTokenMap([
+    {
+      file: 't',
+      path: ['font', 'family', 'sans'],
+      leaf: { $value: '"Outfit", sans-serif', $type: 'fontFamily' },
+    },
+    { file: 't', path: ['font', 'size', '4xl'], leaf: { $value: '2.25rem', $type: 'dimension' } },
+    {
+      file: 't',
+      path: ['type', 'h1'],
+      leaf: {
+        $type: 'typography',
+        $description: 'H1.',
+        $value: {
+          fontFamily: '{font.family.sans}',
+          fontSize: '{font.size.4xl}',
+          fontWeight: '700',
+          lineHeight: '1.25',
+          letterSpacing: '-0.02em',
+        },
+      },
+    },
+  ]);
+
+  it('match when every property resolves to the artifact value, references included', () => {
+    // The artifact fixture holds only the style, so the primitives show up as src-only.
+    const drift = compare(src, artifactTokenMap(artifactWithH1('2.25rem'), ''));
+    expect(drift.changed).toEqual([]);
+    expect(drift.onlyInArtifact).toEqual([]);
+  });
+
+  it('report a property the artifact changed', () => {
+    const drift = compare(src, artifactTokenMap(artifactWithH1('2.5rem'), ''));
+    expect(drift.changed).toEqual([
+      { name: 'pharos-type-h1-font-size', field: 'value', src: '2.25rem', artifact: '2.5rem' },
+    ]);
   });
 });
 

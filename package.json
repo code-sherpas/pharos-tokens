@@ -30,7 +30,8 @@
     "./dtcg/*": "./src/*.tokens.json"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=22",
+    "pnpm": "10.33.0"
   },
   "packageManager": "pnpm@10.33.0",
   "pnpm": {
@@ -44,8 +45,8 @@
     }
   },
   "scripts": {
-    "build": "node build/style-dictionary.config.mjs",
-    "test": "vitest run",
+    "build": "bash scripts/check-node-version.sh && node build/style-dictionary.config.mjs",
+    "test": "bash scripts/check-node-version.sh && vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",

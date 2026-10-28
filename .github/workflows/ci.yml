@@ -5,6 +5,9 @@ on:
     branches: [main]
   push:
     branches: [main]
+  # The merge queue builds main + the queued changes and waits for the
+  # required checks on that build, so the required job must run on it.
+  merge_group:
 
 permissions:
   contents: read

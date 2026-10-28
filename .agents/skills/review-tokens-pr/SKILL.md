@@ -52,7 +52,7 @@ Checklist ordered by priority. If any of the first five items fail, the PR does 
 
 ## 7. Documentation
 
-- [ ] If the category is new: the `README.md` table is updated, `RULES.md` is extended.
+- [ ] If the category is new: the `README.md` table is updated, the consumer rules in Notion are extended (https://app.notion.com/p/4071751eee1081b2b000e212c80761b4).
 - [ ] If there is a breaking change: the PR description links to `TOKEN-migration-map.md` (or equivalent) so consumers know how to migrate.
 
 ## 8. Side effects

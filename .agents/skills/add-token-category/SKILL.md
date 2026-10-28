@@ -51,7 +51,7 @@ If the category has specific validations (e.g. "every animation duration must be
 ## 5. Document
 
 - Update the "Token structure" table in `README.md`.
-- Update `RULES.md` if applicable.
+- Update the consumer rules in Notion if applicable: https://app.notion.com/p/4071751eee1081b2b000e212c80761b4
 - Update `AGENTS.md` if the workflow changes.
 
 ## 6. Semver

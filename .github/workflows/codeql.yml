@@ -1,0 +1,48 @@
+name: CodeQL
+
+# Code scanning with an advanced setup, replacing GitHub's default setup, so
+# that it also runs on the merge queue: the default setup analyses pull
+# requests and pushes but never a merge group, and `CodeQL` is a required
+# check, so the queue would wait for it until it timed out. Same languages,
+# query suite and weekly schedule the default setup had.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  # The merge queue builds main + the queued changes and waits for the
+  # required checks on that build.
+  merge_group:
+  schedule:
+    - cron: '27 4 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    permissions:
+      # Upload the results to code scanning.
+      security-events: write
+      contents: read
+      actions: read
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [actions, javascript-typescript]
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: none
+
+      - name: Analyze
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: '/language:${{ matrix.language }}'

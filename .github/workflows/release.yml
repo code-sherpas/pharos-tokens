@@ -20,7 +20,8 @@ jobs:
       # Using a GitHub App token (instead of the default GITHUB_TOKEN) so that
       # PRs created by changesets trigger downstream workflows (ci.yml).
       # GitHub deliberately suppresses workflow_run events for activity
-      # authored by GITHUB_TOKEN to avoid infinite loops — see docs/release-setup.md.
+      # authored by GITHUB_TOKEN to avoid infinite loops — see the release runbook:
+      # https://app.notion.com/p/4071751eee1081248ce6e7b9dc4e3976
       - name: Generate GitHub App token
         id: app-token
         uses: actions/create-github-app-token@v3
@@ -65,4 +66,5 @@ jobs:
           # No NPM_TOKEN / NODE_AUTH_TOKEN: authentication to npm uses
           # Trusted Publishing (OIDC). permissions.id-token:write is set at
           # the workflow level; publishConfig.provenance:true in package.json
-          # makes `npm publish` emit an attestation. See docs/release-setup.md.
+          # makes `npm publish` emit an attestation. See the release runbook:
+          # https://app.notion.com/p/4071751eee1081248ce6e7b9dc4e3976

@@ -279,18 +279,18 @@ it. Deliberate visual changes are documented.
 **Where each thing goes** — each fact has ONE home; link from elsewhere, never
 copy.
 
-| Content                                                           | Home                                                                        |
-| ----------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| Visual and brand direction, token values, visual component guides | the Pharos design system artifact                                           |
-| Code, tests, changesets                                           | this repo                                                                   |
-| README (the npm page), `AGENTS.md`, `CHANGELOG.md`                | this repo                                                                   |
-| Library/API contract, naming, consumer rules, tech debt           | Notion (decision D27; until moved: `RULES.md` / `NAMING-decisions.md` here) |
-| Software development standards (how we build)                     | `code-sherpas/software-development-standards` (read by URL)                 |
-| Roadmap, plan, phase status                                       | Notion → Roadmap / Status                                                   |
-| Architecture/program decisions (ADRs)                             | Notion → Decisions                                                          |
-| Runbooks, CI/release/Chromatic quirks, verification recipes       | Notion → Runbooks                                                           |
-| Team norms / working agreements                                   | Notion → Working agreements                                                 |
-| Task tracking / follow-ups                                        | Notion → Tasks                                                              |
-| Personal / machine-local (`settings.local.json`, language pref)   | stays local; never shared                                                   |
+| Content                                                           | Home                                                                                                           |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Visual and brand direction, token values, visual component guides | the Pharos design system artifact                                                                              |
+| Code, tests, changesets                                           | this repo                                                                                                      |
+| README (the npm page), `AGENTS.md`, `CHANGELOG.md`                | this repo                                                                                                      |
+| Library/API contract, naming, consumer rules, tech debt           | Notion → [Contrato de las bibliotecas Pharos](https://app.notion.com/p/4071751eee10811bafcbf67fa7e13f38) (D27) |
+| Software development standards (how we build)                     | `code-sherpas/software-development-standards` (read by URL)                                                    |
+| Roadmap, plan, phase status                                       | Notion → Roadmap / Status                                                                                      |
+| Architecture/program decisions (ADRs)                             | Notion → Decisions                                                                                             |
+| Runbooks, CI/release/Chromatic quirks, verification recipes       | Notion → Runbooks                                                                                              |
+| Team norms / working agreements                                   | Notion → Working agreements                                                                                    |
+| Task tracking / follow-ups                                        | Notion → Tasks                                                                                                 |
+| Personal / machine-local (`settings.local.json`, language pref)   | stays local; never shared                                                                                      |
 
 `CLAUDE.md` is a symlink to this file (`.claude/CLAUDE.md → ../AGENTS.md`).

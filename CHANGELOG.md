@@ -1,5 +1,11 @@
 # @code-sherpas/pharos-tokens
 
+## 0.8.1
+
+### Patch Changes
+
+- 48b4baa: The package no longer ships `RULES.md`: the rules for consumers now live in Notion (decision D27), linked from the README. The tokens and every export are unchanged.
+
 ## 0.8.0
 
 ### Minor Changes

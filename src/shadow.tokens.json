@@ -58,62 +58,6 @@
       "$description": "Tooltips: always on top."
     }
   },
-  "z": {
-    "0": {
-      "$value": "0",
-      "$type": "number",
-      "$description": "DEPRECATED: use --pharos-z-index-base (decision D29). Removed in the next major.",
-      "$deprecated": "Use {zIndex.base} (decision D29). Removed in the next major."
-    },
-    "header": {
-      "$value": "1000",
-      "$type": "number",
-      "$deprecated": "Use {zIndex.sticky} (decision D29). Removed in the next major.",
-      "$description": "DEPRECATED: use --pharos-z-index-sticky (decision D29). Removed in the next major."
-    },
-    "above-header": {
-      "$value": "1100",
-      "$type": "number",
-      "$deprecated": "Use {zIndex.sticky} (decision D29). Removed in the next major.",
-      "$description": "DEPRECATED: use --pharos-z-index-sticky (decision D29). Removed in the next major."
-    },
-    "modal-overlay": {
-      "$value": "9998",
-      "$type": "number",
-      "$deprecated": "Use {zIndex.overlay} (decision D29). Removed in the next major.",
-      "$description": "DEPRECATED: use --pharos-z-index-overlay (decision D29). Removed in the next major."
-    },
-    "modal": {
-      "$value": "9999",
-      "$type": "number",
-      "$deprecated": "Use {zIndex.modal} (decision D29). Removed in the next major.",
-      "$description": "DEPRECATED: use --pharos-z-index-modal (decision D29). Removed in the next major."
-    },
-    "drawer-overlay": {
-      "$value": "9999",
-      "$type": "number",
-      "$deprecated": "Use {zIndex.overlay} (decision D29). Removed in the next major.",
-      "$description": "DEPRECATED: use --pharos-z-index-overlay (decision D29). Removed in the next major."
-    },
-    "drawer": {
-      "$value": "10000",
-      "$type": "number",
-      "$deprecated": "Use {zIndex.modal} (decision D29). Removed in the next major.",
-      "$description": "DEPRECATED: use --pharos-z-index-modal (decision D29). Removed in the next major."
-    },
-    "dropdown": {
-      "$value": "10001",
-      "$type": "number",
-      "$deprecated": "Use {zIndex.popover} (decision D29). Removed in the next major.",
-      "$description": "DEPRECATED: use --pharos-z-index-popover (decision D29). Removed in the next major."
-    },
-    "tooltip": {
-      "$value": "10002",
-      "$type": "number",
-      "$description": "DEPRECATED: use --pharos-z-index-tooltip (decision D29). Removed in the next major.",
-      "$deprecated": "Use {zIndex.tooltip} (decision D29). Removed in the next major."
-    }
-  },
   "duration": {
     "fast": {
       "$value": "100ms",

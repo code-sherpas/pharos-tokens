@@ -29,7 +29,7 @@ describe('CSS output', () => {
       '--pharos-spacing-4:',
       '--pharos-radius-2xl:',
       '--pharos-font-size-sm:',
-      '--pharos-z-modal:',
+      '--pharos-z-index-modal:',
     ];
     for (const name of required) {
       expect(css, `Missing CSS var: ${name}`).toContain(name);

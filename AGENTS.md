@@ -258,11 +258,16 @@ not finished.
 **Rule #0 — cardinal, non-negotiable (overrides every other rule here and in
 Notion).** Pharos follows the **state of the art of the best design systems**
 — clarity, accessibility, canonical naming, API contracts, variant axes,
-scales, composition — **above any Alexandria-specific consideration** (visual
-fidelity, quirks, convenience). When a DS best practice conflicts with
-something in Alexandria, the DS wins; Alexandria adapts at adoption time. If
-something doesn't fit an atom, don't force it — it's a different atom; defer
-it. Deliberate visual changes are documented.
+scales, composition — **above the convenience of any application that adopts
+it** (today Alexandria): fidelity to what it had, its quirks, its shortcuts.
+When a DS best practice conflicts with an application, the DS wins and the
+application adapts at adoption time; what belongs to one application stays out
+of Pharos and of its documentation. **Who decides what (D23):** the design
+system artifact decides visual direction and token values, and the code
+follows it; pharos-react decides component API contracts (names, props,
+composition, accessibility), following shadcn > Base UI > ARIA APG, and the
+artifact follows them. If something doesn't fit an atom, don't force it — it's
+a different atom; defer it. Deliberate visual changes are documented.
 
 **Notion — "Programa Pharos":**
 
@@ -284,7 +289,9 @@ copy.
 | Visual and brand direction, token values, visual component guides | the Pharos design system artifact                                                                              |
 | Code, tests, changesets                                           | this repo                                                                                                      |
 | README (the npm page), `AGENTS.md`, `CHANGELOG.md`                | this repo                                                                                                      |
-| Library/API contract, naming, consumer rules, tech debt           | Notion → [Contrato de las bibliotecas Pharos](https://app.notion.com/p/4071751eee10811bafcbf67fa7e13f38) (D27) |
+| Library/API contract, naming, consumer rules                      | Notion → [Contrato de las bibliotecas Pharos](https://app.notion.com/p/4071751eee10811bafcbf67fa7e13f38) (D27) |
+| Pharos tech debt                                                  | Notion → Tasks (D27)                                                                                           |
+| Migration log of an application adopting Pharos                   | that application's documentation                                                                               |
 | Software development standards (how we build)                     | `code-sherpas/software-development-standards` (read by URL)                                                    |
 | Roadmap, plan, phase status                                       | Notion → Roadmap / Status                                                                                      |
 | Architecture/program decisions (ADRs)                             | Notion → Decisions                                                                                             |

@@ -1,5 +1,16 @@
 # @code-sherpas/pharos-tokens
 
+## 1.0.1
+
+### Patch Changes
+
+- e1ffd2b: The stylesheet now type-checks as a side-effect import. TypeScript 6 and later check side-effect imports by default (`noUncheckedSideEffectImports`), and `import '@code-sherpas/pharos-tokens/css'` failed with TS2882 because the entry point shipped no declarations. Both stylesheet entry points now carry a `types` condition pointing to an empty `styles.css.d.ts`, so no consumer needs a `declare module` or has to turn the check off.
+
+  It also adds `@code-sherpas/pharos-tokens/styles.css`, the same stylesheet under a name that ends in `.css`, like `@code-sherpas/pharos-react/styles.css`. `@code-sherpas/pharos-tokens/css` keeps working unchanged.
+
+- 500a9e1: `styles.css` publishes durations in milliseconds again, as the source and `tokens.js` declare them: `--pharos-duration-fast: 100ms` (and `200ms`, `300ms`), not `0.1s`. Since 0.8.1 Style Dictionary 5.7.0's `time/seconds` transform had started converting DTCG `duration` tokens. Same time in CSS, so no visual change; a consumer reading the variable as text now gets the number the source declares.
+- c0a8f6e: The published `package.json` no longer declares `engines.pnpm: "10.33.0"`. It told consumers the package installs only with that exact pnpm, which was never true. It was meant for this repository's contributors, and `packageManager` already pins it for them. `engines.node` (`>=22`) is unchanged.
+
 ## 1.0.0
 
 ### Major Changes

@@ -209,7 +209,7 @@ the architectural decisions approved in the plan
 
 ## Expected MCP servers
 
-This repo has `.mcp.json` with: `context7`, `github`. **It does not include
+This repo has `.mcp.json` with: `context7`, `github`, `notion`. **It does not include
 the shadcn MCP** — this repo does not deal with components.
 
 **When to use each one:**
@@ -220,6 +220,15 @@ the shadcn MCP** — this repo does not deal with components.
   need to confirm that a transform/format follows the current API.
 - **`github`** → issues, PRs, releases. Use it to reference consumer issues
   (e.g. "pharos-react needs token `radius.full`") or when opening PRs.
+- **`notion`** → the **Programa Pharos** workspace (roadmap, status,
+  decisions, runbooks, tasks — see _Project knowledge_ below). Read the pages
+  through it, and use it to move a task to Done when it is finished. It uses
+  **OAuth with a personal token**: the server registration is shared via
+  `.mcp.json`, but each developer authenticates once per machine — run `/mcp`
+  in Claude Code, pick `notion` and sign in with your own account. If a
+  session reports it disconnected, or a page answers 404, re-run `/mcp`
+  (tokens expire, and a token from another account cannot see the
+  workspace): say so instead of working around it.
 
 ## Useful commands
 

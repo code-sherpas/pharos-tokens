@@ -40,6 +40,12 @@ describe('CSS output', () => {
     expect(css).toContain(':root {');
   });
 
+  it('publishes durations in the milliseconds the source declares, like the JS output', () => {
+    expect(css).toMatch(/--pharos-duration-fast: 100ms;/);
+    expect(css).toMatch(/--pharos-duration-normal: 200ms;/);
+    expect(css).toMatch(/--pharos-duration-slow: 300ms;/);
+  });
+
   it('does NOT contain any raw hex hardcoded outside of OKLCH values', () => {
     // Rule: Pharos outputs OKLCH. Shadows may contain `rgb(0 0 0 / ...)` by design.
     // Forbid any top-level `#...` hex in custom property values.

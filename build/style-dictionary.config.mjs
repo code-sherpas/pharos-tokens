@@ -23,7 +23,15 @@ const sd = new StyleDictionary({
   log: { verbosity: 'default' },
   platforms: {
     css: {
-      transformGroup: 'css',
+      // The `css` group minus `time/seconds`: since Style Dictionary 5.7.0 that
+      // transform also matches DTCG `duration` tokens and turns `100ms` into
+      // `0.1s`. The CSS keeps the milliseconds the source declares, as the JS
+      // output does (a consumer reading the value as text gets the same number).
+      transforms: StyleDictionary.hooks.transformGroups.css.filter(
+        function isNotTimeSeconds(transform) {
+          return transform !== 'time/seconds';
+        },
+      ),
       prefix: 'pharos',
       buildPath: 'dist/',
       files: [

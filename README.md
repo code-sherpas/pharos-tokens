@@ -29,8 +29,16 @@ pnpm add @code-sherpas/pharos-tokens
 Import the CSS tokens at your app's entry point:
 
 ```css
-@import '@code-sherpas/pharos-tokens/css';
+@import '@code-sherpas/pharos-tokens/styles.css';
 ```
+
+or, from a JS/TS entry point:
+
+```ts
+import '@code-sherpas/pharos-tokens/styles.css';
+```
+
+Both entry points ship type declarations, so the side-effect import type-checks with `noUncheckedSideEffectImports` (on by default since TypeScript 6) without any `declare module`. `@code-sherpas/pharos-tokens/css` is the same stylesheet under its original name and keeps working.
 
 This exposes `--pharos-*` on `:root`. Use them directly or via Tailwind arbitrary values:
 

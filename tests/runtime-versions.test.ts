@@ -18,12 +18,13 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 // The Node and pnpm versions are pinned in several places that do different
 // jobs, and a pin that drifts from the others fails somewhere nobody is looking:
 //
-//   - `packageManager` is what corepack, CI (pnpm/action-setup) and Dependabot
-//     run. `engines.pnpm` is what stops any OTHER pnpm, because every pnpm checks
-//     `engines` under `engine-strict`. Each is useless if it names a different
-//     version from the other. A consumer's pnpm does not check a dependency's
-//     `engines.pnpm` (measured with pnpm 10.33.0 and 11.27.0), so publishing it
-//     constrains nobody downstream.
+//   - `packageManager` is the one pnpm pin. corepack, CI (pnpm/action-setup) and
+//     Dependabot run it, and every other pnpm switches to it on its own
+//     (`manage-package-manager-versions`, on by default): run in this repository,
+//     pnpm 10.20.0 and 11.27.0 both ran 10.33.0 (measured 2026-11-05).
+//   - `engines.pnpm` is NOT set. It stopped no pnpm that `packageManager` does
+//     not already replace, and `engines` is published: consumers read it as
+//     "installs only with this exact pnpm", a constraint that is not true.
 //   - `.node-version` is the exact Node this repository is developed, built and
 //     released with: CI reads it through `node-version-file`,
 //     `check-node-version.sh` holds local work to it. `.nvmrc` is what `nvm use`
@@ -38,7 +39,7 @@ const REPOSITORY_ROOT = fileURLToPath(new URL('..', import.meta.url));
 
 interface PackageJson {
   packageManager: string;
-  engines: { node: string; pnpm: string };
+  engines: { node: string; pnpm?: string };
 }
 
 const packageJson = JSON.parse(
@@ -50,11 +51,12 @@ function readTrimmed(fileName: string): string {
 }
 
 describe('the pinned runtime versions', () => {
-  it('pins engines.pnpm to exactly the pnpm in packageManager', () => {
-    const [name, version] = packageJson.packageManager.split('@');
+  it('pins pnpm exactly in packageManager', () => {
+    expect(packageJson.packageManager).toMatch(/^pnpm@\d+\.\d+\.\d+$/);
+  });
 
-    expect(name).toBe('pnpm');
-    expect(packageJson.engines.pnpm).toBe(version);
+  it('does not publish a pnpm constraint in engines', () => {
+    expect(packageJson.engines.pnpm).toBeUndefined();
   });
 
   it('names the same Node in .nvmrc and .node-version', () => {

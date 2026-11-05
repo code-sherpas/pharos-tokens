@@ -29,8 +29,7 @@
     "./dtcg/*": "./src/*.tokens.json"
   },
   "engines": {
-    "node": ">=22",
-    "pnpm": "10.33.0"
+    "node": ">=22"
   },
   "packageManager": "pnpm@10.33.0",
   "pnpm": {

@@ -18,14 +18,22 @@
   "type": "module",
   "files": [
     "dist",
-    "src"
+    "src",
+    "styles.css.d.ts"
   ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./css": "./dist/styles.css",
+    "./styles.css": {
+      "types": "./styles.css.d.ts",
+      "default": "./dist/styles.css"
+    },
+    "./css": {
+      "types": "./styles.css.d.ts",
+      "default": "./dist/styles.css"
+    },
     "./dtcg/*": "./src/*.tokens.json"
   },
   "engines": {

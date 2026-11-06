@@ -317,6 +317,36 @@ copy.
 | Task tracking / follow-ups                                        | Notion → Tasks                                                                                                 |
 | Personal / machine-local (`settings.local.json`, language pref)   | stays local; never shared                                                                                      |
 
+**A public change is done only when every Pharos resource says it.** Merging is
+not done, and neither is npm publishing it. A change to what consumers see
+(a token, a value, a usage note, an entry point, the published format) is done when all of these hold, checked by
+whoever ships it, without anyone having to ask:
+
+1. **The artifact first** (https://claude.ai/artifact/AzsXQ2SHXhPJ9BhRSoGTbV)
+   — it is the source of truth for every token: the value or usage changes
+   there, and `src/` follows it through `scripts/sync-from-artifact.ts`. A
+   change to how tokens are published (format, entry points, types) that the
+   artifact does not hold is said so in its README if it changes how consumers
+   load them.
+2. **npm** — the version is published, checked in the tarball (`npm pack` /
+   `npm view`): the values in `dist/`, the entry points, the types.
+3. **Its copy in the Alexandria design canvas**
+   (https://claude.ai/artifact/QBdTJuViMBwaZYSo1TC7Ah, `project/ds/pharos/tokens.*`)
+   — when the artifact's tokens changed, the same files, and `canvas.json`
+   `designSystems[].version` pointing to the artifact version copied.
+4. **pharos-react** — when the change reaches components (a new or removed
+   token they use, a new peer range), the pharos-react change that adopts it.
+5. **Notion** — the tokens contract under
+   [Contrato de las bibliotecas Pharos](https://app.notion.com/p/4071751eee10811bafcbf67fa7e13f38);
+   a new decision in Decisions; Status, if the phase changed.
+6. **The task** — moved to Done (Hecha) in Notion → Tasks, with the change
+   requests and the version.
+7. **The consumer who waits for it** — the application's task or session gets
+   the version; adopting it stays theirs.
+
+An item that does not apply is said so, with the reason, in the change request.
+The final report of the work names each item and what was updated in it.
+
 `CLAUDE.md` is a symlink to this file (`.claude/CLAUDE.md → ../AGENTS.md`).
 
 ## The `base@code-sherpas` plugin

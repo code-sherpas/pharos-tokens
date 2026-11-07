@@ -1,6 +1,6 @@
 ---
 name: add-token-category
-description: Use when a genuinely new token category is needed (e.g. animation timeline tokens, border-width tokens, an opacity scale) that does not fit the existing color/spacing/typography/radius/shadow files.
+description: Use when a genuinely new token category is needed (e.g. animation timeline tokens, border-width tokens, an opacity scale) that does not fit the existing color/spacing/typography/radius/shadow/layout files. Breakpoints and layout widths already have a home (layout.tokens.json, by role — D32).
 triggers:
   - 'new token category'
   - 'add token category'

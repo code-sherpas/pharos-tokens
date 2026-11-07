@@ -8,10 +8,10 @@ because the artifact cannot be read from CI (it needs a claude.ai session):
 
 | File          | Artifact path                      | What it holds                                     |
 | ------------- | ---------------------------------- | ------------------------------------------------- |
-| `tokens.json` | `project/tokens.json`              | color, spacing, radius, shadow, z-index, text styles (`type.groups`) + usage |
+| `tokens.json` | `project/tokens.json`              | color, spacing, radius, shadow, z-index, width, breakpoint, text styles (`type.groups`) + usage |
 | `bundle.css`  | `project/components/bundle.css`    | font primitives, duration, easing (`:root` vars)  |
 
-Snapshot taken from artifact version `1792106120-16ce` on 2026-10-16.
+Snapshot taken from artifact version `1794056132-3c79` on 2026-11-07.
 
 ## Refreshing it
 

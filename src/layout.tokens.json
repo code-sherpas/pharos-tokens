@@ -1,0 +1,16 @@
+{
+  "width": {
+    "panel": {
+      "$value": "24rem",
+      "$type": "dimension",
+      "$description": "Width of an edge-docked panel: Sheet, and SidePanel inline or modal. Cap it at the viewport (min(var(--pharos-width-panel), 100vw))."
+    }
+  },
+  "breakpoint": {
+    "panel": {
+      "$value": "64rem",
+      "$type": "dimension",
+      "$description": "Viewport width from which a SidePanel sits inline beside the content and narrows it; below it, the panel opens as a modal Sheet. Read it in JS (matchMedia) — a custom property does not work inside @media."
+    }
+  }
+}

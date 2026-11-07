@@ -11,7 +11,7 @@ lives in Notion → [Programa Pharos](https://app.notion.com/p/38c1751eee1081a38
 
 ## What's in this package
 
-This package defines **the atomic values** of Code Sherpas's visual system: colors, spacing, radius, typography, shadows, z-index, duration, and easing. They are consumable from any frontend (React, Vue, Svelte, React Native) and from backends (transactional emails, PDFs, reports).
+This package defines **the atomic values** of Code Sherpas's visual system: colors, spacing, radius, typography, shadows, z-index, duration, easing, and layout widths and breakpoints. They are consumable from any frontend (React, Vue, Svelte, React Native) and from backends (transactional emails, PDFs, reports).
 
 It contains no components. React components live in [`@code-sherpas/pharos-react`](https://github.com/code-sherpas/pharos-react) and consume this package as a peer dependency.
 
@@ -98,6 +98,8 @@ See [the rules for consumers](https://app.notion.com/p/4071751eee1081b2b000e212c
 | Z-index    | `z.{0,header,above-header,modal-overlay,modal,drawer-overlay,drawer,dropdown,tooltip}` | Semantic, not literal.                                    |
 | Duration   | `duration.{fast,normal,slow}`                                                          | Transitions.                                              |
 | Easing     | `easing.{in,out,in-out}`                                                               | Cubic-bezier curves.                                      |
+| Width      | `width.panel`                                                                          | Widths by role. `panel`: Sheet and SidePanel (24rem).     |
+| Breakpoint | `breakpoint.panel`                                                                     | Viewport breakpoints by role (D32); read them in JS.      |
 
 ## Contributing
 

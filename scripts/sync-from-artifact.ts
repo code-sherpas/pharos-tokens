@@ -7,7 +7,8 @@
  * under artifact/ and refreshed by hand (see artifact/README.md):
  *
  *   artifact/tokens.json  — the artifact's project/tokens.json (color, spacing,
- *                           radius, shadow, z-index), with a usage note per token
+ *                           radius, shadow, z-index, width, breakpoint), with a
+ *                           usage note per token
  *   artifact/bundle.css   — the artifact's project/components/bundle.css, whose
  *                           :root declares what tokens.json has no place for
  *                           (font primitives, duration, easing)

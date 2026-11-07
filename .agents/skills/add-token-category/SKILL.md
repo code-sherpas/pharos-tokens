@@ -9,7 +9,7 @@ triggers:
 
 # Add a new token category to pharos-tokens
 
-It is rarely necessary — most tokens fit into the five existing categories. Check with a maintainer before starting this flow.
+It is rarely necessary — most tokens fit into the existing categories (color, spacing, radius, typography, shadow/z-index/motion, layout). Check with a maintainer before starting this flow.
 
 ## 1. Confirm it does not fit an existing category
 
@@ -18,7 +18,8 @@ Before creating a new category, consider:
 - **animation/transition** → `duration` and `easing` already live in `shadow.tokens.json`.
 - **border-width** → could go into `radius.tokens.json` (or create `border.tokens.json`).
 - **opacity** → live in `color.tokens.json` as aliases with `/` (e.g. `oklch(... / 0.5)`).
-- **breakpoints** → not Pharos tokens — they belong in the consumer (Tailwind config).
+- **breakpoints** → `breakpoint.*` in `layout.tokens.json`, named by role (`breakpoint.panel`), never a generic `sm/md/lg` scale. Add one only when a component needs it (decision D32). Values in `rem`: components read them from the JS `tokens` object for `matchMedia`, because a custom property does not work inside `@media`.
+- **widths** → `width.*` in `layout.tokens.json`, named by role (`width.panel`), same rule as breakpoints.
 
 If after review it really does need a new category, proceed below.
 

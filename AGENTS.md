@@ -128,7 +128,7 @@ The source of truth for every Pharos token is the **Pharos design system
 artifact** (https://claude.ai/artifact/AzsXQ2SHXhPJ9BhRSoGTbV, decision D23).
 pharos-tokens is how applications consume those tokens programmatically:
 anything with a value (color, spacing, radius, typography, shadow, animation,
-z-index) is published from here, and components (`pharos-react`) and apps
+z-index, layout widths and breakpoints) is published from here, and components (`pharos-react`) and apps
 consume it from here. A token changes in the artifact first; `src/` follows it
 through `node scripts/sync-from-artifact.ts` (see `artifact/README.md`), and
 the `artifact-sync` test fails while they disagree.

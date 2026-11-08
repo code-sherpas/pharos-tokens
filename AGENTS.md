@@ -233,7 +233,7 @@ the shadcn MCP** — this repo does not deal with components.
 ## Useful commands
 
 - `pnpm build` — compile DTCG to CSS + JS + types, then run `pnpm verify:dist-types`
-- `pnpm verify:dist-types` — pack the tarball and compile `tests/dist-types/consumer.ts` against it with `skipLibCheck: false`, under `moduleResolution` `bundler` and `nodenext` (`pnpm typecheck` runs with `skipLibCheck: true` and cannot see the published types break)
+- `pnpm verify:dist-types` — pack the tarball and compile `tests/dist-types/consumer.ts` against it with `skipLibCheck: false`, under `moduleResolution` `bundler`, `node16` and `nodenext` (`pnpm typecheck` runs with `skipLibCheck: true` and cannot see the published types break)
 - `pnpm test` — Vitest suite (WCAG contrast, DTCG format, CSS output)
 - `pnpm typecheck` — `tsc --noEmit`
 - `pnpm lint` — ESLint

@@ -1,7 +1,7 @@
 // What a TypeScript consumer of the published package writes. It is compiled
 // by `pnpm verify:dist-types` against the packed tarball, with
-// `skipLibCheck: false` and no `resolveJsonModule`, once with
-// `moduleResolution: bundler` and once with `nodenext`.
+// `skipLibCheck: false` and no `resolveJsonModule`, under `moduleResolution`
+// `bundler`, `node16` and `nodenext`.
 //
 // Each `@ts-expect-error` below is load-bearing: if `tokens` were `any`, the
 // directive would be unused and the compilation would fail with TS2578.

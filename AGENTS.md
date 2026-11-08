@@ -181,7 +181,7 @@ Principles:
 `pnpm build` generates the following in `dist/`:
 
 - `styles.css` — CSS custom properties prefixed `--pharos-*` (canonical, multi-framework).
-- `tokens.js` — flat ESM constants (`PharosColorNeutral900`, etc.). **Not public**: the `exports` map does not expose it, and it stays that way (David, 2026-11-08). Consumers use the `tokens` barrel.
+- `tokens.js` — flat ESM constants (`PharosColorNeutral900`, etc.). **Not public**: the `exports` map does not expose it, and it stays that way ([decision](https://app.notion.com/p/4111751eee10815d95f6da4e02e7d056)). Consumers use the `tokens` barrel.
 - `tokens.d.ts` — TypeScript types for the flat constants. Not public either.
 - `tokens.json` — nested values-only object the barrel is generated from. Not in `exports` either.
 - `index.js` — friendly barrel with the nested object (`tokens.color.neutral['900']`).

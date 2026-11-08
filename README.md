@@ -64,13 +64,7 @@ const cardRadius = tokens.radius['2xl'];
 
 Every token path is typed, so a renamed or removed token fails your compilation. The declarations need neither `resolveJsonModule` nor `skipLibCheck`, and compile with `moduleResolution` `bundler`, `node16` and `nodenext`.
 
-### Option C — Flat constants (selective imports)
-
-```ts
-import { PharosColorPrimary600, PharosRadius2xl } from '@code-sherpas/pharos-tokens/tokens.js';
-```
-
-### Option D — DTCG source (custom pipelines)
+### Option C — DTCG source (custom pipelines)
 
 For your own transforms (iOS, Android, Figma, etc.):
 

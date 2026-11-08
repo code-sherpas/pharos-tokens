@@ -62,7 +62,7 @@ const darkSurface = tokens.color.neutral['900'];
 const cardRadius = tokens.radius['2xl'];
 ```
 
-Full autocomplete thanks to `typeof tokens`.
+Every token path is typed, so a renamed or removed token fails your compilation. The declarations need neither `resolveJsonModule` nor `skipLibCheck`, and compile with `moduleResolution` `bundler`, `node16` and `nodenext`.
 
 ### Option C — Flat constants (selective imports)
 

@@ -115,15 +115,36 @@ export default tokens;
 
 await writeFile(resolve('dist/index.js'), indexJs, 'utf8');
 
-// Derive a precise .d.ts by re-exporting the JSON's inferred type.
-// TypeScript's resolveJsonModule + typeof gives us full autocomplete for
-// every token path.
+// Spell the object's type out, key by key, so that every token path is typed
+// and a renamed or removed token breaks the consumer's compilation.
+//
+// The declarations must stand on their own. They used to `import tokens from
+// './tokens.json'` and declare `const tokens: typeof tokens`: the import and
+// the constant shared a name, so TypeScript reported TS2440/TS2456/TS2502 in
+// every consumer with `skipLibCheck: false` and typed `tokens` as `any` in the
+// rest. A JSON import would also need `resolveJsonModule` from the consumer,
+// and an import attribute under `module: nodenext`. `pnpm verify:dist-types`
+// compiles a consumer against the packed tarball so this cannot come back.
+//
+// Values are typed `string`, not their literal: a value tweak is a patch
+// (.changeset/README.md) and must not break anyone's compilation.
+function declareType(value, indent = 2, depth = 0) {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) {
+    throw new Error(`tokens.json holds a ${JSON.stringify(value)} the barrel cannot type`);
+  }
+  const pad = ' '.repeat(indent * depth);
+  const innerPad = ' '.repeat(indent * (depth + 1));
+  const members = Object.entries(value).map(function declareMember([key, member]) {
+    const type = typeof member === 'string' ? 'string' : declareType(member, indent, depth + 1);
+    return `${innerPad}${JSON.stringify(key)}: ${type};`;
+  });
+  return `{\n${members.join('\n')}\n${pad}}`;
+}
+
 const indexDts = `/**
  * Do not edit directly, this file was auto-generated.
  */
-import tokens from './tokens.json';
-
-export type PharosTokens = typeof tokens;
+export type PharosTokens = ${declareType(json)};
 export declare const tokens: PharosTokens;
 export default tokens;
 `;

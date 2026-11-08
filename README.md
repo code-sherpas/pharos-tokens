@@ -64,13 +64,7 @@ const cardRadius = tokens.radius['2xl'];
 
 Full autocomplete thanks to `typeof tokens`.
 
-### Option C — Flat constants (selective imports)
-
-```ts
-import { PharosColorPrimary600, PharosRadius2xl } from '@code-sherpas/pharos-tokens/tokens.js';
-```
-
-### Option D — DTCG source (custom pipelines)
+### Option C — DTCG source (custom pipelines)
 
 For your own transforms (iOS, Android, Figma, etc.):
 

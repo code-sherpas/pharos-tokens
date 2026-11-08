@@ -185,7 +185,7 @@ Principles:
 - `tokens.d.ts` — TypeScript types for the flat constants. Not public either.
 - `tokens.json` — nested values-only object the barrel is generated from. Not in `exports` either.
 - `index.js` — friendly barrel with the nested object (`tokens.color.neutral['900']`).
-- `index.d.ts` — types for the barrel (autocomplete by path).
+- `index.d.ts` — types for the barrel, every token path spelled out (no JSON import, so consumers need neither `resolveJsonModule` nor `skipLibCheck`).
 
 The raw DTCG source files (`src/*.tokens.json`) are exposed via the `./dtcg/*`
 subpath for advanced consumers that transform them with their own tools
@@ -232,7 +232,8 @@ the shadcn MCP** — this repo does not deal with components.
 
 ## Useful commands
 
-- `pnpm build` — compile DTCG to CSS + JS + types
+- `pnpm build` — compile DTCG to CSS + JS + types, then run `pnpm verify:dist-types`
+- `pnpm verify:dist-types` — pack the tarball and compile `tests/dist-types/consumer.ts` against it with `skipLibCheck: false`, under `moduleResolution` `bundler`, `node16` and `nodenext` (`pnpm typecheck` runs with `skipLibCheck: true` and cannot see the published types break)
 - `pnpm test` — Vitest suite (WCAG contrast, DTCG format, CSS output)
 - `pnpm typecheck` — `tsc --noEmit`
 - `pnpm lint` — ESLint

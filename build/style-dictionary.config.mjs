@@ -157,4 +157,4 @@ console.log('  - dist/tokens.js     (flat ESM constants: PharosColorNeutral900, 
 console.log('  - dist/tokens.d.ts   (types for flat constants)');
 console.log('  - dist/tokens.json   (nested values-only JSON)');
 console.log('  - dist/index.js      (friendly ESM barrel: export { tokens })');
-console.log('  - dist/index.d.ts    (typed barrel: typeof tokens)');
+console.log('  - dist/index.d.ts    (typed barrel: every token path spelled out)');

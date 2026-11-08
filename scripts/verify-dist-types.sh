@@ -6,7 +6,7 @@
 #
 # It packs the tarball, unpacks it into a throwaway project's node_modules and
 # compiles `tests/dist-types/consumer.ts` there with `skipLibCheck: false` and
-# no `resolveJsonModule`, once with `moduleResolution: bundler` and once with
+# no `resolveJsonModule`, with `moduleResolution` `bundler`, `node16` and
 # `nodenext`. That is what a consumer's TypeScript sees and the repository's
 # own `pnpm typecheck` does not: it runs with `skipLibCheck: true`, which hid a
 # `dist/index.d.ts` that failed to compile (TS2440/TS2456/TS2502) and typed
@@ -27,8 +27,8 @@ tar -xzf "$consumer"/code-sherpas-pharos-tokens-*.tgz -C "$package_dir" --strip-
 cp tests/dist-types/consumer.ts "$consumer/consumer.ts"
 echo '{ "name": "pharos-tokens-consumer", "private": true, "type": "module" }' > "$consumer/package.json"
 
-for resolution in bundler nodenext; do
-    if [ "$resolution" = bundler ]; then module=esnext; else module=nodenext; fi
+for resolution in bundler node16 nodenext; do
+    if [ "$resolution" = bundler ]; then module=esnext; else module="$resolution"; fi
     cat > "$consumer/tsconfig.json" <<EOF
 {
   "compilerOptions": {

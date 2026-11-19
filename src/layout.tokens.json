@@ -10,7 +10,7 @@
     "compact": {
       "$value": "40rem",
       "$type": "dimension",
-      "$description": "The compact width, a phone's: below it the viewport is compact, the only test for 'phone' in Pharos (Material 3's compact window); a Dialog fills the screen below it. Read it in JS (matchMedia) — a custom property does not work inside @media."
+      "$description": "The compact width, a phone's: below it the viewport is compact, the only test for 'phone' in Pharos (Material 3's compact window). Read it in JS (matchMedia) — a custom property does not work inside @media."
     },
     "panel": {
       "$value": "64rem",

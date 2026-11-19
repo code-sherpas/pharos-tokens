@@ -11,7 +11,7 @@ because the artifact cannot be read from CI (it needs a claude.ai session):
 | `tokens.json` | `project/tokens.json`              | color, spacing, radius, shadow, z-index, width, breakpoint, text styles (`type.groups`) + usage |
 | `bundle.css`  | `project/components/bundle.css`    | font primitives, duration, easing (`:root` vars)  |
 
-Snapshot taken from artifact version `1795113014-0060` on 2026-11-19.
+Snapshot taken from artifact version `1795113886-5015` on 2026-11-19.
 
 ## Refreshing it
 

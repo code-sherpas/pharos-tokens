@@ -93,7 +93,7 @@ See [the rules for consumers](https://app.notion.com/p/4071751eee1081b2b000e212c
 | Duration   | `duration.{fast,normal,slow}`                                                          | Transitions.                                              |
 | Easing     | `easing.{in,out,in-out}`                                                               | Cubic-bezier curves.                                      |
 | Width      | `width.panel`                                                                          | Widths by role. `panel`: Sheet and SidePanel (24rem).     |
-| Breakpoint | `breakpoint.panel`                                                                     | Viewport breakpoints by role (D32); read them in JS.      |
+| Breakpoint | `breakpoint.{compact,panel}`                                                           | By role (D32), read in JS. `compact`: a phone, < 40rem.   |
 
 ## Contributing
 

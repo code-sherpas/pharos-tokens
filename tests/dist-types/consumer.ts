@@ -7,6 +7,7 @@
 // directive would be unused and the compilation would fail with TS2578.
 import defaultTokens, { tokens, type PharosTokens } from '@code-sherpas/pharos-tokens';
 
+export const compactBreakpoint: string = tokens.breakpoint.compact;
 export const panelBreakpoint: string = tokens.breakpoint.panel;
 export const panelWidth: string = tokens.width.panel;
 export const neutral900: string = tokens.color.neutral['900'];

@@ -40,6 +40,16 @@ describe('panel breakpoint (D32)', () => {
   });
 });
 
+describe('compact breakpoint (D32)', () => {
+  it('is published as --pharos-breakpoint-compact', () => {
+    expect(css).toMatch(/--pharos-breakpoint-compact: 40rem;/);
+  });
+
+  it('is readable from the tokens object, which is what matchMedia gets', () => {
+    expect(tokens.breakpoint.compact).toBe('40rem');
+  });
+});
+
 describe('breakpoints', () => {
   it('are all rem lengths, so a media query built from one is valid and follows the text size', () => {
     const entries = Object.entries(tokens.breakpoint);

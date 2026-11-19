@@ -1,5 +1,11 @@
 # @code-sherpas/pharos-tokens
 
+## 1.3.1
+
+### Patch Changes
+
+- 3d9a6dd: Restore 'a Dialog fills the screen below it' in `breakpoint.compact`'s description: pharos-react 4.0.0 makes it true.
+
 ## 1.3.0
 
 ### Minor Changes

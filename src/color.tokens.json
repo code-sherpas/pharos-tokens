@@ -181,6 +181,11 @@
           "$value": "{color.neutral.900}",
           "$type": "color",
           "$description": "Dark text on a semantic-warning-fg (amber) fill."
+        },
+        "border": {
+          "$value": "oklch(62% 0.128 80)",
+          "$type": "color",
+          "$description": "System state only: the warning amber for borders and bars (#AE7C02), such as the side bar of a warning Alert. Clears WCAG 3:1 non-text contrast on surface-card (3.69:1) and surface-canvas (3.53:1), where semantic-warning-fg does not (2.03:1 and 1.94:1). Not for text."
         }
       },
       "info": {

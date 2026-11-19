@@ -95,6 +95,8 @@ See [the rules for consumers](https://app.notion.com/p/4071751eee1081b2b000e212c
 | Width      | `width.panel`                                                                          | Widths by role. `panel`: Sheet and SidePanel (24rem).     |
 | Breakpoint | `breakpoint.{compact,panel}`                                                           | By role (D32), read in JS. `compact`: a phone, < 40rem.   |
 
+`color.semantic.warning.border` is the warning amber for borders and bars, such as the side bar of a warning Alert: it clears WCAG 3:1 non-text contrast on `surface.card` and `surface.canvas`, where the amber `warning.fg` is a fill and does not. It is not for text.
+
 ## Contributing
 
 1. `pnpm install`
@@ -104,7 +106,7 @@ See [the rules for consumers](https://app.notion.com/p/4071751eee1081b2b000e212c
 5. `pnpm changeset` — declare the type of change (patch / minor / major).
 6. Open a PR.
 
-CI validates WCAG 2.1 AA contrast on every color/on-color pair. A PR cannot be merged if it breaks contrast.
+CI validates WCAG 2.1 AA contrast on every color/on-color pair, and 3:1 non-text contrast for the border tokens on the surfaces they sit on. A PR cannot be merged if it breaks contrast.
 
 ## License
 

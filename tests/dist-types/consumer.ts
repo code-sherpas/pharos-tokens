@@ -11,6 +11,7 @@ export const compactBreakpoint: string = tokens.breakpoint.compact;
 export const panelBreakpoint: string = tokens.breakpoint.panel;
 export const panelWidth: string = tokens.width.panel;
 export const neutral900: string = tokens.color.neutral['900'];
+export const warningBorder: string = tokens.color.semantic.warning.border;
 export const sameObject: PharosTokens = defaultTokens;
 
 // @ts-expect-error a token that does not exist must not compile, so a rename breaks the consumer

@@ -7,6 +7,7 @@ const tokens = tokensRaw as typeof tokensRaw & {
     base: { white: string; black: string };
     neutral: Record<string, string>;
     primary: Record<string, string>;
+    surface: { canvas: string; card: string };
     semantic: {
       success: { fg: string; bg: string; on: string };
       error: {
@@ -16,7 +17,7 @@ const tokens = tokensRaw as typeof tokensRaw & {
         bg: string;
         on: string;
       };
-      warning: { fg: string; bg: string; on: string };
+      warning: { fg: string; bg: string; on: string; border: string };
       info: { fg: string; bg: string; on: string };
     };
   };
@@ -40,6 +41,9 @@ const AA_NORMAL = 4.5;
 // WCAG 2.1 Level AA minimum contrast ratio for large text
 // (18pt and larger, or 14pt bold and larger): 3.0:1.
 const AA_LARGE = 3.0;
+// WCAG 2.1 SC 1.4.11 Non-text Contrast: borders, bars and other parts of a
+// user-interface component that tell its state apart: 3:1.
+const AA_NON_TEXT = 3.0;
 
 describe('WCAG 2.1 AA contrast for semantic color pairs', () => {
   // For each semantic family, `.fg` is the filled surface color (the red pill,
@@ -87,6 +91,21 @@ describe('WCAG 2.1 AA contrast for semantic color pairs', () => {
   it.each(cases)('%s passes threshold', (_name, surface, onSurface, threshold) => {
     const ratio = contrast(surface, onSurface);
     expect(ratio).toBeGreaterThanOrEqual(threshold);
+  });
+});
+
+describe('WCAG 2.1 AA non-text contrast for semantic borders and bars', () => {
+  // A border or a bar that tells a state apart (the side bar of a warning
+  // Alert) is a user-interface component part: WCAG 1.4.11 asks 3:1 against
+  // the colour it sits on. Alerts sit on cards and on the page itself.
+  const warningBorder = tokens.color.semantic.warning.border;
+  const surfaces: Array<[string, string]> = [
+    ['surface.card', tokens.color.surface.card],
+    ['surface.canvas', tokens.color.surface.canvas],
+  ];
+
+  it.each(surfaces)('semantic.warning.border on %s passes 3:1', (_name, surface) => {
+    expect(contrast(warningBorder, surface)).toBeGreaterThanOrEqual(AA_NON_TEXT);
   });
 });
 
